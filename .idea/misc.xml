@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/rounded_green.xml" value="0.15092592592592594" />
+        <entry key="app/src/main/res/drawable/rounder_corner_black.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/drawable/rounder_small_green.xml" value="0.1625" />
+        <entry key="app/src/main/res/layout-w936dp/progressbar.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_categories.xml" value="0.16197916666666667" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_listing.xml" value="0.16197916666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.16077898550724637" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_sub_categories.xml" value="0.16197916666666667" />
+        <entry key="app/src/main/res/layout/activity_sub_category.xml" value="0.16197916666666667" />
+        <entry key="app/src/main/res/layout/display_message_popup.xml" value="0.12083333333333333" />
+        <entry key="app/src/main/res/layout/listing_details.xml" value="0.16197916666666667" />
+        <entry key="app/src/main/res/layout/progressbar.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/toaster_layoru.xml" value="0.16077898550724637" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.16077898550724637" />
+      </ProjectState>
+    </option>
+  </component>
+</project>
