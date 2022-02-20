@@ -1,22 +1,31 @@
 package com.paveways.Home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.paveways.Auth.LogIn;
+import com.paveways.Feedback.FeedbackHistory;
+import com.paveways.Orders.OrderHistory;
+import com.paveways.Orders.myaccount;
 import com.paveways.R;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.NetworkUtility;
 import com.paveways.WebResponse.CategoriesResponse;
 import com.paveways.WebServices.ServiceWrapper;
+import com.paveways.cart.CartDetails;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +41,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private BannerSlider bannerSlider;
     private List<Banner> remoteBanners=new ArrayList<>();
-
     private ArrayList<Categories_Model> CategoriesModelList = new ArrayList<>();
     private Categories_Adapter categries_adapter;
-
     RecyclerView recyclerView;
-
     String TAG = "HomeActivity";
 
     @Override
@@ -45,11 +51,14 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        bannerSlider = (BannerSlider) findViewById(R.id.banner_slider1);
+
+        bannerSlider = findViewById(R.id.banner_slider1);
 
         recyclerView = findViewById(R.id.recycler_categories);
-        LinearLayoutManager mLayoutManger7 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager mLayoutManger7 = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         categries_adapter=new Categories_Adapter(this,CategoriesModelList, GetScreenWidth());
 
         recyclerView.setAdapter(categries_adapter);
@@ -59,9 +68,41 @@ public class HomeActivity extends AppCompatActivity {
         getbannerimg();
         getcategories();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.cart:
+                Intent intent = new Intent(this, CartDetails.class);
+                startActivity(intent);
+                return true;
+            case R.id.listings:
+                Intent intent1 = new Intent(this, OrderHistory.class);
+                startActivity(intent1);
+                return true;
+            case R.id.account:
+                Intent intent1a = new Intent(this, myaccount.class);
+                startActivity(intent1a);
+                return true;
+            case R.id.feedback:
+                Intent intent2 = new Intent(this, FeedbackHistory.class);
+                startActivity(intent2);
+                return true;
+            case R.id.signout:
+                Intent intent3 = new Intent(this, LogIn.class);
+                startActivity(intent3);
+                return true;
 
-
-
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     public void getbannerimg(){
         if (!NetworkUtility.isNetworkConnected(HomeActivity.this)){
             AppUtilits.displayMessage(HomeActivity.this,  getString(R.string.network_not_connected));
@@ -169,5 +210,7 @@ public class HomeActivity extends AppCompatActivity {
         return width;
 
     }
+
+
 
 }

@@ -1,12 +1,25 @@
 package com.paveways.WebServices;
 
 import com.paveways.Home.GetbannerModel;
+import com.paveways.WebResponse.AddtoCart;
 import com.paveways.WebResponse.CategoriesResponse;
+import com.paveways.WebResponse.EditCartItem;
+import com.paveways.WebResponse.GetOrderProductDetails;
 import com.paveways.WebResponse.ListingsResponse;
 import com.paveways.WebResponse.NewUserRegistration;
+import com.paveways.WebResponse.OrderHistoryAPI;
+import com.paveways.WebResponse.OrderSummary;
+import com.paveways.WebResponse.PlaceOrder;
 import com.paveways.WebResponse.ProductDetail_Res;
 import com.paveways.WebResponse.SubCategoriesResponse;
 import com.paveways.WebResponse.UserSignInRes;
+import com.paveways.WebResponse.clearbalanceAPI;
+import com.paveways.WebResponse.codeAPI;
+import com.paveways.WebResponse.feedbackAPI;
+import com.paveways.WebResponse.feedhistoryAPI;
+import com.paveways.WebResponse.getCartDetails;
+import com.paveways.WebResponse.payAPI;
+import com.paveways.WebResponse.receiveAPI;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -65,7 +78,6 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("sub_category_id") RequestBody sub_category_id
     );
-
     // get product details
     @Multipart
     @POST("getproductdetails.php")
@@ -73,6 +85,139 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("prod_id") RequestBody prod_id
     );
+    // get feedback history
+    @Multipart
+    @POST("getallfeedback.php")
+    Call<feedhistoryAPI> getfeedhistorycall(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id
+    );
+
+    // feedbackAPI
+    @Multipart
+    @POST("getfeedback.php")
+    Call<feedbackAPI> feedbackcall(
+            @Part("securecode") RequestBody securecode,
+            @Part("feed_title") RequestBody feed_title,
+            @Part("feed_comment") RequestBody feed_comment,
+            @Part("user_id") RequestBody user_id
+
+    );
+    // add to cart
+    @Multipart
+    @POST("add_prod_into_cart.php")
+    Call<AddtoCart> addtocartcall(
+            @Part("securecode") RequestBody securecode,
+            @Part("prod_id") RequestBody prod_id,
+            @Part("user_id") RequestBody user_id
+
+    );
+    // get user cart
+    @Multipart
+    @POST("getusercartdetails.php")
+    Call<getCartDetails> getusercartcall(
+            @Part("securecode") RequestBody securecode,
+            @Part("qoute_id") RequestBody qoute_id,
+            @Part("user_id") RequestBody user_id
+    );
+    // delete cart item
+    @Multipart
+    @POST("deletecartitem.php")
+    Call<AddtoCart> deleteCartProd(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id,
+            @Part("prod_id") RequestBody prod_id
+    );
+
+    // edit cart qty
+    @Multipart
+    @POST("editcartitem.php")
+    Call<EditCartItem> editCartQty(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id,
+            @Part("prod_id") RequestBody prod_id,
+            @Part("prod_qty") RequestBody prod_qty
+    );
+
+    // get order summery
+    @Multipart
+    @POST("getordersummary.php")
+    Call<OrderSummary> getOrderSummarycall(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id,
+            @Part("qoute_id") RequestBody qoute_id
+    );
+
+    // place order api
+    @Multipart
+    @POST("placeorderapi.php")
+    Call<PlaceOrder> PlaceOrderCall(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id,
+            @Part("address_id") RequestBody address_id,
+            @Part("total_price") RequestBody total_price,
+            @Part("qoute_id") RequestBody qoute_id,
+            @Part("deliverymode") RequestBody deliverymode
+    );
+    // get order history
+    @Multipart
+    @POST("getorderhistory.php")
+    Call<OrderHistoryAPI> getorderHistorycall(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id
+    );
+
+    @Multipart
+    @POST("makepayment.php")
+    Call<payAPI> makepaymentcall(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id,
+            @Part("order_id") RequestBody order_id,
+            @Part("total_price") RequestBody total_price,
+            @Part("payment_amount") RequestBody payment_amount
+
+    );
+
+    // CLEAR BALANCE
+    @Multipart
+    @POST("clearbalance.php")
+    Call<clearbalanceAPI> clearbalancecall(
+            @Part("securecode") RequestBody securecode,
+            @Part("order_id") RequestBody order_id,
+            @Part("total_price") RequestBody total_price,
+            @Part("code") RequestBody code,
+            @Part("mode") RequestBody mode,
+            @Part("amount") RequestBody amount
+
+    );
+
+    // RECEIVE
+    @Multipart
+    @POST("receive.php")
+    Call<receiveAPI> receivecall(
+            @Part("securecode") RequestBody securecode,
+            @Part("order_id") RequestBody order_id,
+            @Part("status") RequestBody status
+
+    );
+    // code
+    @Multipart
+    @POST("code.php")
+    Call<codeAPI> codecall(
+            @Part("securecode") RequestBody securecode,
+            @Part("order_id") RequestBody order_id,
+            @Part("code") RequestBody code
+
+    );
+    // get order prodct details history
+    @Multipart
+    @POST("getorderhistoryproddetails.php")
+    Call<GetOrderProductDetails> getorderProductdetailscall(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id,
+            @Part("order_id") RequestBody order_id
+    );
+
 
 }
 

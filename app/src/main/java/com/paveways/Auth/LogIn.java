@@ -43,12 +43,10 @@ public class LogIn extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         context = this;
         sharedPreferenceActivity = new SharedPreferenceActivity(this);
-
         signup = findViewById(R.id.signup);
-
-        login = (TextView) findViewById(R.id.login);
-        phone_no = (EditText) findViewById(R.id.phone_number);
-        password = (EditText) findViewById(R.id.password);
+        login = findViewById(R.id.login);
+        phone_no = findViewById(R.id.phone_number);
+        password = findViewById(R.id.password);
         
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,9 +77,7 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void sendUserLoginData(){
-
-        final AlertDialog progressbar = AppUtilits.createProgressBar(this,"PLease Wait");
-
+        final AlertDialog progressbar = AppUtilits.createProgressBar(this,"Please Wait");
 
         if (!NetworkUtility.isNetworkConnected(LogIn.this)){
             Toast.makeText(getApplicationContext(),"Network error",Toast.LENGTH_LONG).show();
@@ -104,17 +100,12 @@ public class LogIn extends AppCompatActivity {
                             sharedPreferenceActivity.putItem(Constant.USER_email, response.body().getInformation().getEmail());
                             sharedPreferenceActivity.putItem(Constant.USER_phone, response.body().getInformation().getPhone());
 
-
                             AppUtilits.destroyDialog(progressbar);
                             // start home activity
                             Intent intent = new Intent(LogIn.this, HomeActivity.class);
                             //intent.putExtra("userid", "sdfsd");
                             startActivity(intent);
                             finish();
-
-
-
-
 
                         }else  if (response.body().getStatus() ==0){
                             AppUtilits.displayMessage(LogIn.this,  response.body().getMsg());
@@ -124,7 +115,6 @@ public class LogIn extends AppCompatActivity {
                         AppUtilits.displayMessage(LogIn.this,  response.body().getMsg());
                         Toast.makeText(getApplicationContext(),"Request failed",Toast.LENGTH_LONG).show();
                         AppUtilits.destroyDialog(progressbar);
-
                     }
                 }
 

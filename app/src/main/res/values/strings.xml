@@ -113,4 +113,177 @@
     <string name="network_not_connected">Network error. PLease Check your Internet Connection</string>
     <string name="categories">Our Categories</string>
     <string name="details">Details</string>
+    <string name="feed">Feedback</string>
+    <string name="network_error">Please check your Internet connection</string>
+    <string name="you_have">You have</string>
+    <string name="product_in_cart">in cart</string>
+    <string name="fail_todeletecart">Failed to delete listing</string>
+    <string name="fail_toeditcart">Failed to edit listing qty</string>
+    <string name="fail_toplaceorder">Failed to place order</string>
+    <string name="fail_toorderhistory">Failed to get order history</string>
+    <string name="continue_tag">Continue</string>
+    <string name="qty">Qty</string>
+
+    <string name="Approved">approved</string>
+    <string name="faqs">QSTN1:My order has never arrived\n
+                        ANS1;Sorry for the delays.Please call us for help\n\n
+
+                        QSTN2:My order arrived damaged\n
+                        ANS2:Please email us and give more information about this \n\n
+
+                        QSTN3:I would like to return my order\n
+                        ANS3:We shall send our representatives to sort the issue</string>
+
+    <string name="contact">Phone Number:0797667411\n
+                                        0717565039\n\n
+
+                            Email:ukulimapoultry@gmail.org\n
+                                    jacqulinembogo@ukulimapoultry.com \n\n
+
+                       </string>
+
+
+
+    <string name="thanks">Thank You For Joining us</string>
+    <string name="thankshop">Thank You For Shopping With us</string>
+    <string name="your_request">Please Wait \n For Admin Approval</string>
+    <string name="paynow">Please make your payment here upon order approval </string>
+
+    <string name="paynow3">Make your payment here \n it should constitute shipping fee only</string>
+    <string name="payments">Your payment is successful \n Please check your order details for updates </string>
+    <string name="amounts">Amount</string>
+
+
+    <string name="home">Home</string>
+    <string name="new_product">New Product</string>
+    <string name="my_account">My Account</string>
+    <string name="logout">Logout</string>
+
+
+    <string name="forgot_password">staff login</string>
+
+    <string name="create_account">Create Account </string>
+
+    <string name="submit">Submit</string>
+
+    <string name="address">Address</string>
+
+    <string name="new_products">New Products</string>
+    <string name="best_selling">Best Selling</string>
+    <string name="trending">Trending</string>
+    <string name="conditional">Conditional</string>
+    <string name="password_not_match">passwords do not match</string>
+
+    <string name="failed_request">request failed</string>
+    <string name="is_invalid">Invalid</string>
+
+
+
+    <string name="otp_has_send">OTP has been sent to you phone number. </string>
+    <string name="otp">OTP</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="otp_not_match">OTP is incorrect</string>
+    <string name="create_new_password">Create New Password </string>
+
+    <string name="overview">Overview</string>
+
+    <string name="review">Review</string>
+    <string name="write_review">Write a Review</string>
+    <string name="your_rating">Your Rating</string>
+    <string name="review_summery">Summery</string>
+    <string name="related_prod">Related Products</string>
+
+    <string name="search_name">Search</string>
+    <string name="instock">In Stock</string>
+    <string name="outofstock">Out of Stock</string>
+
+    <string name="postedby">Posted By </string>
+
+    <string name="wishlist">Wishlist</string>
+
+    <string name="county_prompt">Choose a county</string>
+
+    <string-array name="county_arrays">
+        <item>Mombasa</item>
+        <item>Nairobi</item>
+        <item>Kisumu</item>
+        <item>Nyeri</item>
+        <item>Meru</item>
+        <item>Kiambu</item>
+        <item>Embu</item>
+        <item>Migori</item>
+    </string-array>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+
+    <string name="add_to_cart">Successfully added into cart.</string>
+    <string name="fail_add_to_cart"> Unable to add into cart.Please try again</string>
+
+    <string name="add_tag">Add</string>
+    <string name="search">Search</string>
+    <string name="cart">Cart</string>
+    <string name="fail_toGetcart">Please try again, Fail to get user cart details</string>
+
+    <string name="add_to_wishlist">Successfully Added into user wishlist</string>
+    <string name="fail_add_to_wishlist">Please try again, Fail to add into user wishlist.</string>
+    <string name="delivery_date">Deliver in 3-4 Days</string>
+
+    <string name="fail_togetwishlist">Please try again, Fail to get User Wishlist.</string>
+    <string name="no_prod_into_cart">You do not have any product to purchase </string>
+
+    <string name="prod_name">Product Name</string>
+    <string name="price">Price</string>
+    <string name="cart_subtotal">Cart Subtotal</string>
+    <string name="shipping_fee">Shipping Fee</string>
+    <string name="order_total">Order Total</string>
+    <string name="place_order">Place Order</string>
+
+    <string name="fail_toordersummery">Fail to get Order Summery, Please try again.</string>
+
+    <string name="billing_addrss">Billing Address</string>
+    <string name="shipping_address">Shipping Address</string>
+    <string name="add_address">ADD SHIPPING INFORMATION</string>
+
+    <string name="country">Kenya</string>
+    <string name="address_line1">Address 1</string>
+    <string name="address_line2">Address 2(optional)</string>
+    <string name="city">County</string>
+    <string name="pincode">code</string>
+    <string name="state">Town</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="save_continue">Save &amp; Continue</string>
+    <string name="fail_toaddaddress">Fail to add new Address. Please try again.</string>
+    <string name="fail_togetaddress">Fail to get user address, Please try again.</string>
+
+    <string name="select_address">Please select shipping address</string>
+
+    <string name="cash_on_delivery">Cash On Delivery</string>
+    <string name="paymentGateway">Instant Pay</string>
+    <string name="ksh">Ksh</string>
+
+    <string name="thankyou">Thank You</string>
+    <string name="your_orderPlaced">Your Order Has \n Been Received</string>
+    <string name="we_will_inform_you">We will  SMS you \n about your order info and delivery date.</string>
+    <string name="continue_shipping">Continue Shopping</string>
+    <string name="order_history">Listings Order History</string>
+    <string name="lipanampesa">lipa Na Mpesa</string>
+    <string name="view_details">View Details</string>
+    <string name="pricetag">Price</string>
+    <string name="orderid">Order Id</string>
+    <string name="orderinformation">order information</string>
+    <string name="select">Select payment option</string>
+    <string name="failorder">transaction unsuccessful</string>
+
+    <string name="orderinfo">Continue to make payment </string>
+    <string name="pay">Make Payment  </string>
+    <string name="amount">Enter amount  \n payment should be at least 50% of the total amount</string>
+    <string name="about">  About paveways</string>
+
+    <string name="increment">+</string>
+    <string name="decrement">-</string>
+    <string name="display">1</string>
+    <string name="addToCart">Add to Cart</string>
+    <string name="viewCart">View Cart</string>
 </resources>

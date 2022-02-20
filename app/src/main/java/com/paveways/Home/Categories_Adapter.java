@@ -41,12 +41,8 @@ public class Categories_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             super(itemView);
 
             name = (TextView) itemView.findViewById(R.id.name);
-            cardView = (CardView) itemView.findViewById(R.id.card_view);
+            cardView = itemView.findViewById(R.id.card_view);
 
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams( mScrenwith - (mScrenwith/100*70), LinearLayout.LayoutParams.MATCH_PARENT);
-            params.setMargins(10,10,10,10);
-            cardView.setLayoutParams(params);
-            cardView.setPadding(5,5,5,5);
 
         }
     }

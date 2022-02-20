@@ -3,41 +3,42 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/card_view"
-    android:background="@color/colorPrimaryLight"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="@dimen/padding_small"
-    app:cardCornerRadius="@dimen/padding_small">
+    app:cardCornerRadius="@dimen/padding_small"
+    android:layout_marginBottom="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
-
+        android:padding="5dp">
         <ImageView
             android:id="@+id/prod_img"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:src="@drawable/ic_baseline_home_work_24"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:padding="@dimen/padding_small"
             android:scaleType="fitCenter" />
 
-
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-                android:textStyle="bold|italic"
-                />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold|italic"
+            />
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"/>
 
 </androidx.cardview.widget.CardView>

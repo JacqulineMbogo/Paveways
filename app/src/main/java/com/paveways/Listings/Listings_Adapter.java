@@ -50,10 +50,6 @@ public class Listings_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             cardView = (CardView) itemView.findViewById(R.id.card_view);
             prod_image = itemView.findViewById(R.id.prod_img);
 
-            /*LinearLayout.LayoutParams params = new LinearLayout.LayoutParams( mScrenwith - (mScrenwith/100*70), LinearLayout.LayoutParams.MATCH_PARENT);
-            params.setMargins(5,5,5,5);
-            cardView.setLayoutParams(params);
-            cardView.setPadding(5,5,5,5);*/
 
         }
     }

@@ -56,11 +56,15 @@
 
 
                 </RelativeLayout>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/stock_avail"
+                    android:layout_weight="1"
                     android:textColor="@color/green_light"
                     android:layout_marginLeft="@dimen/padding_medium"
                     android:layout_marginTop="@dimen/padding_medium"
@@ -71,6 +75,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:id="@+id/prod_price"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="10dp"
@@ -79,6 +84,7 @@
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     />
+</LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -121,24 +127,27 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
 
-
-
                     >
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/add_to_cart"
-                        android:src="@android:drawable/stat_notify_error"
+                        android:text="@string/addToCart"
+                        android:textColor="@color/white"
+                        android:background="@drawable/rounded_green"
                         android:layout_weight="1"
                         android:layout_margin="@dimen/padding_medium"
                         android:padding="@dimen/padding_medium"
-                        />
+                        app:drawableEndCompat="@drawable/ic_baseline_add_circle_24" />
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/view_cart"
-                        android:src="@android:drawable/btn_dialog"
+                        android:text="@string/viewCart"
+                        android:background="@drawable/rounded_green"
+                        android:drawableEnd="@drawable/cart"
+                        android:textColor="@color/white"
                         android:padding="@dimen/padding_medium"
                         android:layout_margin="@dimen/padding_medium"
                         android:layout_weight="1"

@@ -46,31 +46,19 @@ public class Sub_Categories_Adapter extends RecyclerView.Adapter<RecyclerView.Vi
     private String TAG ="sub_categories_adapter";
     private int mScrenwith;
 
-
-
-
     public Sub_Categories_Adapter(Context context, List<Sub_Categories_Model> list, int screenwidth ){
         mContext = context;
         mSubCategoriesList = list;
         mScrenwith =screenwidth;
-
     }
 
     private class SubCategoriesHolder extends RecyclerView.ViewHolder {
-
         Button name;
         RecyclerView recyclerView;
 
-
-
         public SubCategoriesHolder(View itemView) {
             super(itemView);
-
             name = itemView.findViewById(R.id.name);
-
-
-
-
         }
     }
 
@@ -86,32 +74,15 @@ public class Sub_Categories_Adapter extends RecyclerView.Adapter<RecyclerView.Vi
         final Sub_Categories_Model model = mSubCategoriesList.get(position);
         Log.e(TAG, " assign value ");
 
-
         ((Sub_Categories_Adapter.SubCategoriesHolder) holder).name.setText(model.getName());
-
-
-
-
 
         ((SubCategoriesHolder) holder).name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 Sub_Category_Activity.getsubcategoryproduct(model.getId());
-
-                //  Log.e(TAG, "  prod_id "+String.valueOf(prod_id));
-
-
-
             }
         });
-
-
     }
-
-
-
 
     @Override
     public int getItemCount() {

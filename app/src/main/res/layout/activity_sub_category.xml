@@ -21,7 +21,7 @@
         android:textStyle="bold" />
 
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -30,14 +30,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_sub_categories"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:scrollbars="vertical">
 
         </androidx.recyclerview.widget.RecyclerView>
 
 
 
-</LinearLayout>
+</ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"

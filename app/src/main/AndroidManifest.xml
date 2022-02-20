@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -28,6 +29,20 @@
         <activity android:name=".Home.HomeActivity"/>
         <activity android:name=".SubCategories.Sub_Category_Activity"/>
         <activity android:name=".Listings.Listings_Details"/>
+        <activity android:name=".Feedback.feedback"/>
+        <activity android:name=".Feedback.FeedbackHistory"/>
+        <activity android:name=".Orders.OrderHistory"/>
+        <activity android:name=".cart.CartDetails"/>
+        <activity android:name=".cart.Order_Summary"/>
+        <activity android:name=".cart.checkout"/>
+        <activity android:name=".cart.payment2"/>
+        <activity android:name=".cart.PlaceOrderActivity"/>
+        <activity android:name=".Orders.CustomPrintActivity"/>
+        <activity android:name=".Orders.myaccount"/>
+         <activity android:name=".Orders.generate_receipts"/>
+        <activity android:name=".Orders.OrderHistory_ViewDetails"/>
+
+
     </application>
 
 </manifest>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="example.javatpoint.com.optionmenu.MainActivity">
+
+    <item  android:id="@+id/cart"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="Cart"/>
+    <item  android:id="@+id/listings"
+        android:icon="@drawable/ic_baseline_reorder_24"
+        android:title="My Listings Orders"/>
+    <item  android:id="@+id/feedback"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="Feedback"
+        />
+    <item  android:id="@+id/account"
+        android:icon="@drawable/ic_baseline_account_box_24"
+        android:title="My Account"
+        />
+    <item  android:id="@+id/signout"
+        android:icon="@drawable/ic_baseline_login_24"
+        android:title="LogOut"
+        />
+</menu>
