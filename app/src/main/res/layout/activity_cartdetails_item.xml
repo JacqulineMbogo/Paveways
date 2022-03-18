@@ -104,12 +104,41 @@
                 android:singleLine="true"
                 android:textColor="@color/black"></EditText>
 
+
 </LinearLayout>
+            <LinearLayout
+                android:id="@+id/stockinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/qtylinear"
+                android:orientation="horizontal"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/units"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="normal|bold" />
+                <TextView
+                    android:id="@+id/stock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="normal|bold" />
+
+
+
+
+            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/confirm"
-                android:layout_below="@id/qtylinear"
+                android:layout_below="@id/stockinear"
                 android:background="@drawable/rounded_green"
                 android:text="confirm qty on edit"
                 android:layout_alignParentRight="true"

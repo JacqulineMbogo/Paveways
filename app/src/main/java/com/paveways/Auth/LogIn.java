@@ -90,20 +90,18 @@ public class LogIn extends AppCompatActivity {
             userSigninCall.enqueue(new Callback<UserSignInRes>() {
                 @Override
                 public void onResponse(Call<UserSignInRes> call, Response<UserSignInRes> response) {
-
                     Log.d(TAG, "reponse : "+ response.toString());
                     if (response.body()!= null && response.isSuccessful()){
                         if (response.body().getStatus() ==1){
-                            Log.e(TAG, "  user data "+  response.body().getInformation());
+                            AppUtilits.destroyDialog(progressbar);
+                            // store userdata to share prerference
                             sharedPreferenceActivity.putItem(Constant.USER_DATA, response.body().getInformation().getUserId());
                             sharedPreferenceActivity.putItem(Constant.USER_name, response.body().getInformation().getFullname());
                             sharedPreferenceActivity.putItem(Constant.USER_email, response.body().getInformation().getEmail());
                             sharedPreferenceActivity.putItem(Constant.USER_phone, response.body().getInformation().getPhone());
 
-                            AppUtilits.destroyDialog(progressbar);
-                            // start home activity
+                            AppUtilits.createToaster(LogIn.this, "Welcome, "+sharedPreferenceActivity.getItem(Constant.USER_name),Toast.LENGTH_LONG);
                             Intent intent = new Intent(LogIn.this, HomeActivity.class);
-                            //intent.putExtra("userid", "sdfsd");
                             startActivity(intent);
                             finish();
 

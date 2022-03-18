@@ -446,7 +446,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/padding_small"
                     android:layout_marginTop="@dimen/padding_extralarge"
-                    android:visibility="gone"
+
                     android:background="@drawable/rounder_small_green"
                     android:gravity="center_horizontal"
                     android:text="Confirm Ownership"

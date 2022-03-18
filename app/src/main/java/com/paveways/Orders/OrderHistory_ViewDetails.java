@@ -222,7 +222,7 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
 
                                     cartitemModels.add( new Cartitem_Model(response.body().getInformation().get(i).getProdId(),
                                             response.body().getInformation().get(i).getProdName(), "", "",
-                                            response.body().getInformation().get(i).getProdTotal(), response.body().getInformation().get(i).getQty()));
+                                            response.body().getInformation().get(i).getProdTotal(), response.body().getInformation().get(i).getQty(),""));
 
                                 }
 

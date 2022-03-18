@@ -114,12 +114,12 @@ public class HomeActivity extends AppCompatActivity {
             call.enqueue(new Callback<GetbannerModel>() {
                 @Override
                 public void onResponse(Call<GetbannerModel> call, Response<GetbannerModel> response) {
-                      Log.e(TAG, " banner response is "+ response.body().getInformation().toString());
+                    Log.e(TAG, " banner response is "+ response.body().getInformation().toString());
                     if (response.body()!= null && response.isSuccessful()){
                         if (response.body().getStatus() ==1) {
                             if (response.body().getInformation().size() > 0) {
 
-                                 for (int i=0; i<response.body().getInformation().size(); i++) {
+                                for (int i=0; i<response.body().getInformation().size(); i++) {
                                     remoteBanners.add(new RemoteBanner(response.body().getInformation().get(i).getImgurl()));
 
                                 }
@@ -177,17 +177,17 @@ public class HomeActivity extends AppCompatActivity {
                             }
 
 
-                            }else {
-
-                                Toast.makeText(getApplicationContext(),"No Categories found",Toast.LENGTH_LONG).show();
-                                 }
-
-
                         }else {
-                            Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG).show();
 
+                            Toast.makeText(getApplicationContext(),"No Categories found",Toast.LENGTH_LONG).show();
                         }
+
+
+                    }else {
+                        Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG).show();
+
                     }
+                }
 
                 @Override
                 public void onFailure(Call<CategoriesResponse> call, Throwable t) {
@@ -198,10 +198,8 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-
     public int GetScreenWidth(){
         int  width =100;
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager =  (WindowManager) getApplicationContext().getSystemService(WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -210,7 +208,4 @@ public class HomeActivity extends AppCompatActivity {
         return width;
 
     }
-
-
-
 }

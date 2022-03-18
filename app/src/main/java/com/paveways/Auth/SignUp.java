@@ -129,14 +129,8 @@ public class SignUp extends AppCompatActivity {
                             sharedPreferenceActivity.putItem(Constant.USER_email, response.body().getInformation().getEmail());
                             sharedPreferenceActivity.putItem(Constant.USER_phone, response.body().getInformation().getPhone());
 
-                            // start home activity
-                            //AppUtilits.displayMessage(SignUpActivity.this,  response.body().getMsg());
-
-                            // R1.setVisibility(View.GONE);
-                            // R2.setVisibility(View.VISIBLE);
                             AppUtilits.createToaster(SignUp.this, "Welcome, "+sharedPreferenceActivity.getItem(Constant.USER_name)+"\n Please continue to sign in upon admin approval",Toast.LENGTH_LONG);
                             Intent intent = new Intent(SignUp.this, LogIn.class);
-                            //intent.putExtra("userid", "sdfsd");
                             startActivity(intent);
                             finish();
 
