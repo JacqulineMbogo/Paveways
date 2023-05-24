@@ -1,4 +1,4 @@
-package com.paveways.Orders;
+package com.paveways.MyAccount;
 
 
 import android.app.AlertDialog;
@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.google.gson.Gson;
 import com.paveways.R;
 import com.paveways.Utility.AppUtilits;
@@ -40,7 +41,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class OrderHistory_ViewDetails extends AppCompatActivity {
     private String TAG ="orderViewdetails", orderId ="",delivermode="";
     private RecyclerView item_recyclerview;
@@ -54,16 +54,19 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
     private RadioButton radio_eazybanking, radio_cash_on;
     private EditText code;
     private RadioGroup radioGroup;
-    SharedPreferenceActivity sharedPreferenceActivity;
     Context context;
+    SharedPreferenceActivity sharedPreferenceActivity;
+
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderhistory_viewdetails);
+
+
         context = this;
-        sharedPreferenceActivity = new SharedPreferenceActivity(this);
+        sharedPreferenceActivity = new SharedPreferenceActivity(context);
 
         Intent intent = getIntent();
         orderId = intent.getExtras().getString("order_id");
@@ -95,7 +98,7 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
         radioGroup = findViewById(R.id.radiogroup);
 
 
-        LinearLayoutManager mLayoutManger3 = new LinearLayoutManager( this, LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager mLayoutManger3 = new LinearLayoutManager( this, RecyclerView.VERTICAL, false);
         item_recyclerview.setLayoutManager(mLayoutManger3);
         item_recyclerview.setItemAnimator(new DefaultItemAnimator());
 
@@ -132,9 +135,17 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
 
                 }
 
+
+
             }
         });
 
+        receive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // receivegoods();
+            }
+        });
 
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -222,7 +233,7 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
 
                                     cartitemModels.add( new Cartitem_Model(response.body().getInformation().get(i).getProdId(),
                                             response.body().getInformation().get(i).getProdName(), "", "",
-                                            response.body().getInformation().get(i).getProdTotal(), response.body().getInformation().get(i).getQty(),""));
+                                            response.body().getInformation().get(i).getProdTotal(), response.body().getInformation().get(i).getQty()));
 
                                 }
 
@@ -261,7 +272,7 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
     }
     public void clearpayment(){
 
-        final AlertDialog progressbar =AppUtilits.createProgressBar(this,"Clearing payment, \n Please wait");
+        final AlertDialog progressbar =AppUtilits.createProgressBar(this,"Processing payment");
         if (!NetworkUtility.isNetworkConnected(OrderHistory_ViewDetails.this)){
             Toast.makeText(getApplicationContext(),"Network error",Toast.LENGTH_LONG).show();
 
@@ -273,11 +284,15 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
             clearbalanceAPICall.enqueue(new Callback<clearbalanceAPI>() {
                 @Override
                 public void onResponse(Call<clearbalanceAPI> call, Response<clearbalanceAPI> response) {
-                     //  Log.e(TAG, "  ss sixe 1 ");
+
+                    Log.e("Orderid",  orderId);
+                    Log.e("total",  sharedPreferenceActivity.getItem(Constant.VIEW_TOTAL));
+                    Log.e(TAG, "response is " + response.body() + "  ---- " + new Gson().toJson(response.body()));
+                    //  Log.e(TAG, "  ss sixe 1 ");
                     if (response.body() != null && response.isSuccessful()) {
                         //    Log.e(TAG, "  ss sixe 2 ");
                         if (response.body().getStatus() == 1) {
-                            Log.e("Orderid",  orderId);
+
 
                             getOrderDetails();
                             layout2.setVisibility(View.VISIBLE);
@@ -318,17 +333,7 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onBackPressed() {
 
-
-        Intent intent1 = new Intent(OrderHistory_ViewDetails.this, OrderHistory.class);
-
-        startActivity(intent1);
-
-
-
-    }
 
 }
 

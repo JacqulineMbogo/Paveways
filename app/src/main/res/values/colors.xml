@@ -11,7 +11,7 @@
     <color name="grey_white">#f2e1e7</color>
     <color name="grey">#424242</color>
     <color name="COMPLEMENT">#ad2173</color>
-
+    <color name="background">#F7E7CE</color>
     <color name="green_light">#388E3C</color>
     <color name="dark_gold">#bf9b30</color>
 </resources>

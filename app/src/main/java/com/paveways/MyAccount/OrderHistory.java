@@ -1,4 +1,4 @@
-package com.paveways.Orders;
+package com.paveways.MyAccount;
 
 
 import android.content.Context;
@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.google.gson.Gson;
-import com.paveways.Home.HomeActivity;
 import com.paveways.R;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
@@ -29,22 +29,26 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class OrderHistory extends AppCompatActivity {
 
     private String TAG = "orderhistory";
-    SharedPreferenceActivity sharedPreferenceActivity;
-    Context context;
     private RecyclerView recyclerView_order;
     private ArrayList<orderhistory_model> Models = new ArrayList<>();
     private OrderHistory_Adapter adapter;
+    Context context;
+    SharedPreferenceActivity sharedPreferenceActivity;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderhistory);
-        context = this;
-        sharedPreferenceActivity = new SharedPreferenceActivity(this);
+        context= this;
+        sharedPreferenceActivity = new SharedPreferenceActivity(context);
+
+
+
         recyclerView_order = (RecyclerView) findViewById(R.id.recycler_orderhistory);
-        LinearLayoutManager mLayoutManger3 = new LinearLayoutManager( this, LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager mLayoutManger3 = new LinearLayoutManager( this, RecyclerView.VERTICAL, false);
         recyclerView_order.setLayoutManager(mLayoutManger3);
         recyclerView_order.setItemAnimator(new DefaultItemAnimator());
 
@@ -64,7 +68,7 @@ public class OrderHistory extends AppCompatActivity {
         }else {
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<OrderHistoryAPI> call = service.getorderhistorycall("1234",sharedPreferenceActivity.getItem(Constant.USER_DATA));
+            Call<OrderHistoryAPI> call = service.getorderhistorycall("1234", sharedPreferenceActivity.getItem(Constant.USER_DATA));
             call.enqueue(new Callback<OrderHistoryAPI>() {
                 @Override
                 public void onResponse(Call<OrderHistoryAPI> call, Response<OrderHistoryAPI> response) {
@@ -113,16 +117,5 @@ public class OrderHistory extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-
-
-        Intent intent1 = new Intent(OrderHistory.this, HomeActivity.class);
-
-        startActivity(intent1);
-
-
-
-    }
 
 }

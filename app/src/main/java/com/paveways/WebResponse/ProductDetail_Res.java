@@ -42,24 +42,57 @@ public class ProductDetail_Res {
 
     public class Information {
 
+
         @SerializedName("name")
         @Expose
         private String name;
         @SerializedName("description")
         @Expose
         private String description;
+        @SerializedName("type")
+        @Expose
+        private String type;
+        @SerializedName("stype")
+        @Expose
+        private String stype;
+        @SerializedName("bedroom")
+        @Expose
+        private String bedroom;
+        @SerializedName("bathroom")
+        @Expose
+        private String bathroom;
         @SerializedName("stock")
         @Expose
-        private Integer stock;
+        private String stock;
+        @SerializedName("size")
+        @Expose
+        private String size;
         @SerializedName("price")
         @Expose
         private String price;
-        @SerializedName("img_url")
+        @SerializedName("city")
         @Expose
-        private String imgUrl;
+        private String city;
+        @SerializedName("img_url1")
+        @Expose
+        private String imgUrl1;
+        @SerializedName("img_url2")
+        @Expose
+        private String imgUrl2;
+        @SerializedName("img_url3")
+        @Expose
+        private String imgUrl3;
+        @SerializedName("status")
+        @Expose
+        private String status;
+        @SerializedName("date")
+        @Expose
+        private String date;
         @SerializedName("id")
         @Expose
-        private Integer id;
+        private String id;
+
+
 
         public String getName() {
             return name;
@@ -77,12 +110,52 @@ public class ProductDetail_Res {
             this.description = description;
         }
 
-        public Integer getStock() {
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getStype() {
+            return stype;
+        }
+
+        public void setStype(String stype) {
+            this.stype = stype;
+        }
+
+        public String getBedroom() {
+            return bedroom;
+        }
+
+        public void setBedroom(String bedroom) {
+            this.bedroom = bedroom;
+        }
+
+        public String getBathroom() {
+            return bathroom;
+        }
+
+        public void setBathroom(String bathroom) {
+            this.bathroom = bathroom;
+        }
+
+        public String getStock() {
             return stock;
         }
 
-        public void setStock(Integer stock) {
+        public void setStock(String stock) {
             this.stock = stock;
+        }
+
+        public String getSize() {
+            return size;
+        }
+
+        public void setSize(String size) {
+            this.size = size;
         }
 
         public String getPrice() {
@@ -93,19 +166,59 @@ public class ProductDetail_Res {
             this.price = price;
         }
 
-        public String getImgUrl() {
-            return imgUrl;
+        public String getCity() {
+            return city;
         }
 
-        public void setImgUrl(String imgUrl) {
-            this.imgUrl = imgUrl;
+        public void setCity(String city) {
+            this.city = city;
         }
 
-        public Integer getId() {
+        public String getImgUrl1() {
+            return imgUrl1;
+        }
+
+        public void setImgUrl1(String imgUrl1) {
+            this.imgUrl1 = imgUrl1;
+        }
+
+        public String getImgUrl2() {
+            return imgUrl2;
+        }
+
+        public void setImgUrl2(String imgUrl2) {
+            this.imgUrl2 = imgUrl2;
+        }
+
+        public String getImgUrl3() {
+            return imgUrl3;
+        }
+
+        public void setImgUrl3(String imgUrl3) {
+            this.imgUrl3 = imgUrl3;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public String getId() {
             return id;
         }
 
-        public void setId(Integer id) {
+        public void setId(String id) {
             this.id = id;
         }
 

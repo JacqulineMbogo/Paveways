@@ -45,7 +45,6 @@ public class SignUp extends AppCompatActivity {
         create_acc = (TextView) findViewById(R.id.create_account);
         username = (EditText) findViewById(R.id.username);
         fname = (EditText) findViewById(R.id.f_name);
-        lname= (EditText) findViewById(R.id.l_name);
         phone_no = (EditText) findViewById(R.id.phone_number);
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
@@ -72,10 +71,6 @@ public class SignUp extends AppCompatActivity {
                     /// show error pupup
                     Toast.makeText(getApplicationContext(),"Invalid name", Toast.LENGTH_LONG).show();
                 }else if (DataValidation.isNotValidLName(fname.getText().toString())){
-                    /// show error pupup
-                    Toast.makeText(getApplicationContext(),"Invalid name", Toast.LENGTH_LONG).show();
-                }else
-                if (DataValidation.isNotValidFullName(lname.getText().toString())){
                     /// show error pupup
                     Toast.makeText(getApplicationContext(),"Invalid name", Toast.LENGTH_LONG).show();
                 }else if ( DataValidation.isValidPhoneNumber(phone_no.getText().toString())){
@@ -113,7 +108,7 @@ public class SignUp extends AppCompatActivity {
         }else {
 
             ServiceWrapper serviceWrapper = new ServiceWrapper(null);
-            Call<NewUserRegistration> callNewREgistration=   serviceWrapper.newUserRegistrationCall( fname.getText().toString(), lname.getText().toString(),username.getText().toString(),
+            Call<NewUserRegistration> callNewREgistration=   serviceWrapper.newUserRegistrationCall(fname.getText().toString(),
                     email.getText().toString(), phone_no.getText().toString(),
                     username.getText().toString(), password.getText().toString() );
             callNewREgistration.enqueue(new Callback<NewUserRegistration>() {

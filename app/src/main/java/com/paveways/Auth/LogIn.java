@@ -14,9 +14,9 @@ import androidx.annotation.Nullable;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.paveways.Home.HomeActivity;
+import com.paveways.Appointment.Appointment_History;
 import com.paveways.R;
-import com.paveways.ScrollingActivity;
+import com.paveways.Listings.Listings_Activity;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.DataValidation;
@@ -36,7 +36,7 @@ public class LogIn extends AppCompatActivity {
     Context context;
     TextView signup;
     private TextView login;
-    private EditText phone_no, password;
+    private EditText user_name, password;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class LogIn extends AppCompatActivity {
         sharedPreferenceActivity = new SharedPreferenceActivity(this);
         signup = findViewById(R.id.signup);
         login = findViewById(R.id.login);
-        phone_no = findViewById(R.id.phone_number);
+        user_name = findViewById(R.id.user_name);
         password = findViewById(R.id.password);
         
         signup.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +61,8 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if ( DataValidation.isNotValidFullName(phone_no.getText().toString())){
-                    Toast.makeText(getApplicationContext(),"Invalid phone number",Toast.LENGTH_LONG).show();
+                if ( DataValidation.isNotValidFullName(user_name.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Invalid username",Toast.LENGTH_LONG).show();
 
                 }else if (DataValidation.isNotValidPassword(password.getText().toString())){
                     Toast.makeText(getApplicationContext(),"Invalid password",Toast.LENGTH_LONG).show();
@@ -86,7 +86,7 @@ public class LogIn extends AppCompatActivity {
         }else {
 
             ServiceWrapper serviceWrapper = new ServiceWrapper(null);
-            Call<UserSignInRes> userSigninCall = serviceWrapper.UserSigninCall(phone_no.getText().toString(), password.getText().toString());
+            Call<UserSignInRes> userSigninCall = serviceWrapper.UserSigninCall(user_name.getText().toString(), password.getText().toString());
             userSigninCall.enqueue(new Callback<UserSignInRes>() {
                 @Override
                 public void onResponse(Call<UserSignInRes> call, Response<UserSignInRes> response) {
@@ -101,9 +101,9 @@ public class LogIn extends AppCompatActivity {
                             sharedPreferenceActivity.putItem(Constant.USER_phone, response.body().getInformation().getPhone());
 
                             AppUtilits.createToaster(LogIn.this, "Welcome, "+sharedPreferenceActivity.getItem(Constant.USER_name),Toast.LENGTH_LONG);
-                            Intent intent = new Intent(LogIn.this, HomeActivity.class);
+                            Intent intent = new Intent(LogIn.this, Listings_Activity.class);
                             startActivity(intent);
-                            finish();
+                            //finish();
 
                         }else  if (response.body().getStatus() ==0){
                             AppUtilits.displayMessage(LogIn.this,  response.body().getMsg());

@@ -45,13 +45,17 @@ public class NewUserRegistration {
         @SerializedName("user_id")
         @Expose
         private String userId;
-        @SerializedName("fullname")
+        @SerializedName("full_name")
         @Expose
         private String fullname;
         @SerializedName("email")
         @Expose
         private String email;
-        @SerializedName("phone")
+        @SerializedName("username")
+        @Expose
+        private String username;
+
+        @SerializedName("phone_number")
         @Expose
         private String phone;
 
@@ -79,6 +83,13 @@ public class NewUserRegistration {
             this.email = email;
         }
 
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
         public String getPhone() {
             return phone;
         }

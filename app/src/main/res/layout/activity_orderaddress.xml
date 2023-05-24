@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingRight="@dimen/padding_small"
+        android:paddingLeft="@dimen/padding_small">
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/order_recyclerview1"
+            android:padding="@dimen/padding_small"
+            android:layout_marginBottom="50dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fab1"
+            android:src="@mipmap/ic_select_done"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="60dp"
+            android:layout_marginRight="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/continuebtn1"
+            android:text="@string/continue_tag"
+            android:gravity="center_horizontal"
+            android:background="@drawable/rounded_green"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/padding_too_large"
+            android:layout_marginLeft="@dimen/padding_too_large"
+            android:layout_marginTop="@dimen/padding_extralarge"
+            android:layout_marginBottom="@dimen/text_extra_large"/>
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

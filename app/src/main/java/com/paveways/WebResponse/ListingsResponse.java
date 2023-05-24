@@ -55,9 +55,6 @@ public class ListingsResponse {
         @SerializedName("price")
         @Expose
         private String price;
-        @SerializedName("rating")
-        @Expose
-        private String rating;
         @SerializedName("img_url")
         @Expose
         private String imgUrl;
@@ -92,14 +89,6 @@ public class ListingsResponse {
 
         public void setPrice(String price) {
             this.price = price;
-        }
-
-        public String getRating() {
-            return rating;
-        }
-
-        public void setRating(String rating) {
-            this.rating = rating;
         }
 
         public String getImgUrl() {

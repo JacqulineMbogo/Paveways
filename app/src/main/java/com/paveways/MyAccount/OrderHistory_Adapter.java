@@ -1,4 +1,4 @@
-package com.paveways.Orders;
+package com.paveways.MyAccount;
 
 
 import android.content.Context;
@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.paveways.R;
-import com.paveways.Utility.SharedPreferenceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,14 +25,13 @@ public class OrderHistory_Adapter extends RecyclerView.Adapter<RecyclerView.View
     private List<orderhistory_model> history_model;
     private Context mContext;
     private String TAG = "orderhistory_adapter";
-    SharedPreferenceActivity sharedPreferenceActivity;
+
     private ArrayList<RelativeLayout> addrlayoutsList=  new ArrayList<>();
     private ArrayList<ImageView> imagelist = new ArrayList<>();
 
     public OrderHistory_Adapter (Context context, List<orderhistory_model> addressModels) {
         this.history_model = addressModels;
         this.mContext = context;
-        this.sharedPreferenceActivity = new SharedPreferenceActivity(mContext);
 
     }
     private class OrderHistoryItemView extends RecyclerView.ViewHolder {
@@ -93,14 +92,14 @@ public class OrderHistory_Adapter extends RecyclerView.Adapter<RecyclerView.View
             @Override
             public void onClick(View view) {
 
-                Log.e(TAG, "  user select the order id " + model.getorder_id() );
+              /*  Log.e(TAG, "  user select the order id " + model.getorder_id() );
 
 
                 Intent intent = new Intent(mContext, generate_receipts.class);
                 intent.putExtra("order_id", model.getorder_id());
                 intent.putExtra("address", model.getshippingaddress());
                 mContext.startActivity(intent);
-
+*/
             }
         });
 

@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -13,6 +16,15 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Paveways">
+
+        <!-- Google Play Services API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBGTXeDN41LWzAtROITpQdBRQJRyGsaL8w" />
+
+        <!-- Google Play Services version -->
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+
         <activity
             android:name=".Auth.LogIn"
             android:exported="true"
@@ -27,20 +39,19 @@
         <activity android:name=".Auth.SignUp"/>
         <activity android:name=".ScrollingActivity"/>
         <activity android:name=".Home.HomeActivity"/>
-        <activity android:name=".SubCategories.Sub_Category_Activity"/>
-        <activity android:name=".Listings.Listings_Details"/>
+        <activity android:name=".Listings.Listings_Activity"/>
+        <activity android:name=".Listings.Listing_Details"/>
         <activity android:name=".Feedback.feedback"/>
         <activity android:name=".Feedback.FeedbackHistory"/>
-        <activity android:name=".Orders.OrderHistory"/>
+        <activity android:name=".Appointment.Appointment_Activity"/>
+        <activity android:name=".Appointment.Appointment_History"/>
         <activity android:name=".cart.CartDetails"/>
         <activity android:name=".cart.Order_Summary"/>
-        <activity android:name=".cart.checkout"/>
-        <activity android:name=".cart.payment2"/>
+        <activity android:name=".cart.payment"/>
         <activity android:name=".cart.PlaceOrderActivity"/>
-        <activity android:name=".Orders.CustomPrintActivity"/>
-        <activity android:name=".Orders.myaccount"/>
-         <activity android:name=".Orders.generate_receipts"/>
-        <activity android:name=".Orders.OrderHistory_ViewDetails"/>
+        <activity android:name=".cart.payment2"/>
+        <activity android:name=".MyAccount.OrderHistory"/>
+        <activity android:name=".MyAccount.OrderHistory_ViewDetails"/>
 
 
     </application>

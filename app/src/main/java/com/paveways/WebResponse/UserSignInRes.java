@@ -45,7 +45,7 @@ public class UserSignInRes {
         @SerializedName("user_id")
         @Expose
         private String userId;
-        @SerializedName("fullname")
+        @SerializedName("full_name")
         @Expose
         private String fullname;
         @SerializedName("email")
@@ -54,6 +54,18 @@ public class UserSignInRes {
         @SerializedName("phone")
         @Expose
         private String phone;
+
+        @SerializedName("username")
+        @Expose
+        private String username;
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
 
         public String getUserId() {
             return userId;

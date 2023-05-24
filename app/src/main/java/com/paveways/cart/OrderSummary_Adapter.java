@@ -1,4 +1,4 @@
-package com.paveways.Orders;
+package com.paveways.cart;
 
 
 import android.content.Context;
@@ -8,33 +8,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.paveways.R;
-import com.paveways.Utility.SharedPreferenceActivity;
-import com.paveways.cart.Cartitem_Model;
 
 import java.util.List;
 
 
-public class receipt_adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class OrderSummary_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Cartitem_Model> cartitem_models;
     private Context mContext;
-    private SharedPreferenceActivity sharedPreferenceActivity;
     private String TAG = "order_adapter";
 
-    public receipt_adapter(Context context, List<Cartitem_Model> cartitemModels) {
+    public OrderSummary_Adapter(Context context, List<Cartitem_Model> cartitemModels) {
         this.cartitem_models = cartitemModels;
         this.mContext = context;
-        this.sharedPreferenceActivity = new SharedPreferenceActivity(mContext);
 
     }
-    private class receipt_adapterItemView extends RecyclerView.ViewHolder {
+    private class ordersummaryItemView extends RecyclerView.ViewHolder {
         TextView prod_name,  prod_qty, prod_price;
 
 
-        public  receipt_adapterItemView(View itemView) {
+        public  ordersummaryItemView(View itemView) {
             super(itemView);
             prod_name = (TextView) itemView.findViewById(R.id.prod_name);
             prod_price = (TextView) itemView.findViewById(R.id.prod_price);
@@ -48,7 +45,7 @@ public class receipt_adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_ordersum_item, parent,false);
         Log.e(TAG, "  view created ");
-        return new receipt_adapterItemView(view);
+        return new ordersummaryItemView(view);
     }
 
     @Override
@@ -57,9 +54,9 @@ public class receipt_adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         Log.e(TAG, "bind view "+ position);
         final Cartitem_Model model =  cartitem_models.get(position);
 
-        ((receipt_adapterItemView) holder).prod_name.setText(model.getProd_name());
-        ((receipt_adapterItemView) holder).prod_price.setText(model.getPrice());
-        ((receipt_adapterItemView) holder).prod_qty.setText(model.getQty());
+        ((ordersummaryItemView) holder).prod_name.setText(model.getProd_name());
+        ((ordersummaryItemView) holder).prod_price.setText(model.getPrice());
+        ((ordersummaryItemView) holder).prod_qty.setText(model.getQty());
 
 
         Log.e(TAG, "qqty "+  cartitem_models.get(position));

@@ -6,14 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.paveways.R;
-import com.paveways.SubCategories.Sub_Category_Activity;
+import com.paveways.Listings.Listings_Activity;
 
 import java.util.List;
 
@@ -65,7 +64,7 @@ public class Categories_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(mContext, Sub_Category_Activity.class);
+                Intent intent = new Intent(mContext, Listings_Activity.class);
                 intent.putExtra("prod_id", model.getId());
                 intent.putExtra("prod_name", model.getName());
 

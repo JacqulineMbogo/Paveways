@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryLight">
+>
 
     <LinearLayout
         android:orientation="vertical"
@@ -32,15 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_medium"
-            android:hint="@string/firstname"
+            android:hint="@string/full_name"
             android:padding="@dimen/padding_medium"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/l_name"
-            android:layout_margin="@dimen/padding_medium"
-            android:padding="@dimen/padding_medium"
-            android:hint="@string/lastname"/>
+
 
         <EditText
             android:layout_width="match_parent"

@@ -1,10 +1,10 @@
 package com.paveways.Listings;
 
-public class Listings_Model {
+public class Listing_Details_Model {
 
     private String l_id, l_name, img_ulr,l_price,l_stock ;
 
-    public Listings_Model(String l_id, String l_name, String img_ulr, String l_price, String l_stock) {
+    public Listing_Details_Model(String l_id, String l_name, String img_ulr, String l_price, String l_stock) {
         this.l_id = l_id;
         this.l_name = l_name;
         this.img_ulr = img_ulr;

@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimaryLight"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar1"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/padding_small"
+        android:src="@drawable/paveways_logo" />
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Available Property"
         android:layout_marginTop="@dimen/padding_medium"
         android:layout_marginBottom="@dimen/padding_medium"
         android:gravity="center_horizontal"
@@ -19,25 +34,23 @@
         android:textColor="@color/text_color"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold" />
-
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/padding_medium">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_sub_categories"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+        <Spinner
+            android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical">
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:background="@drawable/spinner_border"
+            />
+            </LinearLayout>
 
-        </androidx.recyclerview.widget.RecyclerView>
 
 
-
-</ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"

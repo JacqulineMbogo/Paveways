@@ -5,7 +5,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.paveways.Home.GetbannerModel;
 import com.paveways.Utility.Constant;
+import com.paveways.WebResponse.AddAppointment;
 import com.paveways.WebResponse.AddtoCart;
+import com.paveways.WebResponse.AppointmentHistoryAPI;
 import com.paveways.WebResponse.CategoriesResponse;
 import com.paveways.WebResponse.EditCartItem;
 import com.paveways.WebResponse.GetOrderProductDetails;
@@ -81,13 +83,13 @@ public class ServiceWrapper  {
     }
 
 
-    public Call<NewUserRegistration> newUserRegistrationCall(String fname, String lname, String fullname, String email, String phone, String username, String password){
-        return mServiceInterface.NewUserRegistrationCall(convertPlainString(fname),convertPlainString(lname), convertPlainString(fullname),convertPlainString(email), convertPlainString(phone), convertPlainString( username),
+    public Call<NewUserRegistration> newUserRegistrationCall(String fullname, String email, String phone, String username, String password){
+        return mServiceInterface.NewUserRegistrationCall(convertPlainString(fullname),convertPlainString(email), convertPlainString(phone), convertPlainString( username),
                 convertPlainString(password));
     }
     ///  user signin
-    public Call<UserSignInRes> UserSigninCall(String phone, String password){
-        return mServiceInterface.UserSigninCall(convertPlainString(phone),  convertPlainString(password));
+    public Call<UserSignInRes> UserSigninCall(String user_name, String password){
+        return mServiceInterface.UserSigninCall(convertPlainString(user_name),  convertPlainString(password));
     }
     // get banner image
     public Call<GetbannerModel> getbannerModelCall(String securcode){
@@ -105,8 +107,8 @@ public class ServiceWrapper  {
     }
 
     // get listing
-    public Call<ListingsResponse> ListingsResponseCall(String securcode, String sub_categories_id){
-        return mServiceInterface.ListingsResponseCall(convertPlainString(securcode) , convertPlainString(sub_categories_id));
+    public Call<ListingsResponse> ListingsResponseCall(String securcode, String selectedOption){
+        return mServiceInterface.ListingsResponseCall(convertPlainString(securcode), convertPlainString(selectedOption));
     }
 
     // get product detials
@@ -125,6 +127,10 @@ public class ServiceWrapper  {
 
     public Call<AddtoCart> addtoCartCall(String securcode, String prod_id, String user_id){
         return mServiceInterface.addtocartcall(convertPlainString(securcode), convertPlainString(prod_id),convertPlainString(user_id) );
+    }
+
+    public Call<AddAppointment> addAppointmentCall(String securcode, String listing_id, String user_id, String date, String time, String appointment_id){
+        return mServiceInterface.addAppointmentCall(convertPlainString(securcode), convertPlainString(listing_id),convertPlainString(user_id),convertPlainString(date),convertPlainString(time), convertPlainString(appointment_id) );
     }
 
     // add to cart
@@ -155,6 +161,11 @@ public class ServiceWrapper  {
     // get order history
     public Call<OrderHistoryAPI> getorderhistorycall(String securcode, String user_id){
         return mServiceInterface.getorderHistorycall(convertPlainString(securcode), convertPlainString(user_id) );
+    }
+
+    // get order history
+    public Call<AppointmentHistoryAPI> getAppointmentHistoryCall(String securcode, String user_id){
+        return mServiceInterface.getAppointmentHistoryCall(convertPlainString(securcode), convertPlainString(user_id) );
     }
 
     // get order prodcut detais history

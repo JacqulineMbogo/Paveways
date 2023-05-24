@@ -5,7 +5,7 @@ import android.widget.Toast;
 public class Constant {
     public static final long API_CONNECTION_TIMEOUT = 1201;
     public static final long API_READ_TIMEOUT = 901;
-    public static final String BASE_URL = "https://jacqulinembogo.com/paveways/mobile/";
+    public static final String BASE_URL = "https://demkadairy.co.ke/paveways/mobile/";
     public static final String USER_DATA = "USER_DATA";
     public static final String USER_staffDATA = "USER_staffDATA";
     public static final String admin_USER_DATA = "admin_USER_DATA";

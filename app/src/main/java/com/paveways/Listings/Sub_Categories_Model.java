@@ -1,4 +1,4 @@
-package com.paveways.SubCategories;
+package com.paveways.Listings;
 
 public class Sub_Categories_Model {
     String id, name;

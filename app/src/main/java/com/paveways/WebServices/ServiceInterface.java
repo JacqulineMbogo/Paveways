@@ -1,7 +1,9 @@
 package com.paveways.WebServices;
 
 import com.paveways.Home.GetbannerModel;
+import com.paveways.WebResponse.AddAppointment;
 import com.paveways.WebResponse.AddtoCart;
+import com.paveways.WebResponse.AppointmentHistoryAPI;
 import com.paveways.WebResponse.CategoriesResponse;
 import com.paveways.WebResponse.EditCartItem;
 import com.paveways.WebResponse.GetOrderProductDetails;
@@ -32,8 +34,6 @@ public interface ServiceInterface {
     @Multipart
     @POST("new_user_registration.php")
     Call<NewUserRegistration> NewUserRegistrationCall(
-            @Part("fname") RequestBody fname,
-            @Part("lname") RequestBody lname,
             @Part("fullname") RequestBody fullname,
             @Part("email") RequestBody email,
             @Part("phone") RequestBody phone,
@@ -45,7 +45,7 @@ public interface ServiceInterface {
     @Multipart
     @POST("user_signin.php")
     Call<UserSignInRes> UserSigninCall(
-            @Part("phone") RequestBody phone,
+            @Part("user_name") RequestBody phone,
             @Part("password") RequestBody password
     );
 
@@ -76,8 +76,8 @@ public interface ServiceInterface {
     @POST("get_listings.php")
     Call<ListingsResponse> ListingsResponseCall(
             @Part("securecode") RequestBody securecode,
-            @Part("sub_category_id") RequestBody sub_category_id
-    );
+            @Part("selectedOption") RequestBody selectedOption
+             );
     // get product details
     @Multipart
     @POST("getproductdetails.php")
@@ -110,6 +110,18 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("prod_id") RequestBody prod_id,
             @Part("user_id") RequestBody user_id
+
+    );
+
+    @Multipart
+    @POST("add_appointment.php")
+    Call<AddAppointment> addAppointmentCall(
+            @Part("securecode") RequestBody securecode,
+            @Part("listing_id") RequestBody listing_id,
+            @Part("user_id") RequestBody user_id,
+            @Part("date") RequestBody date,
+            @Part("time") RequestBody time,
+            @Part("appointment_id") RequestBody appointment_id
 
     );
     // get user cart
@@ -166,6 +178,14 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("user_id") RequestBody user_id
     );
+
+    @Multipart
+    @POST("getAppointmentHistory.php")
+    Call<AppointmentHistoryAPI> getAppointmentHistoryCall(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id
+    );
+
 
     @Multipart
     @POST("makepayment.php")
