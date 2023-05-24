@@ -14,6 +14,7 @@ import com.paveways.WebResponse.OrderSummary;
 import com.paveways.WebResponse.PlaceOrder;
 import com.paveways.WebResponse.ProductDetail_Res;
 import com.paveways.WebResponse.SubCategoriesResponse;
+import com.paveways.WebResponse.UserDetails;
 import com.paveways.WebResponse.UserSignInRes;
 import com.paveways.WebResponse.clearbalanceAPI;
 import com.paveways.WebResponse.codeAPI;
@@ -49,6 +50,12 @@ public interface ServiceInterface {
             @Part("password") RequestBody password
     );
 
+    @Multipart
+    @POST("staff/user_signin.php")
+    Call<UserSignInRes> StaffUserSigninCall(
+            @Part("user_name") RequestBody phone,
+            @Part("password") RequestBody password
+    );
     // get banner image
     @Multipart
     @POST("getbanner.php")
@@ -124,6 +131,25 @@ public interface ServiceInterface {
             @Part("appointment_id") RequestBody appointment_id
 
     );
+
+    @Multipart
+    @POST("edit_user_details.php")
+    Call<AddAppointment> editUserDetailsCall(
+            @Part("securecode") RequestBody securecode,
+            @Part("staff_id") RequestBody staff_id,
+            @Part("user_id") RequestBody user_id
+
+    );
+
+    @Multipart
+    @POST("edit_order.php")
+    Call<AddAppointment> editOrderDetailsCall(
+            @Part("securecode") RequestBody securecode,
+            @Part("order_id") RequestBody order_id,
+            @Part("staff_id") RequestBody staff_id
+
+    );
+
     // get user cart
     @Multipart
     @POST("getusercartdetails.php")
@@ -185,6 +211,12 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("user_id") RequestBody user_id
     );
+
+    @Multipart
+    @POST("getUsers.php")
+    Call<UserDetails> getuserDetailsHistoryCall(
+            @Part("securecode") RequestBody securecode );
+
 
 
     @Multipart

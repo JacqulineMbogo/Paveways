@@ -111,7 +111,7 @@
         android:layout_marginBottom="@dimen/padding_small"
         android:layout_toEndOf="@+id/receiptstext"
 
-        android:text="Payment Status"
+
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/colorAccent" />
 
@@ -128,6 +128,32 @@
         android:text="@string/view_details"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/text_color" />
+    <LinearLayout
+        android:id="@+id/icons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/order_date"
+        android:layout_marginTop="60dp"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:id="@+id/approve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_check_24"
+            android:padding="10dp"/>
+
+        <ImageView
+            android:id="@+id/reject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_cancel_24"
+            android:padding="10dp"/>
+
+
+
+    </LinearLayout>
 
 
     <TextView

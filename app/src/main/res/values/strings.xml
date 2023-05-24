@@ -219,18 +219,18 @@
 
 
     <string name="add_to_cart">Successfully added into cart.</string>
-    <string name="fail_add_to_cart"> Unable to add into cart.Please try again</string>
+    <string name="fail_add_to_cart"> Please try again</string>
 
     <string name="add_tag">Add</string>
     <string name="search">Search</string>
     <string name="cart">Cart</string>
-    <string name="fail_toGetcart">Please try again, Fail to get user cart details</string>
+    <string name="fail_toGetcart">Please try again</string>
 
     <string name="add_to_wishlist">Successfully Added into user wishlist</string>
-    <string name="fail_add_to_wishlist">Please try again, Fail to add into user wishlist.</string>
+    <string name="fail_add_to_wishlist">Please try again</string>
     <string name="delivery_date">Deliver in 3-4 Days</string>
 
-    <string name="fail_togetwishlist">Please try again, Fail to get User Wishlist.</string>
+    <string name="fail_togetwishlist">Please try again.</string>
     <string name="no_prod_into_cart">You do not have any product to purchase </string>
 
     <string name="prod_name">Product Name</string>
@@ -240,7 +240,7 @@
     <string name="order_total">Order Total</string>
     <string name="place_order">Place Order</string>
 
-    <string name="fail_toordersummery">Fail to get Order Summery, Please try again.</string>
+    <string name="fail_toordersummery">Please try again.</string>
 
     <string name="billing_addrss">Billing Address</string>
     <string name="shipping_address">Shipping Address</string>
@@ -254,8 +254,8 @@
     <string name="state">Town</string>
     <string name="phone_number">Phone Number</string>
     <string name="save_continue">Save &amp; Continue</string>
-    <string name="fail_toaddaddress">Fail to add new Address. Please try again.</string>
-    <string name="fail_togetaddress">Fail to get user address, Please try again.</string>
+    <string name="fail_toaddaddress">Please try again.</string>
+    <string name="fail_togetaddress">Please try again.</string>
 
     <string name="select_address">Please select shipping address</string>
 
@@ -287,4 +287,27 @@
     <string name="addToCart">Add to Cart</string>
     <string name="viewCart">View Cart</string>
     <string name="units">Available Units</string>
+    <string name="terms_and_conditions_content">
+    <![CDATA[
+    Welcome to the Paveways Rental App!
+    By using this app, you agree to the following terms and conditions:
+
+        The app is for informational purposes only and does not guarantee the availability or accuracy of property listings.
+
+        A one-month rental deposit is mandatory for all rental properties, along with a monthly maintenance fee of Ksh 10,000.
+        For land purchases, a deposit of at least half of the total price must be made before proceeding with any further processes.
+        A facilitation fee of Ksh 10,000 is required for all land purchasing processes.
+
+
+        Users are responsible for verifying the details and authenticity of property listings before making any rental decisions.
+        The app is not liable for any transactions, disputes, or issues arising between property owners and renters.
+        Users must comply with local laws, regulations, and rental agreements when using the app.
+        The app may collect and use personal information as outlined in the Privacy Policy.
+        The app reserves the right to modify or terminate its services without prior notice.
+        Users are solely responsible for any actions taken using their account credentials.
+        The app may use cookies or similar technologies to enhance user experience.
+
+    By accepting these terms and conditions, you acknowledge that you have read and understood them.
+    ]]>
+</string>
 </resources>

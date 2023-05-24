@@ -1,4 +1,4 @@
-package com.paveways.Appointment;
+package com.paveways.Users;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,19 +7,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.paveways.Listings.Listing_Details;
-import com.paveways.Listings.Listing_Details_Adapter;
+import com.paveways.Appointment.Appointment_Activity;
 import com.paveways.R;
-import com.paveways.Staff.StaffAppointment.StaffAppointment_Adapter;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.NetworkUtility;
@@ -35,41 +33,43 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class Users_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<Appointment_Model> history_model;
+    private List<Users_Model> history_model;
     private Context mContext;
-    private String TAG = "appointment model adapter";
+    private String TAG = "users model adapter";
 
     private ArrayList<RelativeLayout> addrlayoutsList=  new ArrayList<>();
     SharedPreferenceActivity sharedPreferenceActivity;
 
-    public Appointment_Adapter (Context context, List<Appointment_Model> addressModels) {
+    public Users_Adapter(Context context, List<Users_Model> addressModels) {
         this.history_model = addressModels;
         this.mContext = context;
         sharedPreferenceActivity = new SharedPreferenceActivity(mContext);
 
     }
     private class HistoryItemView extends RecyclerView.ViewHolder {
-        TextView  date_time, status, comment, property ;
-        ImageView edit, cancel;
+        TextView  name, phone,email,date,status , comment ;
+        ImageView approve, reject;
 
 
         public HistoryItemView(View itemView) {
             super(itemView);
-            date_time = (TextView) itemView.findViewById(R.id.date_time);
+            name = (TextView) itemView.findViewById(R.id.name);
+            phone = (TextView) itemView.findViewById(R.id.phone);
+            email = (TextView) itemView.findViewById(R.id.email);
+            date = (TextView) itemView.findViewById(R.id.date);
             status = (TextView) itemView.findViewById(R.id.status);
             comment = (TextView) itemView.findViewById(R.id.comment);
-            property = (TextView) itemView.findViewById(R.id.property);
-            edit = (ImageView) itemView.findViewById(R.id.edit);
-            cancel = (ImageView) itemView.findViewById(R.id.cancel);
+            approve = (ImageView) itemView.findViewById(R.id.approve);
+            reject = (ImageView) itemView.findViewById(R.id.reject);
                    }
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_appointment_history_item, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_user_history_item, parent,false);
         //Log.e(TAG, "  view created ");
         return new HistoryItemView(view);
     }
@@ -78,49 +78,53 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         Log.e(TAG, "bind view "+ position);
-        final Appointment_Model model =  history_model.get(position);
+        final Users_Model model =  history_model.get(position);
 
-        ((HistoryItemView) holder).date_time.setText(model.getDate() + ' ' + model.getTime());
-
-
+        ((HistoryItemView) holder).name.setText(model.getFullname());
+        ((HistoryItemView) holder).phone.setText(model.getPhone());
+        ((HistoryItemView) holder).email.setText(model.getEmail());
+        ((HistoryItemView) holder).date.setText(model.getDate());
         ((HistoryItemView) holder).status.setText(model.getStatus());
         ((HistoryItemView) holder).comment.setText(model.getComment());
-        ((HistoryItemView) holder).property.setText(model.getTitle());
 
-        if(!Objects.equals(model.getStatus(), "Pending")){
-            ((HistoryItemView) holder).edit.setVisibility(View.INVISIBLE);
-            ((HistoryItemView) holder).cancel.setVisibility(View.INVISIBLE);
+        if(!Objects.equals(model.getStatus(), "Pending")) {
+            ((HistoryItemView) holder).approve.setVisibility(View.INVISIBLE);
+            ((HistoryItemView) holder).reject.setVisibility(View.INVISIBLE);
         }
-        ((HistoryItemView) holder).edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Intent intent = new Intent(mContext, Appointment_Activity.class);
-                intent.putExtra("listing_id","0");
-                intent.putExtra("appointment_id", model.getAppointment_id());
-                intent.putExtra("edit", true);
+            ((HistoryItemView) holder).approve.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                    builder.setTitle("Confirmation")
+                            .setMessage("Are you sure you want to Approve this user?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    editUserDetails("1", model.getUser_id());
+                                }
+                            }).setNegativeButton("No", null)
+                            .show();
 
+                }
+            });
 
-                mContext.startActivity(intent);
+            ((HistoryItemView) holder).reject.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                    builder.setTitle("Confirmation")
+                            .setMessage("Are you sure you want to reject this user?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    editUserDetails("0", model.getUser_id());
+                                }
+                            }).setNegativeButton("No", null)
+                            .show();
+                }
+            });
 
-            }
-        });
-
-        ((HistoryItemView) holder).cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                builder.setTitle("Confirmation")
-                        .setMessage("Are you sure you want to cancel this appointment?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                bookAppointment("0", model.getAppointment_id());
-                            }
-                        }).setNegativeButton("No", null)
-                        .show();
-            }
-        });
 
     }
 
@@ -129,9 +133,9 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return history_model.size();
     }
 
-    public void bookAppointment(String securecode,String appointment_id){
+    public void editUserDetails(String securecode,String user_id){
 
-        final android.app.AlertDialog progressbar = AppUtilits.createProgressBar(mContext,"Cancelling appointment \n Please wait..");
+        final android.app.AlertDialog progressbar = AppUtilits.createProgressBar(mContext,"Please wait..");
 
         if (!NetworkUtility.isNetworkConnected(mContext)){
             AppUtilits.displayMessage(mContext,  mContext.getString(R.string.network_not_connected));
@@ -141,7 +145,7 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<AddAppointment> call = service.addAppointmentCall(securecode, "",sharedPreferenceActivity.getItem(Constant.USER_DATA),"","",appointment_id  );
+            Call<AddAppointment> call = service.editUserDetailsCall(securecode, sharedPreferenceActivity.getItem(Constant.USER_DATA),user_id  );
             call.enqueue(new Callback<AddAppointment>() {
                 @Override
                 public void onResponse(Call<AddAppointment> call, Response<AddAppointment> response) {
@@ -155,7 +159,7 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
                         }else {
                             AppUtilits.destroyDialog(progressbar);
-                            AppUtilits.displayMessage(mContext, "Unable to cancel appointment please try again  ");
+                            AppUtilits.displayMessage(mContext, "Unable to reject user please try again  ");
                         }
                     }else {
                         AppUtilits.destroyDialog(progressbar);

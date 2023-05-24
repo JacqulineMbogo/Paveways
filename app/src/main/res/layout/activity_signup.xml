@@ -78,7 +78,7 @@
             android:inputType="textPassword"
             android:padding="@dimen/padding_medium"
             android:layout_margin="@dimen/padding_medium"
-            android:hint="@string/retype_password"/>
+            android:hint="@string/retype_password"/>z
 
 
         <TextView

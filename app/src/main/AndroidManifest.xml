@@ -52,6 +52,12 @@
         <activity android:name=".cart.payment2"/>
         <activity android:name=".MyAccount.OrderHistory"/>
         <activity android:name=".MyAccount.OrderHistory_ViewDetails"/>
+        <activity android:name=".Staff.Auth.StaffLogin"/>
+        <activity android:name=".StaffProfile"/>
+        <activity android:name=".Users.Users_Home"/>
+        <activity android:name=".Staff.StaffAppointment.StaffAppointment_History"/>
+        <activity android:name=".TermsAndConditions"/>
+
 
 
     </application>

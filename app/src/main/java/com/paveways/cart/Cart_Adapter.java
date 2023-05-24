@@ -49,7 +49,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     private class cartItemView extends RecyclerView.ViewHolder {
         ImageView prod_img, prod_delete;
-        TextView prod_name, prod_oldPrice, prod_price,confirm;
+        TextView prod_name, stock, prod_price,confirm;
         CardView cardView;
         EditText prod_qty;
 
@@ -58,6 +58,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             prod_img = (ImageView) itemView.findViewById(R.id.prod_img);
             prod_name = (TextView) itemView.findViewById(R.id.prod_name);
             prod_price = (TextView) itemView.findViewById(R.id.prod_price);
+            stock = (TextView) itemView.findViewById(R.id.stock);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
 
             prod_delete = (ImageView) itemView.findViewById(R.id.cart_delete);
@@ -83,6 +84,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         ((cartItemView) holder).prod_name.setText(model.getProd_name());
         ((cartItemView) holder).prod_price.setText(model.getPrice());
         ((cartItemView) holder).prod_qty.setText(model.getQty());
+        ((cartItemView) holder).stock.setText(model.getOld_price());
 
 
         Glide.with(mContext)

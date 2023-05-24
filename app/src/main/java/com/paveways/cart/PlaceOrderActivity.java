@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.paveways.Listings.Listings_Activity;
 import com.paveways.R;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
@@ -226,6 +227,41 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
 
         }
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(PlaceOrderActivity.this);
+        alertDialog.setTitle("Cancel Request Confirmation!");
+        alertDialog.setMessage("By going back, your order will be cancelled,\n\n" +
+                "You cannot make any changes upon submitting\n\n" +
+                "Would you like to proceed?\n\n");
+        alertDialog.setNeutralButton("No, Stop", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        }).setPositiveButton("Yes, Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent1 = new Intent(PlaceOrderActivity.this, Listings_Activity.class);
+
+                startActivity(intent1);
+                Toast.makeText(getApplicationContext(),"Order Cancelled",Toast.LENGTH_LONG).show();
+
+            }
+
+        }).show();
+
+
+
 
 
     }

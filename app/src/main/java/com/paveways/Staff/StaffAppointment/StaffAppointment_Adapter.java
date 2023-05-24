@@ -1,4 +1,4 @@
-package com.paveways.Appointment;
+package com.paveways.Staff.StaffAppointment;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,10 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.paveways.Listings.Listing_Details;
-import com.paveways.Listings.Listing_Details_Adapter;
 import com.paveways.R;
-import com.paveways.Staff.StaffAppointment.StaffAppointment_Adapter;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.NetworkUtility;
@@ -35,16 +31,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class StaffAppointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<Appointment_Model> history_model;
+    private List<StaffAppointment_Model> history_model;
     private Context mContext;
     private String TAG = "appointment model adapter";
 
     private ArrayList<RelativeLayout> addrlayoutsList=  new ArrayList<>();
     SharedPreferenceActivity sharedPreferenceActivity;
 
-    public Appointment_Adapter (Context context, List<Appointment_Model> addressModels) {
+    public StaffAppointment_Adapter(Context context, List<StaffAppointment_Model> addressModels) {
         this.history_model = addressModels;
         this.mContext = context;
         sharedPreferenceActivity = new SharedPreferenceActivity(mContext);
@@ -78,7 +74,7 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         Log.e(TAG, "bind view "+ position);
-        final Appointment_Model model =  history_model.get(position);
+        final StaffAppointment_Model model =  history_model.get(position);
 
         ((HistoryItemView) holder).date_time.setText(model.getDate() + ' ' + model.getTime());
 
@@ -86,22 +82,24 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         ((HistoryItemView) holder).status.setText(model.getStatus());
         ((HistoryItemView) holder).comment.setText(model.getComment());
         ((HistoryItemView) holder).property.setText(model.getTitle());
-
         if(!Objects.equals(model.getStatus(), "Pending")){
             ((HistoryItemView) holder).edit.setVisibility(View.INVISIBLE);
             ((HistoryItemView) holder).cancel.setVisibility(View.INVISIBLE);
         }
+
         ((HistoryItemView) holder).edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(mContext, Appointment_Activity.class);
-                intent.putExtra("listing_id","0");
-                intent.putExtra("appointment_id", model.getAppointment_id());
-                intent.putExtra("edit", true);
-
-
-                mContext.startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                builder.setTitle("Confirmation")
+                        .setMessage("Are you sure you want to Approve this appointment?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                bookAppointment("1", model.getAppointment_id());
+                            }
+                        }).setNegativeButton("No", null)
+                        .show();
 
             }
         });
@@ -115,7 +113,7 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                bookAppointment("0", model.getAppointment_id());
+                                bookAppointment("2", model.getAppointment_id());
                             }
                         }).setNegativeButton("No", null)
                         .show();
@@ -131,7 +129,7 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public void bookAppointment(String securecode,String appointment_id){
 
-        final android.app.AlertDialog progressbar = AppUtilits.createProgressBar(mContext,"Cancelling appointment \n Please wait..");
+        final android.app.AlertDialog progressbar = AppUtilits.createProgressBar(mContext,"Please wait..");
 
         if (!NetworkUtility.isNetworkConnected(mContext)){
             AppUtilits.displayMessage(mContext,  mContext.getString(R.string.network_not_connected));
@@ -155,7 +153,7 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
                         }else {
                             AppUtilits.destroyDialog(progressbar);
-                            AppUtilits.displayMessage(mContext, "Unable to cancel appointment please try again  ");
+                            AppUtilits.displayMessage(mContext, "Unable to update appointment please try again  ");
                         }
                     }else {
                         AppUtilits.destroyDialog(progressbar);

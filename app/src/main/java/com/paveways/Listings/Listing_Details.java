@@ -104,7 +104,6 @@ public class Listing_Details extends AppCompatActivity{
                     Intent intent = new Intent(Listing_Details.this, Appointment_Activity.class);
                     intent.putExtra("listing_id", prod_id);
                     intent.putExtra("appointment_id", "0");
-                    intent.putExtra("edit", false);
                     startActivity(intent);
                 }
 

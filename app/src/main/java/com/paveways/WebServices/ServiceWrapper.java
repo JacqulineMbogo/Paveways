@@ -18,6 +18,7 @@ import com.paveways.WebResponse.OrderSummary;
 import com.paveways.WebResponse.PlaceOrder;
 import com.paveways.WebResponse.ProductDetail_Res;
 import com.paveways.WebResponse.SubCategoriesResponse;
+import com.paveways.WebResponse.UserDetails;
 import com.paveways.WebResponse.UserSignInRes;
 import com.paveways.WebResponse.clearbalanceAPI;
 import com.paveways.WebResponse.codeAPI;
@@ -91,6 +92,10 @@ public class ServiceWrapper  {
     public Call<UserSignInRes> UserSigninCall(String user_name, String password){
         return mServiceInterface.UserSigninCall(convertPlainString(user_name),  convertPlainString(password));
     }
+    //staff login
+    public Call<UserSignInRes> staffUserSigninCall(String user_name, String password){
+        return mServiceInterface.StaffUserSigninCall(convertPlainString(user_name),  convertPlainString(password));
+    }
     // get banner image
     public Call<GetbannerModel> getbannerModelCall(String securcode){
         return mServiceInterface.getbannerimagecall(convertPlainString(securcode) );
@@ -133,6 +138,15 @@ public class ServiceWrapper  {
         return mServiceInterface.addAppointmentCall(convertPlainString(securcode), convertPlainString(listing_id),convertPlainString(user_id),convertPlainString(date),convertPlainString(time), convertPlainString(appointment_id) );
     }
 
+    //edit user details
+    public Call<AddAppointment> editUserDetailsCall(String securcode, String staff_id, String user_id){
+        return mServiceInterface.editUserDetailsCall(convertPlainString(securcode), convertPlainString(staff_id),convertPlainString(user_id));
+    }
+
+    public Call<AddAppointment> editOrderDetailsCall(String securcode, String order_id, String user_id){
+        return mServiceInterface.editOrderDetailsCall(convertPlainString(securcode), convertPlainString(order_id),convertPlainString(user_id));
+    }
+
     // add to cart
     public Call<getCartDetails> getCartDetailsCall(String securcode, String qoute_id, String user_id){
         return mServiceInterface.getusercartcall(convertPlainString(securcode), convertPlainString(qoute_id),convertPlainString(user_id) );
@@ -166,6 +180,11 @@ public class ServiceWrapper  {
     // get order history
     public Call<AppointmentHistoryAPI> getAppointmentHistoryCall(String securcode, String user_id){
         return mServiceInterface.getAppointmentHistoryCall(convertPlainString(securcode), convertPlainString(user_id) );
+    }
+
+    //get user details
+    public Call<UserDetails> getuserDetailsHistoryCall(String securcode){
+        return mServiceInterface.getuserDetailsHistoryCall(convertPlainString(securcode));
     }
 
     // get order prodcut detais history

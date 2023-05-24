@@ -41,7 +41,7 @@ public class Appointment_Activity extends AppCompatActivity implements
         View.OnClickListener {
     String TAG = "Appointment Activity";
     private String listing_id="",appointment_id="" ;
-    private Boolean  edit = false;
+
     SharedPreferenceActivity sharedPreferenceActivity;
 
     Button btnDatePicker, btnTimePicker,finish;
@@ -58,7 +58,6 @@ public class Appointment_Activity extends AppCompatActivity implements
         final Intent intent = getIntent();
         listing_id =  intent.getExtras().getString("listing_id");
         appointment_id =  intent.getExtras().getString("appointment_id");
-        edit =  intent.getExtras().getBoolean("edit");
 
         btnDatePicker=(Button)findViewById(R.id.btn_date);
         btnTimePicker=(Button)findViewById(R.id.btn_time);

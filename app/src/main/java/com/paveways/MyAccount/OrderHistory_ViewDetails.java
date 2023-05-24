@@ -192,7 +192,7 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
             call.enqueue(new Callback<GetOrderProductDetails>() {
                 @Override
                 public void onResponse(Call<GetOrderProductDetails> call, Response<GetOrderProductDetails> response) {
-                    //   Log.e(TAG, "response is " + response.body() + "  ---- " + new Gson().toJson(response.body()));
+                     Log.e(TAG, "response is " + response.body() + "  ---- " + new Gson().toJson(response.body()));
                     //  Log.e(TAG, "  ss sixe 1 ");
                     if (response.body() != null && response.isSuccessful()) {
                         //    Log.e(TAG, "  ss sixe 2 ");
@@ -201,7 +201,8 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
                             if (response.body().getInformation().size()>0){
                                 subtotal_value.setText(response.body().getSubtotal());
                                 shipping_value.setText(response.body().getShippingfee());
-                                if(Integer.parseInt(String.valueOf(response.body().getGrandtotal()))>0){
+                                if(response.body().getGrandtotal() != null){
+                                if(Integer.parseInt(String.valueOf(response.body().getGrandtotal()))>0 ) {
                                     order_total.setVisibility(View.VISIBLE);
 
                                     layout2.setVisibility(View.VISIBLE);
@@ -211,13 +212,12 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
 
                                     sharedPreferenceActivity.putItem(Constant.VIEW_TOTAL, response.body().getShippingfee());
                                     sharedPreferenceActivity.putItem(Constant.VIEW_BALANCE, response.body().getGrandtotal());
-                                       Log.e("SAMPLE", String.valueOf(Constant.VIEW_TOTAL));
+                                    Log.e("SAMPLE", String.valueOf(Constant.VIEW_TOTAL));
 
                                     Log.e("SAMPLE1", String.valueOf(amount));
 
 
-
-
+                                }
 
                                 }
 

@@ -1,10 +1,13 @@
 package com.paveways.WebResponse;
 
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserSignInRes {
+import java.io.Serializable;
+import java.util.List;
+
+public class UserDetails implements Serializable
+{
 
     @SerializedName("status")
     @Expose
@@ -14,7 +17,8 @@ public class UserSignInRes {
     private String msg;
     @SerializedName("Information")
     @Expose
-    private Information information;
+    private List<Information> information;
+    private final static long serialVersionUID = -6321129949709645405L;
 
     public Integer getStatus() {
         return status;
@@ -32,40 +36,42 @@ public class UserSignInRes {
         this.msg = msg;
     }
 
-    public Information getInformation() {
+    public List<Information> getInformation() {
         return information;
     }
 
-    public void setInformation(Information information) {
+    public void setInformation(List<Information> information) {
         this.information = information;
     }
 
-    public class Information {
+    public class Information implements Serializable
+    {
 
         @SerializedName("user_id")
         @Expose
         private String userId;
-        @SerializedName("full_name")
+        @SerializedName("fullname")
         @Expose
         private String fullname;
+        @SerializedName("uname")
+        @Expose
+        private String uname;
         @SerializedName("email")
         @Expose
         private String email;
-        @SerializedName("phone_number")
+        @SerializedName("phone")
         @Expose
         private String phone;
-
-        @SerializedName("username")
+        @SerializedName("date")
         @Expose
-        private String username;
-
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
+        private String date;
+        @SerializedName("status")
+        @Expose
+        private String status;
+        @SerializedName("comment")
+        @Expose
+        private String comment;
+        private final static long serialVersionUID = 5487068151919722395L;
 
         public String getUserId() {
             return userId;
@@ -81,6 +87,14 @@ public class UserSignInRes {
 
         public void setFullname(String fullname) {
             this.fullname = fullname;
+        }
+
+        public String getUname() {
+            return uname;
+        }
+
+        public void setUname(String uname) {
+            this.uname = uname;
         }
 
         public String getEmail() {
@@ -99,5 +113,30 @@ public class UserSignInRes {
             this.phone = phone;
         }
 
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getComment() {
+            return comment;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
+
     }
+
 }

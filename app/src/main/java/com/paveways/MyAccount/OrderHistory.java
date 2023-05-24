@@ -33,6 +33,7 @@ import retrofit2.Response;
 public class OrderHistory extends AppCompatActivity {
 
     private String TAG = "orderhistory";
+    private String securecode;
     private RecyclerView recyclerView_order;
     private ArrayList<orderhistory_model> Models = new ArrayList<>();
     private OrderHistory_Adapter adapter;
@@ -45,7 +46,8 @@ public class OrderHistory extends AppCompatActivity {
         context= this;
         sharedPreferenceActivity = new SharedPreferenceActivity(context);
 
-
+        final Intent intent = getIntent();
+        securecode =  intent.getExtras().getString("securecode");
 
         recyclerView_order = (RecyclerView) findViewById(R.id.recycler_orderhistory);
         LinearLayoutManager mLayoutManger3 = new LinearLayoutManager( this, RecyclerView.VERTICAL, false);
@@ -68,7 +70,7 @@ public class OrderHistory extends AppCompatActivity {
         }else {
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<OrderHistoryAPI> call = service.getorderhistorycall("1234", sharedPreferenceActivity.getItem(Constant.USER_DATA));
+            Call<OrderHistoryAPI> call = service.getorderhistorycall(securecode, sharedPreferenceActivity.getItem(Constant.USER_DATA));
             call.enqueue(new Callback<OrderHistoryAPI>() {
                 @Override
                 public void onResponse(Call<OrderHistoryAPI> call, Response<OrderHistoryAPI> response) {
@@ -84,7 +86,7 @@ public class OrderHistory extends AppCompatActivity {
 
                                 for (int i =0; i<response.body().getInformation().size(); i++){
 
-                                    Models.add(  new orderhistory_model(response.body().getInformation().get(i).getOrderId(), response.body().getInformation().get(i).getShippingaddress(),
+                                    Models.add(  new orderhistory_model(response.body().getInformation().get(i).getOrderId(), securecode,
                                             response.body().getInformation().get(i).getPrice(), response.body().getInformation().get(i).getDate()));
 
 

@@ -258,7 +258,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/make_payment"
-                        android:text="Buy Property"
+                        android:text="Rent Property"
                         android:background="@drawable/rounded_green"
                         android:drawableEnd="@drawable/cart"
                         android:textColor="@color/white"

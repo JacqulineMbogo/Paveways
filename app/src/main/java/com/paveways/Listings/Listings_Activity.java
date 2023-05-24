@@ -197,6 +197,7 @@ public class Listings_Activity extends AppCompatActivity  {
                 return true;
             case R.id.listings:
                 Intent intent1 = new Intent(Listings_Activity.this, OrderHistory.class);
+                intent1.putExtra("securecode","1");
                 startActivity(intent1);
                 return true;
             case R.id.booking:

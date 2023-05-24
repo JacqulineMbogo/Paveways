@@ -24,6 +24,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.paveways.Listings.Listings_Activity;
 import com.paveways.R;
+import com.paveways.TermsAndConditions;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.NetworkUtility;
@@ -77,7 +78,7 @@ public class CartDetails extends AppCompatActivity {
             public void onClick(View view) {
 
                 getUserCartDetails();
-                Intent intent = new Intent(CartDetails.this , Order_Summary. class);
+                Intent intent = new Intent(CartDetails.this , TermsAndConditions. class);
                 startActivity(intent);
 
 
@@ -136,7 +137,7 @@ public class CartDetails extends AppCompatActivity {
 
                                 cartitemModels.add( new Cartitem_Model(response.body().getInformation().getProdDetails().get(i).getId(),
                                         response.body().getInformation().getProdDetails().get(i).getName(),
-                                        response.body().getInformation().getProdDetails().get(i).getImgUrl(),"",
+                                        response.body().getInformation().getProdDetails().get(i).getImgUrl(),response.body().getInformation().getProdDetails().get(i).getMrp(),
                                         response.body().getInformation().getProdDetails().get(i).getPrice(), response.body().getInformation().getProdDetails().get(i).getQty()));
 
                             }
