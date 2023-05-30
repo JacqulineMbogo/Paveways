@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingTop="@dimen/padding_small"
-    android:paddingBottom="@dimen/padding_small">
+    android:padding="@dimen/padding_small"
+    >
 
 
     <TextView
@@ -13,24 +13,27 @@
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:id="@+id/prod_name"
+        android:gravity="center"
         android:textColor="@color/black"
-        android:gravity="left|center_vertical" />
+         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:id="@+id/prod_qty"
+        android:gravity="center"
         android:textColor="@color/black"
-        android:gravity="center" />
+        />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
+        android:gravity="center"
         android:id="@+id/prod_price"
         android:textColor="@color/black"
-        android:gravity="center" />
+       />
 
 
 </LinearLayout>

@@ -141,7 +141,7 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<AddAppointment> call = service.addAppointmentCall(securecode, "",sharedPreferenceActivity.getItem(Constant.USER_DATA),"","",appointment_id  );
+            Call<AddAppointment> call = service.addAppointmentCall(securecode, "",sharedPreferenceActivity.getItem(Constant.USER_DATA),"","",appointment_id ,"" );
             call.enqueue(new Callback<AddAppointment>() {
                 @Override
                 public void onResponse(Call<AddAppointment> call, Response<AddAppointment> response) {

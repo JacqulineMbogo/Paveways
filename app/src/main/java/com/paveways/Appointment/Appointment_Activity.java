@@ -165,7 +165,7 @@ public class Appointment_Activity extends AppCompatActivity implements
 
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<AddAppointment> call = service.addAppointmentCall(securecode, listing_id,sharedPreferenceActivity.getItem(Constant.USER_DATA),txtDate.getText().toString(),txtTime.getText().toString(),appointment_id  );
+            Call<AddAppointment> call = service.addAppointmentCall(securecode, listing_id,sharedPreferenceActivity.getItem(Constant.USER_DATA),txtDate.getText().toString(),txtTime.getText().toString(),appointment_id ,"" );
             call.enqueue(new Callback<AddAppointment>() {
                 @Override
                 public void onResponse(Call<AddAppointment> call, Response<AddAppointment> response) {

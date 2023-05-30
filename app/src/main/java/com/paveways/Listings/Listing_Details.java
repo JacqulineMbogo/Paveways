@@ -37,13 +37,15 @@ import com.paveways.WebResponse.ProductDetail_Res;
 import com.paveways.WebServices.ServiceWrapper;
 import com.paveways.cart.CartDetails;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Listing_Details extends AppCompatActivity{
     private String TAG ="listingDetails";
-    private String prod_id="";
+    private String prod_id="", stype = "";
     SharedPreferenceActivity sharedPreferenceActivity;
     Context context;
     private TextView prod_name, prod_price, book_visit,make_payment, prod_stock,description,type,status,date,bathrooms,bedrooms;
@@ -165,6 +167,12 @@ public class Listing_Details extends AppCompatActivity{
                                 date.setText(response.body().getInformation().getDate());
                                 bathrooms.setText(response.body().getInformation().getBathroom());
                                 bedrooms.setText(response.body().getInformation().getBedroom());
+                                if(Objects.equals(response.body().getInformation().getStype(), "sale")){
+                                    stype = "Buy";
+                                }else{
+                                    stype = "Rent";
+                                }
+                                make_payment.setText(stype + " Property");
 
                             }
 

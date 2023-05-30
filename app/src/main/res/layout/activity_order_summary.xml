@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:paddingRight="@dimen/padding_small"
-        android:paddingLeft="@dimen/padding_small">
 
 
         <LinearLayout
@@ -30,8 +19,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:gravity="left"
                 android:text="@string/prod_name"
+                android:gravity="center"
                 android:textColor="@color/black"/>
 
             <TextView
@@ -59,101 +48,101 @@
             android:layout_marginTop="3dp"
             android:layout_marginBottom="2dp"
             android:background="@color/black"
-            android:layout_below="@id/layout_1"/>
+           />
 
 
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:id="@+id/item_recyclerview"
-            android:layout_below="@id/line1"
             android:padding="@dimen/padding_small">
 
         </androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:orientation="horizontal"
             android:id="@+id/line2"
-            android:layout_marginTop="@dimen/padding_small"
-            android:layout_marginBottom="@dimen/padding_medium"
-            android:background="@color/black"
-            android:layout_below="@id/item_recyclerview"/>
-
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/padding_small"
+            android:background="@color/black" />
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_gravity="end"
             android:layout_height="wrap_content"
-            android:minWidth="100dp"
-            android:id="@+id/subtotal_value"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Subtotal"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/padding_medium"/>
+            <TextView
+                android:id="@+id/subtotal_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="2"
+                android:layout_margin="10dp"/>
 
-            android:textColor="@color/black"
-            android:layout_below="@id/line2"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/padding_small"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_gravity="end"
             android:layout_height="wrap_content"
-            android:minWidth="100dp"
-            android:id="@+id/subtotal"
-            android:text="@string/cart_subtotal"
-            android:textColor="@color/black"
-            android:layout_below="@id/line2"
-            android:layout_toLeftOf="@id/subtotal_value"
-            android:layout_marginRight="@dimen/padding_medium"/>
-
-
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Facilitation Fee"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minWidth="100dp"
+            android:layout_weight="2"
             android:id="@+id/shipping_value"
-            android:visibility="gone"
             android:textColor="@color/black"
-            android:layout_below="@id/subtotal_value"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/padding_small"
-            android:layout_marginTop="@dimen/padding_small"/>
+            android:layout_margin="10dp"
+            />
 
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_gravity="end"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minWidth="100dp"
-            android:visibility="gone"
-            android:id="@+id/shipping_fee"
-            android:text="@string/shipping_fee"
+            android:layout_weight="2"
+            android:text="Total"
             android:textColor="@color/black"
-            android:layout_below="@id/subtotal"
-            android:layout_toLeftOf="@id/subtotal_value"
-            android:layout_marginRight="@dimen/padding_medium"
-            android:layout_marginTop="@dimen/padding_small"/>
-
+            android:layout_margin="@dimen/padding_medium"
+            />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minWidth="100dp"
+            android:layout_weight="2"
             android:id="@+id/order_total_value"
             android:textColor="@color/black"
-            android:layout_below="@id/subtotal_value"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/padding_small"
-            android:layout_marginTop="@dimen/padding_medium"/>
+            android:layout_margin="10dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="100dp"
-            android:id="@+id/order_total"
-            android:text="@string/order_total"
-            android:textColor="@color/black"
-            android:layout_below="@id/subtotal_value"
-            android:layout_toLeftOf="@id/subtotal_value"
-            android:layout_marginRight="@dimen/padding_medium"
-            android:layout_marginTop="@dimen/padding_medium"/>
 
+    </LinearLayout>
         <TextView
             android:id="@+id/place_order"
             android:layout_width="match_parent"
@@ -165,11 +154,8 @@
             android:layout_marginBottom="@dimen/text_extra_large"
             android:background="@drawable/rounded_green"
             android:gravity="center_horizontal"
-            android:text="@string/place_order"
+            android:text="Continue"
             android:textColor="@color/white" />
-
-    </RelativeLayout>
-    </ScrollView>
 
 
 </LinearLayout>

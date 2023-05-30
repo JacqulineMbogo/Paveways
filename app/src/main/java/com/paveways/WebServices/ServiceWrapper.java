@@ -134,8 +134,8 @@ public class ServiceWrapper  {
         return mServiceInterface.addtocartcall(convertPlainString(securcode), convertPlainString(prod_id),convertPlainString(user_id) );
     }
 
-    public Call<AddAppointment> addAppointmentCall(String securcode, String listing_id, String user_id, String date, String time, String appointment_id){
-        return mServiceInterface.addAppointmentCall(convertPlainString(securcode), convertPlainString(listing_id),convertPlainString(user_id),convertPlainString(date),convertPlainString(time), convertPlainString(appointment_id) );
+    public Call<AddAppointment> addAppointmentCall(String securcode, String listing_id, String user_id, String date, String time, String appointment_id, String comment){
+        return mServiceInterface.addAppointmentCall(convertPlainString(securcode), convertPlainString(listing_id),convertPlainString(user_id),convertPlainString(date),convertPlainString(time), convertPlainString(appointment_id),convertPlainString(comment)  );
     }
 
     //edit user details

@@ -88,7 +88,7 @@ public class Listings_Activity extends AppCompatActivity  {
         spinnerData.add("house");
         spinnerData.add("apartment");
         spinnerData.add("office");
-        spinnerData.add("villa");
+        spinnerData.add("land");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerData);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

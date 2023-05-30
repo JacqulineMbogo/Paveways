@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.paveways.Appointment.Appointment_Activity;
+import com.paveways.Appointment.Appointment_Adapter;
 import com.paveways.R;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
@@ -48,7 +51,7 @@ public class StaffAppointment_Adapter extends RecyclerView.Adapter<RecyclerView.
     }
     private class HistoryItemView extends RecyclerView.ViewHolder {
         TextView  date_time, status, comment, property ;
-        ImageView edit, cancel;
+        ImageView edit, cancel,approve;
 
 
         public HistoryItemView(View itemView) {
@@ -59,6 +62,7 @@ public class StaffAppointment_Adapter extends RecyclerView.Adapter<RecyclerView.
             property = (TextView) itemView.findViewById(R.id.property);
             edit = (ImageView) itemView.findViewById(R.id.edit);
             cancel = (ImageView) itemView.findViewById(R.id.cancel);
+            approve = (ImageView) itemView.findViewById(R.id.approve);
                    }
     }
 
@@ -82,24 +86,47 @@ public class StaffAppointment_Adapter extends RecyclerView.Adapter<RecyclerView.
         ((HistoryItemView) holder).status.setText(model.getStatus());
         ((HistoryItemView) holder).comment.setText(model.getComment());
         ((HistoryItemView) holder).property.setText(model.getTitle());
+        ((HistoryItemView) holder).approve.setVisibility(View.VISIBLE);
+        ((HistoryItemView) holder).edit.setVisibility(View.GONE);
         if(!Objects.equals(model.getStatus(), "Pending")){
-            ((HistoryItemView) holder).edit.setVisibility(View.INVISIBLE);
+            ((HistoryItemView) holder).approve.setVisibility(View.INVISIBLE);
             ((HistoryItemView) holder).cancel.setVisibility(View.INVISIBLE);
         }
 
-        ((HistoryItemView) holder).edit.setOnClickListener(new View.OnClickListener() {
+        ((HistoryItemView) holder).approve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+
+                // Inflate the layout XML file containing the EditText
+                LayoutInflater inflater = LayoutInflater.from(mContext);
+                View dialogView = inflater.inflate(R.layout.dialog_layout, null);
+                EditText editText = dialogView.findViewById(R.id.editText);
                 builder.setTitle("Confirmation")
-                        .setMessage("Are you sure you want to Approve this appointment?")
+                        .setMessage("Are you sure you want to Approve this appointment? If so, add comments to give more details on the visit below: ")
+                        .setView(dialogView)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                bookAppointment("1", model.getAppointment_id());
+                                String userInput = editText.getText().toString();
+                                bookAppointment("1", model.getAppointment_id(),userInput);
                             }
                         }).setNegativeButton("No", null)
                         .show();
+
+            }
+        });
+        ((HistoryItemView) holder).edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(mContext, Appointment_Activity.class);
+                intent.putExtra("listing_id","0");
+                intent.putExtra("appointment_id", model.getAppointment_id());
+                intent.putExtra("edit", true);
+
+
+                mContext.startActivity(intent);
 
             }
         });
@@ -108,15 +135,24 @@ public class StaffAppointment_Adapter extends RecyclerView.Adapter<RecyclerView.
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+
+                // Inflate the layout XML file containing the EditText
+                LayoutInflater inflater = LayoutInflater.from(mContext);
+                View dialogView = inflater.inflate(R.layout.dialog_layout, null);
+                EditText editText = dialogView.findViewById(R.id.editText);
+
                 builder.setTitle("Confirmation")
-                        .setMessage("Are you sure you want to cancel this appointment?")
+                        .setMessage("Are you sure you want to cancel this appointment? If so, please provide your reason below:")
+                        .setView(dialogView)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                bookAppointment("2", model.getAppointment_id());
+                                String userInput = editText.getText().toString();
+                                bookAppointment("2", model.getAppointment_id(),userInput);
                             }
                         }).setNegativeButton("No", null)
                         .show();
+
             }
         });
 
@@ -127,7 +163,7 @@ public class StaffAppointment_Adapter extends RecyclerView.Adapter<RecyclerView.
         return history_model.size();
     }
 
-    public void bookAppointment(String securecode,String appointment_id){
+    public void bookAppointment(String securecode,String appointment_id, String comment){
 
         final android.app.AlertDialog progressbar = AppUtilits.createProgressBar(mContext,"Please wait..");
 
@@ -139,7 +175,7 @@ public class StaffAppointment_Adapter extends RecyclerView.Adapter<RecyclerView.
 
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<AddAppointment> call = service.addAppointmentCall(securecode, "",sharedPreferenceActivity.getItem(Constant.USER_DATA),"","",appointment_id  );
+            Call<AddAppointment> call = service.addAppointmentCall(securecode, "",sharedPreferenceActivity.getItem(Constant.USER_DATA),"","",appointment_id ,comment );
             call.enqueue(new Callback<AddAppointment>() {
                 @Override
                 public void onResponse(Call<AddAppointment> call, Response<AddAppointment> response) {

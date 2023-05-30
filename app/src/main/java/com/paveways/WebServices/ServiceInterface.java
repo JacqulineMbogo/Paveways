@@ -128,7 +128,8 @@ public interface ServiceInterface {
             @Part("user_id") RequestBody user_id,
             @Part("date") RequestBody date,
             @Part("time") RequestBody time,
-            @Part("appointment_id") RequestBody appointment_id
+            @Part("appointment_id") RequestBody appointment_id,
+            @Part("comment") RequestBody comment
 
     );
 
