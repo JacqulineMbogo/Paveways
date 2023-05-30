@@ -57,6 +57,7 @@
         <activity android:name=".Users.Users_Home"/>
         <activity android:name=".Staff.StaffAppointment.StaffAppointment_History"/>
         <activity android:name=".TermsAndConditions"/>
+        <activity android:name=".MyAccount.generate_receipts"/>
 
 
 

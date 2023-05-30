@@ -2,11 +2,20 @@ package com.paveways.Home;
 
 public class Categories_Model {
 
-    String id, name;
+    String id, name,model;
 
-    public Categories_Model(String id, String name) {
+    public Categories_Model(String id, String name, String model) {
         this.id = id;
         this.name = name;
+        this.model = model;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public String getId() {

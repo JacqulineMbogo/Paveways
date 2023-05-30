@@ -6,12 +6,15 @@
     android:orientation="vertical">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar1"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/black"
+            android:background="@color/rounded"/>
 
     </com.google.android.material.appbar.AppBarLayout>
     <ImageView
@@ -24,7 +27,6 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Available Property"
         android:layout_marginTop="@dimen/padding_medium"
         android:layout_marginBottom="@dimen/padding_medium"
         android:gravity="center_horizontal"
@@ -49,7 +51,41 @@
             />
             </LinearLayout>
 
+<LinearLayout
+    android:id="@+id/linear_for"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
+    <TextView
+        android:id="@+id/rent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:background="@drawable/rounder_small_green"
+        android:gravity="center_horizontal"
+        android:text="For Rent"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:textColor="@color/white"
+         />
 
+    <TextView
+        android:id="@+id/sale"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:background="@drawable/rounder_small_green"
+        android:gravity="center_horizontal"
+        android:text="For Sale"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        />
+
+</LinearLayout>
 
 
     <LinearLayout

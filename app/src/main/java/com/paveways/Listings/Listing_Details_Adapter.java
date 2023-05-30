@@ -31,6 +31,8 @@ public class Listing_Details_Adapter extends RecyclerView.Adapter<RecyclerView.V
 
     }
 
+
+
     private class ListingsHolder extends RecyclerView.ViewHolder {
 
         TextView name;
@@ -91,6 +93,11 @@ public class Listing_Details_Adapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public int getItemCount() {
         return mListingsList.size();
+    }
+
+    public void clear() {
+        mListingsList.clear();
+        notifyDataSetChanged();
     }
 
 }

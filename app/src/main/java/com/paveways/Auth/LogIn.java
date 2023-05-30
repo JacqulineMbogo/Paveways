@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.paveways.Home.HomeActivity;
 import com.paveways.R;
 import com.paveways.Listings.Listings_Activity;
 import com.paveways.Staff.Auth.StaffLogin;
@@ -111,7 +112,7 @@ public class LogIn extends AppCompatActivity {
                             sharedPreferenceActivity.putItem(Constant.USER_phone, response.body().getInformation().getPhone());
 
                             AppUtilits.createToaster(LogIn.this, "Welcome, "+sharedPreferenceActivity.getItem(Constant.USER_name),Toast.LENGTH_LONG);
-                            Intent intent = new Intent(LogIn.this, Listings_Activity.class);
+                            Intent intent = new Intent(LogIn.this, HomeActivity.class);
                             startActivity(intent);
                             //finish();
 

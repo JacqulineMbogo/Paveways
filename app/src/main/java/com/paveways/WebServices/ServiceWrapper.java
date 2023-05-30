@@ -112,8 +112,8 @@ public class ServiceWrapper  {
     }
 
     // get listing
-    public Call<ListingsResponse> ListingsResponseCall(String securcode, String selectedOption){
-        return mServiceInterface.ListingsResponseCall(convertPlainString(securcode), convertPlainString(selectedOption));
+    public Call<ListingsResponse> ListingsResponseCall(String securcode, String selectedOption, String stype){
+        return mServiceInterface.ListingsResponseCall(convertPlainString(securcode), convertPlainString(selectedOption), convertPlainString(stype));
     }
 
     // get product detials

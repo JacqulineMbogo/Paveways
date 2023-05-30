@@ -18,7 +18,7 @@ public class Constant {
 
     public static final String USER_Totalprice = "USER_Totalprice";
 
-    public static final String USER_password = "USER_password";
+    public static final String SELECTED_CATEGORY = "selected_category";
     public static final String USER_phone = "USER_phone";
     public static final String DEPARTMENT = "department";
     public static final String USER_staffphone = "USER_staffphone";

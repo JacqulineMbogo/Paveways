@@ -6,13 +6,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.paveways.R;
 import com.paveways.Listings.Listings_Activity;
+import com.paveways.cart.Cart_Adapter;
 
 import java.util.List;
 
@@ -34,6 +37,7 @@ public class Categories_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         TextView  name;
         CardView cardView;
+        ImageView prod_img;
 
 
         public CategoriesHolder(View itemView) {
@@ -41,6 +45,7 @@ public class Categories_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
             name = (TextView) itemView.findViewById(R.id.name);
             cardView = itemView.findViewById(R.id.card_view);
+            prod_img = itemView.findViewById(R.id.prod_img);
 
 
         }
@@ -60,19 +65,17 @@ public class Categories_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         ((CategoriesHolder) holder).name.setText(model.getName());
 
 
+        Glide.with(mContext)
+                .load("https://demkadairy.co.ke/paveways/admin/property/"+ model.getModel())
+                .into(((Categories_Adapter.CategoriesHolder) holder).prod_img);
         ((Categories_Adapter.CategoriesHolder) holder).cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(mContext, Listings_Activity.class);
-                intent.putExtra("prod_id", model.getId());
-                intent.putExtra("prod_name", model.getName());
+                intent.putExtra("category_id", model.getId());
 
                 mContext.startActivity(intent);
-
-                //  Log.e(TAG, "  prod_id "+String.valueOf(prod_id));
-
-
 
             }
         });

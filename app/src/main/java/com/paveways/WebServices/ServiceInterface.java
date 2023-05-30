@@ -83,7 +83,8 @@ public interface ServiceInterface {
     @POST("get_listings.php")
     Call<ListingsResponse> ListingsResponseCall(
             @Part("securecode") RequestBody securecode,
-            @Part("selectedOption") RequestBody selectedOption
+            @Part("selectedOption") RequestBody selectedOption,
+            @Part("stype") RequestBody stype
              );
     // get product details
     @Multipart
