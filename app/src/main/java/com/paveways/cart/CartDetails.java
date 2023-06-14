@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
+import com.paveways.Home.HomeActivity;
 import com.paveways.Listings.Listings_Activity;
 import com.paveways.R;
 import com.paveways.TermsAndConditions;
@@ -89,7 +90,7 @@ public class CartDetails extends AppCompatActivity {
             public void onClick(View view) {
                 getUserCartDetails();
 
-                Intent intent = new Intent(CartDetails.this , Listings_Activity. class);
+                Intent intent = new Intent(CartDetails.this , HomeActivity.class);
                 startActivity(intent);
 
 
@@ -127,7 +128,7 @@ public class CartDetails extends AppCompatActivity {
                             Log.e(TAG, " size is  "+ String.valueOf(response.body().getInformation().getProdDetails().size()));
                             sharedPreferenceActivity.putItem( Constant.CART_ITEM_COUNT, response.body().getInformation().getProdDetails().size()  );
 
-                           sharedPreferenceActivity.putItem(Constant.USER_Totalprice, response.body().getInformation().getTotalprice());
+                           sharedPreferenceActivity.putItem(Constant.USER_SubTotalprice, response.body().getInformation().getTotalprice());
 
                             Log.d("YYY", String.valueOf(response.body().getInformation().getTotalprice()));
                             cartitemModels.clear();

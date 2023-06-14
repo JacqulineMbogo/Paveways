@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,7 @@ public class Listing_Details extends AppCompatActivity{
     private double latitude ;  // Sample latitude
     private double longitude;  // Sample longitude
     private Button openMapsButton;
+    LinearLayout bedbaths;
 
 
 
@@ -82,6 +84,7 @@ public class Listing_Details extends AppCompatActivity{
         date=findViewById(R.id.date);
         bathrooms=findViewById(R.id.bathrooms);
         bedrooms=findViewById(R.id.bedrooms);
+        bedbaths = findViewById(R.id.bedbaths);
 
         Log.d(TAG,sharedPreferenceActivity.getItem(Constant.USER_DATA));
 
@@ -167,13 +170,15 @@ public class Listing_Details extends AppCompatActivity{
                                 date.setText(response.body().getInformation().getDate());
                                 bathrooms.setText(response.body().getInformation().getBathroom());
                                 bedrooms.setText(response.body().getInformation().getBedroom());
-                                if(Objects.equals(response.body().getInformation().getStype(), "sale")){
+                                if(Objects.equals(response.body().getInformation().getStype(), "sale") || Objects.equals(response.body().getInformation().getStype(), "own")){
                                     stype = "Buy";
                                 }else{
                                     stype = "Rent";
                                 }
                                 make_payment.setText(stype + " Property");
-
+                                if(Objects.equals(response.body().getInformation().getType(), "land")){
+                                    bedbaths.setVisibility(View.GONE);
+                                }
                             }
 
 

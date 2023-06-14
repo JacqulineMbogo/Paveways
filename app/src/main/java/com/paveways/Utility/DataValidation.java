@@ -115,6 +115,11 @@ public class DataValidation  {
         }
         return valid;
     }
+    public static boolean isAmountLessThanHalf(double amount,double total) {
+        double halfAmount = total / 2;
+        return amount < halfAmount;
+    }
+
 
 
 }

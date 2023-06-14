@@ -74,8 +74,14 @@ public class payment2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if ( DataValidation.isAmountLessThanHalf(Double.parseDouble(payment_amount.getText().toString()), Double.parseDouble(sharedPreferenceActivity.getItem(Constant.TOTAL_TOTAL)))){
+                    Toast.makeText(getApplicationContext(),"Payment Amount should not be less than half of the total ",Toast.LENGTH_LONG).show();
 
-                makepayment();
+                }else {
+                    makepayment();
+
+                }
+
             }
 
 

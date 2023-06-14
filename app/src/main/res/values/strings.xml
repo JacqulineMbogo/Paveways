@@ -145,9 +145,9 @@
 
 
     <string name="thanks">Thank You For Joining us</string>
-    <string name="thankshop">Thank You For Shopping With us</string>
+    <string name="thankshop">Hurrah! You got this far!</string>
     <string name="your_request">Please Wait \n For Admin Approval</string>
-    <string name="paynow">Please make your payment here upon order approval </string>
+    <string name="paynow">Please make your payment here upon order approval. \n Kindly note that payment should be more than half of the total amount </string>
 
     <string name="paynow3">Make your payment here \n it should constitute shipping fee only</string>
     <string name="payments">Your payment is successful \n Please check your order details for updates </string>
@@ -289,23 +289,22 @@
     <string name="units">Available Units</string>
     <string name="terms_and_conditions_content">
     <![CDATA[
-    Welcome to the Paveways Rental App!
-    By using this app, you agree to the following terms and conditions:
+        "By proceeding, you agree to the following terms and conditions: \n\n"
 
-        The app is for informational purposes only and does not guarantee the availability or accuracy of property listings.
+        "The app is for informational purposes only and does not guarantee the availability or accuracy of property listings.\n\n"
 
-        A one-month rental deposit is mandatory for all rental properties, along with a monthly maintenance fee of Ksh 10,000.
-        For land purchases, a deposit of at least half of the total price must be made before proceeding with any further processes.
-        A facilitation fee of Ksh 10,000 is required for all land purchasing processes.
+        "A monthly maintenance fee of Ksh 10,000 is required for all house property.\n"
+        "For land purchases, a deposit of at least half of the total price must be made before proceeding with any further processes.\n"
+        "A facilitation fee of Ksh 10,000 is required for all land purchasing processes.\n\n"
 
 
-        Users are responsible for verifying the details and authenticity of property listings before making any rental decisions.
-        The app is not liable for any transactions, disputes, or issues arising between property owners and renters.
-        Users must comply with local laws, regulations, and rental agreements when using the app.
-        The app may collect and use personal information as outlined in the Privacy Policy.
-        The app reserves the right to modify or terminate its services without prior notice.
-        Users are solely responsible for any actions taken using their account credentials.
-        The app may use cookies or similar technologies to enhance user experience.
+        Users are responsible for verifying the details and authenticity of property listings before making any rental decisions.\n\n
+        The app is not liable for any transactions, disputes, or issues arising between property owners and renters.\n\n
+        Users must comply with local laws, regulations, and rental agreements when using the app.\n\n
+        The app may collect and use personal information as outlined in the Privacy Policy.\n\n
+        The app reserves the right to modify or terminate its services without prior notice.\n\n
+        Users are solely responsible for any actions taken using their account credentials.\n\n
+        The app may use cookies or similar technologies to enhance user experience.\n\n
 
     By accepting these terms and conditions, you acknowledge that you have read and understood them.
     ]]>

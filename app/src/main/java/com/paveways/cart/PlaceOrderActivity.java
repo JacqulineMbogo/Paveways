@@ -58,10 +58,8 @@ public class PlaceOrderActivity extends AppCompatActivity {
         context = this;
         sharedPreferenceActivity = new SharedPreferenceActivity(this);
 
-        final Intent intent = getIntent();
-
-        addressid =  intent.getExtras().getString("addressid");
-        pin= intent.getExtras().getString("pin");
+        addressid =  "0";
+        pin= sharedPreferenceActivity.getItem(Constant.USER_Fee);
 
 
 
@@ -70,7 +68,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radiogroup);
 
         totalpricetxt = (TextView) findViewById(R.id.totalpricetxt);
-        //shipping = (TextView) findViewById(R.id.shipping);
+        shipping = (TextView) findViewById(R.id.shipping);
         TOTAL =(TextView) findViewById(R.id.TOTAL);
         pay =  findViewById(R.id.pay);
 
@@ -171,31 +169,17 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
                             sharedPreferenceActivity.putItem(Constant.USER_order_id, response.body().getInformation().getOrderId());
 
-                            totalpricetxt.setText("Subtotal : " + "Ksh " +sharedPreferenceActivity.getItem(Constant.USER_Totalprice));
+                            totalpricetxt.setText("Subtotal : " + "Ksh " +sharedPreferenceActivity.getItem(Constant.USER_SubTotalprice));
 
-                            //shipping.setText("Faciliation Fee : " + "Ksh " +String.valueOf(pin));
-
-                            String totals, shippings;
-                            totals  = sharedPreferenceActivity.getItem(Constant.USER_Totalprice);
-                            shippings  =   String.valueOf(pin);
-                            if(totals.isEmpty())
-                            {
-                                totals  =   "0";
-                            }
-
-                            if(shippings.isEmpty())
-                            {
-                                shippings   =   "0";
-                            }
-
-                            int total= valueOf(totals);
-                            int ship =valueOf(shippings);
-                            int plus = total + ship;
+                            shipping.setText("Faciliation Fee : " + "Ksh " +sharedPreferenceActivity.getItem(Constant.USER_Fee));
 
 
-                            TOTAL.setText("TOTAL : " + "Ksh " +plus);
+                            int plus = Integer.parseInt(sharedPreferenceActivity.getItem(Constant.USER_Totalprice));
 
-                            Log.d("pin", pin);
+
+                            TOTAL.setText("TOTAL : " + "Ksh " + plus);
+
+
                             sharedPreferenceActivity.putItem(Constant.QUOTE_ID, "");
 
                             sharedPreferenceActivity.putItem(Constant.TOTAL_TOTAL,String.valueOf(plus));

@@ -38,7 +38,7 @@ public class Order_Summary extends AppCompatActivity {
     private RecyclerView item_recyclerview;
     private ArrayList<Cartitem_Model> cartitemModels = new ArrayList<>();
     private OrderSummary_Adapter orderSummeryAdapter;
-    private float totalamount =0;
+    private float totalamount =0, subtotal=0;
     Context context;
     SharedPreferenceActivity sharedPreferenceActivity;
 
@@ -75,6 +75,7 @@ public class Order_Summary extends AppCompatActivity {
                 if ( totalamount >0){
 
                     Intent intent = new Intent(Order_Summary.this, PlaceOrderActivity.class);
+                    intent.putExtra("subtotal",  String.valueOf(subtotal));
                     intent.putExtra("amount",  String.valueOf(totalamount));
                     startActivity(intent);
 
@@ -109,8 +110,14 @@ public class Order_Summary extends AppCompatActivity {
                             subtotalvalue.setText("Ksh "+response.body().getInformation().getSubtotal());
                             shippingvalue.setText(response.body().getInformation().getShippingfee());
                             ordertotalvalue.setText("Ksh "+response.body().getInformation().getOrdertotal());
-                            try {
 
+                            sharedPreferenceActivity.putItem(Constant.USER_Totalprice, response.body().getInformation().getOrdertotal());
+                            sharedPreferenceActivity.putItem(Constant.USER_SubTotalprice, response.body().getInformation().getSubtotal());
+                            sharedPreferenceActivity.putItem(Constant.USER_Fee, response.body().getInformation().getShippingfee());
+
+
+                            try {
+                                subtotal = Float.valueOf( response.body().getInformation().getSubtotal());
                                 totalamount = Float.valueOf( response.body().getInformation().getOrdertotal());
 
                             }catch (Exception e){

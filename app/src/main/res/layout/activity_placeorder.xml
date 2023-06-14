@@ -19,7 +19,7 @@
             android:id="@+id/relative_lay1"
            >
             <RadioGroup
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:id="@+id/radiogroup">
@@ -33,11 +33,10 @@
                     android:layout_marginLeft="@dimen/padding_large" />
 
                 <RadioButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/radio_eazybank"
                     android:text="Eazy Pay"
-                    android:visibility="gone"
                     android:layout_marginTop="@dimen/padding_large"
                     android:layout_marginLeft="@dimen/padding_large" />
 
@@ -203,12 +202,25 @@
             android:text="@string/ksh"
             android:gravity="center"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shipping"
+            android:layout_below="@+id/totalpricetxt"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/padding_medium"
+            android:text="@string/ksh"
+            android:gravity="center"/>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/TOTAL"
-            android:layout_below="@+id/totalpricetxt"
+            android:layout_below="@+id/shipping"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"

@@ -17,6 +17,8 @@ public class Constant {
 
 
     public static final String USER_Totalprice = "USER_Totalprice";
+    public static final String USER_SubTotalprice = "USER_SubTotalprice";
+    public static final String USER_Fee = "USER_Fee";
 
     public static final String SELECTED_CATEGORY = "selected_category";
     public static final String USER_phone = "USER_phone";
