@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.paveways.Feedback.FeedbackHistory;
+import com.paveways.Feedback.feedback;
 import com.paveways.Home.HomeActivity;
 import com.paveways.R;
 import com.paveways.Listings.Listings_Activity;
@@ -141,10 +143,14 @@ public class LogIn extends AppCompatActivity {
 
         }
 
+    }
+    @Override
+    public void onBackPressed() {
 
 
+        Intent intent1 = new Intent(LogIn.this, SignUp.class);
 
-
+        startActivity(intent1);
 
 
 

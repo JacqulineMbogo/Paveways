@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.paveways.Auth.LogIn;
+import com.paveways.Auth.SignUp;
 import com.paveways.Listings.Listings_Activity;
 import com.paveways.R;
 import com.paveways.StaffProfile;
@@ -125,9 +127,14 @@ public class StaffLogin extends AppCompatActivity {
         }
 
 
+    }
+    @Override
+    public void onBackPressed() {
 
 
+        Intent intent1 = new Intent(StaffLogin.this, StaffLogin.class);
 
+        startActivity(intent1);
 
 
 

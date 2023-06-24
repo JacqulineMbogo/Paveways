@@ -1,6 +1,7 @@
 package com.paveways.Users;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import com.paveways.Appointment.Appointment_Adapter;
 import com.paveways.Appointment.Appointment_History;
 import com.paveways.Appointment.Appointment_Model;
 import com.paveways.R;
+import com.paveways.Staff.Auth.StaffLogin;
 import com.paveways.StaffProfile;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.NetworkUtility;
@@ -111,6 +113,17 @@ public class Users_Home extends AppCompatActivity {
 
 
         }
+
+
+    }
+    @Override
+    public void onBackPressed() {
+
+
+        Intent intent1 = new Intent(Users_Home.this, StaffProfile.class);
+
+        startActivity(intent1);
+
 
 
     }

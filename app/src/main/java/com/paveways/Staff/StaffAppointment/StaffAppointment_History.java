@@ -1,6 +1,7 @@
 package com.paveways.Staff.StaffAppointment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.paveways.R;
+import com.paveways.StaffProfile;
+import com.paveways.Users.Users_Home;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.NetworkUtility;
@@ -107,6 +110,17 @@ public class StaffAppointment_History extends AppCompatActivity {
 
 
         }
+
+
+    }
+    @Override
+    public void onBackPressed() {
+
+
+        Intent intent1 = new Intent(StaffAppointment_History.this, StaffProfile.class);
+
+        startActivity(intent1);
+
 
 
     }

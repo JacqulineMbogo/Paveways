@@ -9,7 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.paveways.Auth.LogIn;
+import com.paveways.Auth.SignUp;
 import com.paveways.MyAccount.OrderHistory;
+import com.paveways.Staff.Auth.StaffLogin;
 import com.paveways.Staff.StaffAppointment.StaffAppointment_History;
 import com.paveways.Users.Users_Home;
 import com.paveways.Utility.Constant;
@@ -44,10 +47,10 @@ public class StaffProfile extends AppCompatActivity {
         myacc_phone.setText(sharedPreferenceActivity.getItem(Constant.USER_phone));
         department.setText(sharedPreferenceActivity.getItem(Constant.DEPARTMENT) + " Department");
 
-        if(Objects.equals(sharedPreferenceActivity.getItem(Constant.DEPARTMENT), "admin")){
+        if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("admin")){
             orders.setVisibility(View.GONE);
             payments.setVisibility(View.GONE);
-        }else if(Objects.equals(sharedPreferenceActivity.getItem(Constant.DEPARTMENT), "finance")){
+        }else if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("finance")){
             users.setVisibility(View.GONE);
             bookings.setVisibility(View.GONE);
                  }
@@ -85,6 +88,16 @@ public class StaffProfile extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onBackPressed() {
 
+
+        Intent intent1 = new Intent(StaffProfile.this, StaffLogin.class);
+
+        startActivity(intent1);
+
+
+
+    }
 
 }

@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:orientation="vertical"
     android:padding="@dimen/padding_small"
-    android:layout_margin="@dimen/padding_small">
+>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,39 +17,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:id="@+id/name"
             android:textColor="@color/black"
-            android:layout_margin="@dimen/padding_small"/>
+            android:padding="@dimen/padding_small"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:id="@+id/phone"
             android:textColor="@color/black"
-            android:layout_margin="@dimen/padding_small"/>
+            android:padding="@dimen/padding_small"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:id="@+id/email"
             android:textColor="@color/black"
-            android:layout_margin="@dimen/padding_small"/>
+            android:padding="@dimen/padding_small"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:id="@+id/date"
             android:textColor="@color/black"
-            android:layout_margin="@dimen/padding_small"/>
+            android:padding="@dimen/padding_small"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:id="@+id/status"
             android:textColor="@color/black"
-            android:layout_margin="@dimen/padding_small"/>
+            android:padding="@dimen/padding_small"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

@@ -19,7 +19,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
+import com.paveways.Auth.LogIn;
+import com.paveways.Home.HomeActivity;
 import com.paveways.Listings.Listings_Activity;
+import com.paveways.MyAccount.OrderHistory;
 import com.paveways.R;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
@@ -250,6 +253,36 @@ public class payment2 extends AppCompatActivity {
 
         }
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(payment2.this);
+        alertDialog.setTitle("Cancel Request Confirmation!");
+        alertDialog.setMessage(
+                "You cannot make any changes upon submitting\n\n" +
+                        "Would you like to proceed?\n\n");
+        alertDialog.setNeutralButton("No, Stop", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        }).setPositiveButton("Yes, Proceed", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent1 = new Intent(payment2.this, HomeActivity.class);
+
+                startActivity(intent1);
+
+            }
+
+        }).show();
 
     }
 
