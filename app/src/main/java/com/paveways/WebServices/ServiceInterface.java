@@ -14,6 +14,7 @@ import com.paveways.WebResponse.OrderHistoryAPI;
 import com.paveways.WebResponse.OrderSummary;
 import com.paveways.WebResponse.PlaceOrder;
 import com.paveways.WebResponse.ProductDetail_Res;
+import com.paveways.WebResponse.StaffResponse;
 import com.paveways.WebResponse.SubCategoriesResponse;
 import com.paveways.WebResponse.UserDetails;
 import com.paveways.WebResponse.UserSignInRes;
@@ -71,6 +72,11 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode
     );
 
+    @Multipart
+    @POST("get_staff.php")
+    Call<StaffResponse> StaffResponsecall(
+            @Part("securecode") RequestBody securecode
+    );
     // get sub categories
     @Multipart
     @POST("get_sub_category.php")
@@ -109,7 +115,8 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("feed_title") RequestBody feed_title,
             @Part("feed_comment") RequestBody feed_comment,
-            @Part("user_id") RequestBody user_id
+            @Part("user_id") RequestBody user_id,
+            @Part("staff") RequestBody staff
 
     );
     // add to cart

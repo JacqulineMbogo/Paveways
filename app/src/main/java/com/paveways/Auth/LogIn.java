@@ -114,7 +114,7 @@ public class LogIn extends AppCompatActivity {
                             sharedPreferenceActivity.putItem(Constant.USER_name, response.body().getInformation().getFullname());
                             sharedPreferenceActivity.putItem(Constant.USER_email, response.body().getInformation().getEmail());
                             sharedPreferenceActivity.putItem(Constant.USER_phone, response.body().getInformation().getPhone());
-
+                            sharedPreferenceActivity.removeItem(Constant.DEPARTMENT);
                             AppUtilits.createToaster(LogIn.this, "Welcome, "+sharedPreferenceActivity.getItem(Constant.USER_name),Toast.LENGTH_LONG);
                             Intent intent = new Intent(LogIn.this, HomeActivity.class);
                             startActivity(intent);

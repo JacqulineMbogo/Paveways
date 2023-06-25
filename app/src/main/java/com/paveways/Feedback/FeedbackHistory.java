@@ -38,6 +38,7 @@ public class FeedbackHistory extends AppCompatActivity {
     private String TAG = "feedhistory";
     SharedPreferenceActivity sharedPreferenceActivity;
     Context context;
+    private String securecode;
     private TextView feednew;
     private RecyclerView recyclerView_order;
     private ArrayList<feedhistory_model> Models = new ArrayList<>();
@@ -51,6 +52,7 @@ public class FeedbackHistory extends AppCompatActivity {
         sharedPreferenceActivity = new SharedPreferenceActivity(this);
         feednew = findViewById(R.id.newfeedback);
 
+
         recyclerView_order = (RecyclerView) findViewById(R.id.recycler_orderhistory);
         LinearLayoutManager mLayoutManger3 = new LinearLayoutManager( this, LinearLayoutManager.VERTICAL, false);
         recyclerView_order.setLayoutManager(mLayoutManger3);
@@ -60,8 +62,12 @@ public class FeedbackHistory extends AppCompatActivity {
 
         recyclerView_order.setAdapter(adapter);
 
-
-        getUserFeedHistory();
+        if(!sharedPreferenceActivity.getItem(Constant.DEPARTMENT).isEmpty()){
+            securecode = "00";
+        }else{
+            securecode = "1";
+        }
+        getUserFeedHistory(securecode);
 
 
         feednew.setOnClickListener(new View.OnClickListener() {
@@ -73,14 +79,14 @@ public class FeedbackHistory extends AppCompatActivity {
         });
     }
 
-    public void getUserFeedHistory(){
+    public void getUserFeedHistory(String securecode){
         if (!NetworkUtility.isNetworkConnected(FeedbackHistory.this)){
             Toast.makeText(getApplicationContext(),"Network error",Toast.LENGTH_LONG).show();
 
         }else {
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<feedhistoryAPI> call = service.getfeedhistorycall("1234", sharedPreferenceActivity.getItem(Constant.USER_DATA));
+            Call<feedhistoryAPI> call = service.getfeedhistorycall(securecode, sharedPreferenceActivity.getItem(Constant.USER_DATA));
             call.enqueue(new Callback<feedhistoryAPI>() {
                 @Override
                 public void onResponse(Call<feedhistoryAPI> call, Response<feedhistoryAPI> response) {
@@ -97,7 +103,7 @@ public class FeedbackHistory extends AppCompatActivity {
                                 for (int i =0; i<response.body().getInformation().size(); i++){
 
                                     Models.add(  new feedhistory_model(response.body().getInformation().get(i).getComment(),response.body().getInformation().get(i).getReply(),response.body().getInformation().get(i).getCommentdate(),
-                                          response.body().getInformation().get(i).getReplydate()));
+                                          response.body().getInformation().get(i).getReplydate(), response.body().getInformation().get(i).getId()));
 
 
 

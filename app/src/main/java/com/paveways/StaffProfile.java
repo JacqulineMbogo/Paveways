@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.paveways.Auth.LogIn;
 import com.paveways.Auth.SignUp;
+import com.paveways.Feedback.FeedbackHistory;
 import com.paveways.MyAccount.OrderHistory;
 import com.paveways.Staff.Auth.StaffLogin;
 import com.paveways.Staff.StaffAppointment.StaffAppointment_History;
@@ -24,7 +25,7 @@ public class StaffProfile extends AppCompatActivity {
     SharedPreferenceActivity sharedPreferenceActivity;
     private String TAG ="myaccount";
     private TextView myacc_username, myacc_email, myacc_phone,department;
-    private LinearLayout users,bookings,orders,payments;
+    private LinearLayout users,bookings,orders,payments,feedback;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class StaffProfile extends AppCompatActivity {
         bookings = findViewById(R.id.bookings);
         orders = findViewById(R.id.orders);
         payments = findViewById(R.id.payments);
+        feedback = findViewById(R.id.feedback);
 
 
         myacc_username.setText(sharedPreferenceActivity.getItem(Constant.USER_name));
@@ -66,6 +68,15 @@ public class StaffProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(StaffProfile.this, Users_Home.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StaffProfile.this, FeedbackHistory.class);
                 startActivity(intent);
                 finish();
 

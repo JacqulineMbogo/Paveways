@@ -18,6 +18,7 @@ import com.paveways.WebResponse.OrderHistoryAPI;
 import com.paveways.WebResponse.OrderSummary;
 import com.paveways.WebResponse.PlaceOrder;
 import com.paveways.WebResponse.ProductDetail_Res;
+import com.paveways.WebResponse.StaffResponse;
 import com.paveways.WebResponse.SubCategoriesResponse;
 import com.paveways.WebResponse.UserDetails;
 import com.paveways.WebResponse.UserSignInRes;
@@ -107,6 +108,10 @@ public class ServiceWrapper  {
         return mServiceInterface.CategoriesResponsecall(convertPlainString(securcode) );
     }
 
+    public Call<StaffResponse> StaffResponseCall(String securcode){
+        return mServiceInterface.StaffResponsecall(convertPlainString(securcode) );
+    }
+
     public Call<AboutResponse> AboutResponseCall(String securcode){
         return mServiceInterface.AboutResponsecall(convertPlainString(securcode) );
     }
@@ -131,8 +136,8 @@ public class ServiceWrapper  {
         return mServiceInterface.getfeedhistorycall(convertPlainString(securcode), convertPlainString(user_id) );
     }
 
-    public Call<feedbackAPI> feedbackcall(String securcode, String feed_title , String feed_comment, String user_id){
-        return mServiceInterface. feedbackcall(convertPlainString(securcode), convertPlainString(feed_title) , convertPlainString(feed_comment), convertPlainString(user_id) );
+    public Call<feedbackAPI> feedbackcall(String securcode, String feed_title , String feed_comment, String user_id,String staff){
+        return mServiceInterface. feedbackcall(convertPlainString(securcode), convertPlainString(feed_title) , convertPlainString(feed_comment), convertPlainString(user_id),convertPlainString(staff) );
     }
 
     public Call<AddtoCart> addtoCartCall(String securcode, String prod_id, String user_id){
