@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_small"
+            android:src="@drawable/paveways_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_medium"
+            android:text="Help - FAQs"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/text_color"
+            android:textStyle="bold|italic"
+            android:layout_gravity="center"/>
+        <!-- Question 1 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Q: How do I search for properties?"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A: To search for properties, open the app and go to the 'Search' section. Enter your desired property type filters. The app will display a list of properties that match your criteria." />
+
+        <!-- Question 2 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Q: How can I save properties to cart?"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A: When viewing a property listing, you can tap the 'Add to Favorites' button to save it for later. To access your favorite properties, navigate to the 'Favorites' section in the app's menu. You can easily manage and review your saved properties there." />
+
+        <!-- Question 3 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Q: How can I view property details?"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A: To view property details, go to the 'Properties' section and select the desired property from the list. You will see all the information related to that property, including address, tenants, rental history, and any other associated data." />
+
+        <!-- Question 4 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Q: How can I schedule a property viewing?"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A: If you are interested in viewing a property, tap the 'Schedule Viewing' button on the property details page. Fill in your preferred date and time for the viewing, and submit the request. The property owner or agent will then get in touch with you to confirm the appointment." />
+
+        <!-- Question 5 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Q: How can I list my property for sale or rent?"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A: To list your property, go to the 'Contact' and get in touch with the managemnt. Once submitted, your property will be available for potential buyers or renters to view and inquire about." />
+
+    </LinearLayout>
+</ScrollView>

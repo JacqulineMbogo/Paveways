@@ -1,6 +1,7 @@
 package com.paveways.WebServices;
 
 import com.paveways.Home.GetbannerModel;
+import com.paveways.WebResponse.AboutResponse;
 import com.paveways.WebResponse.AddAppointment;
 import com.paveways.WebResponse.AddtoCart;
 import com.paveways.WebResponse.AppointmentHistoryAPI;
@@ -270,6 +271,12 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("user_id") RequestBody user_id,
             @Part("order_id") RequestBody order_id
+    );
+
+    @Multipart
+    @POST("get_about.php")
+    Call<AboutResponse> AboutResponsecall(
+            @Part("securecode") RequestBody securecode
     );
 
 

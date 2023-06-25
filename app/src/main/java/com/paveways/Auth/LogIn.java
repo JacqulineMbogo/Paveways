@@ -37,7 +37,7 @@ public class LogIn extends AppCompatActivity {
     private String TAG = "SigninActivity";
     SharedPreferenceActivity sharedPreferenceActivity;
     Context context;
-    TextView signup,staff_signup;
+    TextView signup,staff_signup, signuptext;
     private TextView login;
     private EditText user_name, password;
     @Override
@@ -51,6 +51,8 @@ public class LogIn extends AppCompatActivity {
         user_name = findViewById(R.id.user_name);
         password = findViewById(R.id.password);
         staff_signup = findViewById(R.id.staff_signup);
+        signuptext = findViewById(R.id.signuptext);
+        signuptext.setText("Client Login");
         
         signup.setOnClickListener(new View.OnClickListener() {
             @Override

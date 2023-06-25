@@ -30,6 +30,8 @@ import com.paveways.Utility.SharedPreferenceActivity;
 import com.paveways.WebResponse.AddAppointment;
 import com.paveways.WebResponse.AddtoCart;
 import com.paveways.WebServices.ServiceWrapper;
+import com.paveways.cart.CartDetails;
+import com.paveways.cart.Order_Summary;
 
 import java.util.Calendar;
 
@@ -199,6 +201,17 @@ public class Appointment_Activity extends AppCompatActivity implements
                 }
             });
         }
+    }
+    @Override
+    public void onBackPressed() {
+
+
+        Intent intent1 = new Intent(Appointment_Activity.this, HomeActivity.class);
+
+        startActivity(intent1);
+
+
+
     }
 
 

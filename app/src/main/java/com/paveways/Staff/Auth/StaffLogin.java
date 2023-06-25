@@ -36,7 +36,7 @@ public class StaffLogin extends AppCompatActivity {
     SharedPreferenceActivity sharedPreferenceActivity;
     Context context;
     TextView signup;
-    private TextView login,staff_signup;
+    private TextView login,staff_signup, signuptext;
     private EditText user_name, password;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,9 +49,10 @@ public class StaffLogin extends AppCompatActivity {
         user_name = findViewById(R.id.user_name);
         password = findViewById(R.id.password);
         staff_signup = findViewById(R.id.staff_signup);
+        signuptext = findViewById(R.id.signuptext);
         signup.setVisibility(View.GONE);
-
-        staff_signup.setVisibility(View.GONE);
+        signuptext.setText("Staff Login");
+        staff_signup.setText("Client Login");
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +68,14 @@ public class StaffLogin extends AppCompatActivity {
                     sendUserLoginData();
 
                 }
+            }
+        });
+        staff_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StaffLogin.this, LogIn.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

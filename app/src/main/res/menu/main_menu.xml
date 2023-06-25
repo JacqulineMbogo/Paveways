@@ -18,6 +18,18 @@
         android:icon="@drawable/ic_baseline_message_24"
         android:title="Feedback"
         />
+    <item  android:id="@+id/help"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="Help"
+        />
+    <item  android:id="@+id/about_us"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="About US"
+        />
+    <item  android:id="@+id/Contact"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="Contact Us"
+        />
     <item  android:id="@+id/signout"
         android:icon="@drawable/ic_baseline_login_24"
         android:title="LogOut"

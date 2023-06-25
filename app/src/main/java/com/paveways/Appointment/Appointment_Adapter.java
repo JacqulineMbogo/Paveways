@@ -131,7 +131,7 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public void bookAppointment(String securecode,String appointment_id){
 
-        final android.app.AlertDialog progressbar = AppUtilits.createProgressBar(mContext,"Cancelling appointment \n Please wait..");
+        final android.app.AlertDialog progressbar = AppUtilits.createProgressBar(mContext," Please wait..");
 
         if (!NetworkUtility.isNetworkConnected(mContext)){
             AppUtilits.displayMessage(mContext,  mContext.getString(R.string.network_not_connected));

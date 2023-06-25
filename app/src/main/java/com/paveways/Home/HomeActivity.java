@@ -18,9 +18,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.paveways.AboutPage;
 import com.paveways.Appointment.Appointment_History;
 import com.paveways.Auth.LogIn;
+import com.paveways.ContactPage;
 import com.paveways.Feedback.FeedbackHistory;
+import com.paveways.HelpPage;
 import com.paveways.Listings.Listings_Activity;
 import com.paveways.MyAccount.OrderHistory;
 import com.paveways.R;
@@ -163,6 +166,18 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.signout:
                 Intent intent4 = new Intent(HomeActivity.this, LogIn.class);
                 startActivity(intent4);
+                return true;
+            case R.id.help:
+                Intent intent5 = new Intent(HomeActivity.this, HelpPage.class);
+                startActivity(intent5);
+                return true;
+            case R.id.about_us:
+                Intent intent6 = new Intent(HomeActivity.this, AboutPage.class);
+                startActivity(intent6);
+                return true;
+            case R.id.Contact:
+                Intent intent7 = new Intent(HomeActivity.this, ContactPage.class);
+                startActivity(intent7);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

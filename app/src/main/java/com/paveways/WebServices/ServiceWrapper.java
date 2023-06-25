@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.paveways.Home.GetbannerModel;
 import com.paveways.Utility.Constant;
+import com.paveways.WebResponse.AboutResponse;
 import com.paveways.WebResponse.AddAppointment;
 import com.paveways.WebResponse.AddtoCart;
 import com.paveways.WebResponse.AppointmentHistoryAPI;
@@ -104,6 +105,10 @@ public class ServiceWrapper  {
     // get categories
     public Call<CategoriesResponse> CategoriesResponseCall(String securcode){
         return mServiceInterface.CategoriesResponsecall(convertPlainString(securcode) );
+    }
+
+    public Call<AboutResponse> AboutResponseCall(String securcode){
+        return mServiceInterface.AboutResponsecall(convertPlainString(securcode) );
     }
 
     // get sub categories

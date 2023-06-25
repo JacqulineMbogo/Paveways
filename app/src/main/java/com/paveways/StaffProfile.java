@@ -45,15 +45,22 @@ public class StaffProfile extends AppCompatActivity {
         myacc_username.setText(sharedPreferenceActivity.getItem(Constant.USER_name));
         myacc_email.setText(sharedPreferenceActivity.getItem(Constant.USER_email));
         myacc_phone.setText(sharedPreferenceActivity.getItem(Constant.USER_phone));
-        department.setText(sharedPreferenceActivity.getItem(Constant.DEPARTMENT) + " Department");
+        department.setText(sharedPreferenceActivity.getItem(Constant.DEPARTMENT));
 
-        if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("admin")){
-            orders.setVisibility(View.GONE);
-            payments.setVisibility(View.GONE);
-        }else if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("finance")){
-            users.setVisibility(View.GONE);
-            bookings.setVisibility(View.GONE);
-                 }
+        if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10004")){
+            users.setVisibility(View.VISIBLE);
+            bookings.setVisibility(View.VISIBLE);
+            orders.setVisibility(View.VISIBLE);
+            payments.setVisibility(View.VISIBLE);
+        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10001")){
+            users.setVisibility(View.VISIBLE);
+        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10005")){
+            bookings.setVisibility(View.VISIBLE);
+        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10006")){
+            orders.setVisibility(View.VISIBLE);
+        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10002")){
+            payments.setVisibility(View.VISIBLE);
+        }
 
         users.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.paveways.Home.HomeActivity;
 import com.paveways.R;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
@@ -22,6 +23,8 @@ import com.paveways.Utility.NetworkUtility;
 import com.paveways.Utility.SharedPreferenceActivity;
 import com.paveways.WebResponse.feedhistoryAPI;
 import com.paveways.WebServices.ServiceWrapper;
+import com.paveways.cart.CartDetails;
+import com.paveways.cart.Order_Summary;
 
 import java.util.ArrayList;
 
@@ -119,6 +122,17 @@ public class FeedbackHistory extends AppCompatActivity {
 
 
         }
+
+
+    }
+    @Override
+    public void onBackPressed() {
+
+
+        Intent intent1 = new Intent(FeedbackHistory.this, HomeActivity.class);
+
+        startActivity(intent1);
+
 
 
     }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/padding_small"
+        android:src="@drawable/paveways_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
+        android:text="Contact Us"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/text_color"
+        android:textStyle="bold|italic"
+        android:layout_gravity="center"/>
+
+
+    <!-- Phone Number -->
+    <TextView
+        android:id="@+id/phoneLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:padding="16dp"/>
+
+    <TextView
+        android:id="@+id/phoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+(254) 745678901"
+        android:padding="16dp"/>
+
+    <!-- Email Address -->
+    <TextView
+        android:id="@+id/emailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:padding="16dp"/>
+
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="info@paveways.com"
+        android:padding="16dp"/>
+
+    <!-- Fax Number -->
+    <TextView
+        android:id="@+id/faxLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fax"
+        android:padding="16dp"/>
+
+    <TextView
+        android:id="@+id/faxTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+(254) 745678901"
+        android:padding="16dp"/>
+
+    <!-- PO Box -->
+    <TextView
+        android:id="@+id/poBoxLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PO Box"
+        android:padding="16dp"/>
+
+    <TextView
+        android:id="@+id/poBoxTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1234 Nyahururu, Kenya"
+        android:padding="16dp"/>
+
+</LinearLayout>
