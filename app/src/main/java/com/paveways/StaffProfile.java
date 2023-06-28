@@ -62,7 +62,9 @@ public class StaffProfile extends AppCompatActivity {
             orders.setVisibility(View.VISIBLE);
         }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10002")){
             payments.setVisibility(View.VISIBLE);
-        }
+        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10007")){
+            orders.setVisibility(View.VISIBLE);
+    }
 
         users.setOnClickListener(new View.OnClickListener() {
             @Override

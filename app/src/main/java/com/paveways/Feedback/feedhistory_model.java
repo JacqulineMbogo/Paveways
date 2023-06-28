@@ -2,16 +2,24 @@ package com.paveways.Feedback;
 
 public class feedhistory_model {
 
-    private String comment, reply, commentdate, replydate,id;
+    private String comment, reply, commentdate, replydate, id, staff;
 
-    public feedhistory_model(String comment, String reply, String commentdate, String replydate,String id) {
+    public feedhistory_model(String comment, String reply, String commentdate, String replydate, String id, String staff) {
         this.comment = comment;
         this.reply = reply;
         this.commentdate = commentdate;
         this.replydate = replydate;
-        this.id=id;
+        this.id = id;
+        this.staff = staff;
     }
 
+    public String getStaff() {
+        return staff;
+    }
+
+    public void setStaff(String staff) {
+        this.staff = staff;
+    }
 
     public String getId() {
         return id;

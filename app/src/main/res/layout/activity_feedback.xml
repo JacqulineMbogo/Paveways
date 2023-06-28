@@ -17,35 +17,52 @@
     android:textColor="@color/black"
     android:textStyle="normal|bold"
     android:layout_margin="@dimen/text_medium"/>
+        <TextView
+            android:id="@+id/phoneLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_medium"
+            android:text="Title"
+            android:padding="@dimen/padding_medium" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/title"
-                android:layout_below="@id/l1"
-                android:layout_margin="@dimen/padding_medium"
-                android:padding="@dimen/padding_medium"
-                android:hint="Title..."/>
+                android:layout_margin="@dimen/padding_small"
+                android:padding="@dimen/padding_small"/>
 
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_medium"
+            android:text="Comment"
+            android:padding="@dimen/padding_medium" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/comment"
+                android:lines="4"
                 android:layout_below="@id/title"
-                android:layout_margin="@dimen/padding_medium"
-                android:padding="@dimen/padding_medium"
-                android:hint="Comment"/>
+                android:layout_margin="@dimen/padding_small"
+                android:padding="@dimen/padding_small"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_medium"
+            android:text="To Staff:"
+            android:padding="@dimen/padding_medium" />
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/feedback_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/padding_medium"
+                android:layout_margin="@dimen/padding_small"
                 android:padding="@dimen/padding_medium"
-                android:background="@drawable/spinner_border"
+                android:autofillHints="Staff"
+                android:background="@drawable/feedback_spinner_border"
                 />
 
             <TextView

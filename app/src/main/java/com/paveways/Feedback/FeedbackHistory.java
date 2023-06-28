@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.paveways.Home.HomeActivity;
 import com.paveways.R;
+import com.paveways.StaffProfile;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.NetworkUtility;
@@ -103,7 +104,7 @@ public class FeedbackHistory extends AppCompatActivity {
                                 for (int i =0; i<response.body().getInformation().size(); i++){
 
                                     Models.add(  new feedhistory_model(response.body().getInformation().get(i).getComment(),response.body().getInformation().get(i).getReply(),response.body().getInformation().get(i).getCommentdate(),
-                                          response.body().getInformation().get(i).getReplydate(), response.body().getInformation().get(i).getId()));
+                                          response.body().getInformation().get(i).getReplydate(), response.body().getInformation().get(i).getId(), response.body().getInformation().get(i).getStaff()));
 
 
 
@@ -135,9 +136,17 @@ public class FeedbackHistory extends AppCompatActivity {
     public void onBackPressed() {
 
 
-        Intent intent1 = new Intent(FeedbackHistory.this, HomeActivity.class);
+        if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).isEmpty()){
+            Intent intent1 = new Intent(FeedbackHistory.this, HomeActivity.class);
 
-        startActivity(intent1);
+            startActivity(intent1);
+        }else {
+            Intent intent1 = new Intent(FeedbackHistory.this, StaffProfile.class);
+
+            startActivity(intent1);
+
+        }
+
 
 
 

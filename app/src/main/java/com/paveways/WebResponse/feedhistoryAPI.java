@@ -42,21 +42,34 @@ public class feedhistoryAPI {
     }
 
     public class Information {
-    @SerializedName("comment")
-    @Expose
-    private String comment;
-    @SerializedName("reply")
-    @Expose
-    private String reply;
-    @SerializedName("commentdate")
-    @Expose
-    private String commentdate;
-    @SerializedName("replydate")
-    @Expose
-    private String replydate;
-    @SerializedName("id")
-    @Expose
-    private String id;
+        @SerializedName("comment")
+        @Expose
+        private String comment;
+        @SerializedName("reply")
+        @Expose
+        private String reply;
+        @SerializedName("commentdate")
+        @Expose
+        private String commentdate;
+        @SerializedName("replydate")
+        @Expose
+        private String replydate;
+        @SerializedName("staff")
+        @Expose
+        private String staff;
+
+
+        @SerializedName("id")
+        @Expose
+        private String id;
+
+        public String getStaff() {
+            return staff;
+        }
+
+        public void setStaff(String staff) {
+            this.staff = staff;
+        }
 
         public String getId() {
             return id;
@@ -70,34 +83,34 @@ public class feedhistoryAPI {
             return comment;
         }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
 
-    public String getReply() {
-        return reply;
-    }
+        public String getReply() {
+            return reply;
+        }
 
-    public void setReply(String reply) {
-        this.reply = reply;
-    }
+        public void setReply(String reply) {
+            this.reply = reply;
+        }
 
-    public String getCommentdate() {
-        return commentdate;
-    }
+        public String getCommentdate() {
+            return commentdate;
+        }
 
-    public void setCommentdate(String commentdate) {
-        this.commentdate = commentdate;
-    }
+        public void setCommentdate(String commentdate) {
+            this.commentdate = commentdate;
+        }
 
-    public String getReplydate() {
-        return replydate;
-    }
+        public String getReplydate() {
+            return replydate;
+        }
 
-    public void setReplydate(String replydate) {
-        this.replydate = replydate;
-    }
+        public void setReplydate(String replydate) {
+            this.replydate = replydate;
+        }
 
-}
+    }
 
 }

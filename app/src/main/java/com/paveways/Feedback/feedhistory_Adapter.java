@@ -18,7 +18,6 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.paveways.R;
-import com.paveways.Staff.StaffAppointment.StaffAppointment_Adapter;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.NetworkUtility;
@@ -52,7 +51,7 @@ public class feedhistory_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     }
     private class FeedHistoryItemView extends RecyclerView.ViewHolder {
-        TextView  comment, reply, commentdate, replydate,replytext;
+        TextView  comment, reply, commentdate, replydate,replytext, staff;
 
 
         public FeedHistoryItemView(View itemView) {
@@ -62,6 +61,7 @@ public class feedhistory_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             commentdate = (TextView) itemView.findViewById(R.id.feeddate);
             replydate = (TextView) itemView.findViewById(R.id.replydate);
             replytext = (TextView) itemView.findViewById(R.id.replytext);
+            staff = (TextView) itemView.findViewById(R.id.staff);
 
 
 
@@ -82,6 +82,8 @@ public class feedhistory_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         final feedhistory_model model =  history_model.get(position);
 
         ((FeedHistoryItemView) holder).comment.setText(model.getComment());
+        ((FeedHistoryItemView) holder).staff.setText(model.getStaff());
+        ((FeedHistoryItemView) holder).reply.setText(model.getReply());
 
         if(Objects.equals(model.getReply(), "...")) {
             ((FeedHistoryItemView) holder).reply.setVisibility(View.GONE);
@@ -93,6 +95,7 @@ public class feedhistory_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ((FeedHistoryItemView) holder).reply.setText(model.getReply());
             ((FeedHistoryItemView)  holder).replydate.setText(model.getReplydate());
         }
+
 
 
 

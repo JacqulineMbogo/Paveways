@@ -44,7 +44,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class feedback  extends AppCompatActivity{
+public class feedback extends AppCompatActivity {
 
     private String TAG = "feedbackAPI";
     SharedPreferenceActivity sharedPreferenceActivity;
@@ -56,6 +56,9 @@ public class feedback  extends AppCompatActivity{
     private final ArrayList<Staff_Model> StaffModelList = new ArrayList<>();
     EditText title, comment;
     private String staff;
+    private final String[] staffIds = {"10001", "10002", "10004", "10005", "10006","10007"};
+    private final String[] staffDepartments = {"Customer Acquisition", "Finance", "Super Admin", "Real Estate", "Sales Manager", "Lawyer"};
+
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -64,26 +67,32 @@ public class feedback  extends AppCompatActivity{
 
         context = this;
         sharedPreferenceActivity = new SharedPreferenceActivity(this);
-        submit= findViewById(R.id.send);
-       title= findViewById(R.id.title);
-       comment=findViewById(R.id.comment);
+        submit = findViewById(R.id.send);
+        title = findViewById(R.id.title);
+        comment = findViewById(R.id.comment);
 
 
-       getStaff();
+        getStaff();
 
-        ArrayAdapter<Staff_Model> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, StaffModelList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, staffDepartments);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        Spinner spinner = findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.feedback_spinner);
         spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Staff_Model selectedPerson = (Staff_Model) parent.getItemAtPosition(position);
-                // Perform actions with the selected person
-                Log.e(TAG, selectedPerson.id);
-                staff = selectedPerson.id;
+                String selectedStaffId = staffIds[position];
+                if (selectedStaffId != null && !selectedStaffId.isEmpty()) {
+                    // The selectedStaffId is not null and not empty, perform actions with it
+                    Log.e(TAG, "Staff is " + selectedStaffId);
+                    staff = selectedStaffId;
+                } else {
+                    // Handle the case where the selectedStaffId is null or empty
+                    Toast.makeText(context, "Staff selected is null or empty", Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "Selected staff ID is null or empty");
+                }
             }
 
             @Override
@@ -97,36 +106,47 @@ public class feedback  extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                submitfeedback(staff);
+                if (staff != null && !staff.isEmpty()) {
+
+                    if (title != null && !title.getText().toString().isEmpty()) {
+
+                        if (comment != null && !comment.getText().toString().isEmpty()) {
+
+                            submitFeedback(staff);
+                        } else {
+                            Toast.makeText(context, "Add Comment", Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        Toast.makeText(context, "Add title", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(context, "Select staff", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
 
-    public void submitfeedback(String Staff){
-        final AlertDialog progressbar = AppUtilits.createProgressBar(this,"Submitting feedback \n Please Wait");
-        if (!NetworkUtility.isNetworkConnected(feedback.this)){
-            Toast.makeText(getApplicationContext(),"Network error",Toast.LENGTH_LONG).show();
+    public void submitFeedback(String Staff) {
+        final AlertDialog progressbar = AppUtilits.createProgressBar(this, "Submitting feedback \n Please Wait");
+        if (!NetworkUtility.isNetworkConnected(feedback.this)) {
+            Toast.makeText(getApplicationContext(), "Network error", Toast.LENGTH_LONG).show();
 
-        }else {
+        } else {
 
             ServiceWrapper serviceWrapper = new ServiceWrapper(null);
-            Call<feedbackAPI> feedbackAPICall=serviceWrapper.feedbackcall("1234", String.valueOf(title.getText().toString()),
-                  String.valueOf(comment.getText().toString()),String.valueOf(sharedPreferenceActivity.getItem(Constant.USER_DATA)),staff);
+            Call<feedbackAPI> feedbackAPICall = serviceWrapper.feedbackcall("1234", String.valueOf(title.getText().toString()),
+                    String.valueOf(comment.getText().toString()), String.valueOf(sharedPreferenceActivity.getItem(Constant.USER_DATA)), staff);
             feedbackAPICall.enqueue(new Callback<feedbackAPI>() {
                 @Override
                 public void onResponse(Call<feedbackAPI> call, Response<feedbackAPI> response) {
-
-
-                    Log.d(TAG, "reponse : "+ response.toString());
-                    Log.d(TAG, "title : "+ String.valueOf(title));
-                    Log.d(TAG, "comment : "+ String.valueOf(comment));
+                    Log.d(TAG, "comment : " + String.valueOf(comment));
                     if (response.body() != null && response.isSuccessful()) {
                         //    Log.e(TAG, "  ss sixe 2 ");
                         if (response.body().getStatus() == 1) {
 
 
                             AppUtilits.destroyDialog(progressbar);
-                            AppUtilits.displayMessage(feedback.this, response.body().getMsg() );
+                            AppUtilits.displayMessage(feedback.this, response.body().getMsg());
 
                             Intent intent = new Intent(feedback.this, FeedbackHistory.class);
                             startActivity(intent);
@@ -140,7 +160,7 @@ public class feedback  extends AppCompatActivity{
                         }
 
                     } else {
-                        Toast.makeText(getApplicationContext(),"Request failed",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Request failed", Toast.LENGTH_LONG).show();
                         AppUtilits.destroyDialog(progressbar);
 
                     }
@@ -149,7 +169,7 @@ public class feedback  extends AppCompatActivity{
                 @Override
                 public void onFailure(Call<feedbackAPI> call, Throwable throwable) {
 
-                    Toast.makeText(getApplicationContext(),"Failed to send feedback",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Failed to send feedback", Toast.LENGTH_LONG).show();
                     AppUtilits.destroyDialog(progressbar);
                 }
             });
@@ -160,19 +180,19 @@ public class feedback  extends AppCompatActivity{
 
     private void getStaff() {
 
-        if (!NetworkUtility.isNetworkConnected(feedback.this)){
-            AppUtilits.displayMessage(feedback.this,  getString(R.string.network_not_connected));
+        if (!NetworkUtility.isNetworkConnected(feedback.this)) {
+            AppUtilits.displayMessage(feedback.this, getString(R.string.network_not_connected));
 
 
-        }else {
+        } else {
             ServiceWrapper service = new ServiceWrapper(null);
             Call<StaffResponse> call = service.StaffResponseCall("1234");
             call.enqueue(new Callback<StaffResponse>() {
                 @Override
                 public void onResponse(Call<StaffResponse> call, Response<StaffResponse> response) {
-                    Log.e(TAG, "Categories response is "+ response.body().getInformation().toString());
-                    if (response.body()!= null && response.isSuccessful()){
-                        if (response.body().getStatus() ==1) {
+                    Log.e(TAG, "Categories response is " + response.body().getInformation().toString());
+                    if (response.body() != null && response.isSuccessful()) {
+                        if (response.body().getStatus() == 1) {
                             if (response.body().getInformation().size() > 0) {
 
                                 StaffModelList.clear();
@@ -182,16 +202,14 @@ public class feedback  extends AppCompatActivity{
 
                                 }
                             }
+                        } else {
 
-
-                        }else {
-
-                            Toast.makeText(getApplicationContext(),"No staff found",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "No staff found", Toast.LENGTH_LONG).show();
                         }
 
 
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
 
                     }
                 }
@@ -213,7 +231,6 @@ public class feedback  extends AppCompatActivity{
         Intent intent1 = new Intent(feedback.this, FeedbackHistory.class);
 
         startActivity(intent1);
-
 
 
     }
