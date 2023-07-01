@@ -126,7 +126,7 @@ public class SignUp extends AppCompatActivity {
                             sharedPreferenceActivity.putItem(Constant.USER_email, response.body().getInformation().getEmail());
                             sharedPreferenceActivity.putItem(Constant.USER_phone, response.body().getInformation().getPhone());
 
-                            AppUtilits.createToaster(SignUp.this, "Welcome, " + sharedPreferenceActivity.getItem(Constant.USER_name) + "\n Please continue to sign in upon admin approval", Toast.LENGTH_LONG);
+                            AppUtilits.createToaster(SignUp.this, "Welcome, " + sharedPreferenceActivity.getItem(Constant.USER_name) + "\n Please continue to sign in upon approval", Toast.LENGTH_LONG);
                             Intent intent = new Intent(SignUp.this, LogIn.class);
                             startActivity(intent);
                             finish();
