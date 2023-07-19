@@ -290,7 +290,7 @@
                         android:layout_marginTop="@dimen/padding_extralarge"
                         android:layout_marginBottom="@dimen/padding_extralarge"
                         android:gravity="center_horizontal"
-                        android:text="Clear Balance"
+                        android:text="Make Payment"
                         android:background="@drawable/rounded_green"
                         android:textColor="@color/white"
                         android:textStyle="normal|bold" />

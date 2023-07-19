@@ -186,7 +186,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 @Override
                 public void onResponse(Call<EditCartItem> call, Response<EditCartItem> response) {
 
-                    Log.e(TAG, " edit response "+ response.toString());
+                    Log.e(TAG, " edit response "+ response.body().getMsg().toString());
                     if (response.body() != null && response.isSuccessful()) {
                         if (response.body().getStatus() == 1) {
 

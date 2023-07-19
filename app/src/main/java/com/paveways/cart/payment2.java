@@ -81,7 +81,7 @@ public class payment2 extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Payment Amount should not be less than half of the total ",Toast.LENGTH_LONG).show();
 
                 }else {
-                    makepayment();
+                    makepayment("1234",payment_amount.getText().toString());
 
                 }
 
@@ -134,18 +134,16 @@ public class payment2 extends AppCompatActivity {
             }
         });
     }
-    public void makepayment(){
+    public void makepayment(String securecode,String amount){
 
-        final AlertDialog progressbar = AppUtilits.createProgressBar(context,"making payment");
         if (!NetworkUtility.isNetworkConnected(payment2.this)){
-            Toast.makeText(getApplicationContext(),"Network error",Toast.LENGTH_LONG).show();
-            AppUtilits.destroyDialog(progressbar);
+            Toast.makeText(getApplicationContext(),"Network Error",Toast.LENGTH_SHORT).show();
 
         }else {
 
             ServiceWrapper serviceWrapper = new ServiceWrapper(null);
-            Call<payAPI> makepaymentAPICall=serviceWrapper.makepaymentcall("1234", sharedPreferenceActivity.getItem(Constant.USER_DATA),  sharedPreferenceActivity.getItem(Constant.USER_order_id),
-                   String.valueOf(sharedPreferenceActivity.getItem(Constant.TOTAL_TOTAL)), String.valueOf(payment_amount.getText().toString()));
+            Call<payAPI> makepaymentAPICall=serviceWrapper.makepaymentcall(securecode, sharedPreferenceActivity.getItem(Constant.USER_DATA),  sharedPreferenceActivity.getItem(Constant.USER_order_id),
+                   String.valueOf(sharedPreferenceActivity.getItem(Constant.TOTAL_TOTAL)), amount);
             makepaymentAPICall.enqueue(new Callback<payAPI>() {
                 @Override
                 public void onResponse(Call<payAPI> call, Response<payAPI> response) {
@@ -156,24 +154,20 @@ public class payment2 extends AppCompatActivity {
                             //    Log.e(TAG, "  ss sixe 2 ");
                             if (response.body().getStatus() == 1) {
 
-                                AppUtilits.destroyDialog(progressbar);
-                               // AppUtilits.displayMessage(payment2.this, response.body().getMsg() );
+                                Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_LONG).show();
+
                                 extrarelative_lay2.setVisibility(View.VISIBLE);
 
                                 relative_lay2.setVisibility(View.GONE);
 
 
                             } else {
-                                AppUtilits.destroyDialog(progressbar);
-
-                                AppUtilits.displayMessage(payment2.this, response.body().getMsg());
+                                Toast.makeText(getApplicationContext(),response.body().getMsg(),Toast.LENGTH_LONG).show();
 
                             }
 
                         } else {
-                            AppUtilits.displayMessage(payment2.this, getString(R.string.network_error));
-
-                            AppUtilits.destroyDialog(progressbar);
+                            Toast.makeText(getApplicationContext(),"Something Went wrong",Toast.LENGTH_LONG).show();
                         }
 
 
@@ -183,10 +177,10 @@ public class payment2 extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<payAPI> call, Throwable t) {
 
-                    Log.e(TAG, "  fail- to make payment"+ t.toString());
-                    Toast.makeText(getApplicationContext(),"Failed to make payment",Toast.LENGTH_LONG).show();
 
-                    AppUtilits.destroyDialog(progressbar);
+                    Log.e(TAG, "  fail- to make payment"+ t.toString());
+                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG).show();
+
 
                 }
             });
@@ -273,9 +267,10 @@ public class payment2 extends AppCompatActivity {
 
 
             }
-        }).setPositiveButton("Yes, Proceed", new DialogInterface.OnClickListener() {
+        }).setPositiveButton("Yes, Waiting for Approval", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                makepayment("00","0");
                 Intent intent1 = new Intent(payment2.this, HomeActivity.class);
 
                 startActivity(intent1);

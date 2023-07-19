@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.paveways.Auth.LogIn;
+import com.paveways.Home.HomeActivity;
 import com.paveways.R;
 import com.paveways.StaffProfile;
 import com.paveways.Users.Users_Home;
@@ -125,11 +126,17 @@ public class OrderHistory extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+        if(!sharedPreferenceActivity.getItem(Constant.DEPARTMENT).isEmpty()) {
+            Intent intent1 = new Intent(OrderHistory.this, StaffProfile.class);
 
-        Intent intent1 = new Intent(OrderHistory.this, LogIn.class);
+            startActivity(intent1);
 
-        startActivity(intent1);
+        }else {
 
+            Intent intent1 = new Intent(OrderHistory.this, HomeActivity.class);
+
+            startActivity(intent1);
+        }
 
 
     }

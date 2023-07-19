@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.paveways.R;
+import com.paveways.Staff.Auth.StaffLogin;
+import com.paveways.StaffProfile;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.NetworkUtility;
@@ -176,18 +178,23 @@ public class OrderHistory_Adapter extends RecyclerView.Adapter<RecyclerView.View
                     if (response.body() != null && response.isSuccessful()) {
                         if (response.body().getStatus() == 1) {
 
-
                             AppUtilits.destroyDialog(progressbar);
                             AppUtilits.displayMessage(mContext, response.body().getMsg());
+
+                            Intent intent = new Intent(mContext, StaffProfile.class);
+                            mContext.startActivity(intent);
+
 
 
                         }else {
                             AppUtilits.destroyDialog(progressbar);
-                            AppUtilits.displayMessage(mContext, "Unable to reject user please try again  ");
+                            Intent intent = new Intent(mContext, OrderHistory.class);
+                            mContext.startActivity(intent);
+                            AppUtilits.displayMessage(mContext, "Unable to reject order please try again  ");
                         }
                     }else {
                         AppUtilits.destroyDialog(progressbar);
-                        AppUtilits.displayMessage(mContext, mContext.getString(R.string.network_error));
+                        AppUtilits.displayMessage(mContext, "Something went wrong. Please try again");
                     }
 
 
