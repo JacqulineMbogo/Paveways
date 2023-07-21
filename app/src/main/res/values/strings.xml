@@ -287,15 +287,51 @@
     <string name="addToCart">Add to Cart</string>
     <string name="viewCart">View Cart</string>
     <string name="units">Available Units</string>
-    <string name="terms_and_conditions_content">
+    <string name="rent_terms_and_conditions_content">
     <![CDATA[
         "By proceeding, you agree to the following terms and conditions: \n\n"
 
         "The app is for informational purposes only and does not guarantee the availability or accuracy of property listings.\n\n"
 
-        "A monthly maintenance fee of Ksh 10,000 is required for all house property.\n"
-        "For land purchases, a deposit of at least half of the total price must be made before proceeding with any further processes.\n"
-        "A facilitation fee of Ksh 10,000 is required for all land purchasing processes.\n\n"
+        "RENTAL DEPOSIT:\n\n"
+
+        "The Tenant agrees to pay a rental deposit in the amount of [Amount in Words and Numbers] (the "Deposit") upon signing this Agreement.\n"
+        "The Deposit shall be held by the Landlord as security for the Tenant's performance of all obligations and responsibilities as outlined in the lease agreement for the above-mentioned rental property."
+        "A deposit of at least half of the total price must be made before proceeding with any further processes.\n\n"
+
+        "USE OF DEPOSIT:\n\n"
+
+        "The Deposit shall be held in a separate account and not mingled with the Landlord's personal funds. The Landlord reserves the right to use the Deposit for the following purposes:.\n"
+
+        "a. Payment for any damages caused to the rental property, excluding normal wear and tear.\n"
+        "b. Payment for any unpaid rent or other amounts due under the lease agreement.\n"
+        "c. Payment for any cleaning, repairs, or maintenance required to restore the rental property to its original condition upon the Tenant's exit, excluding normal wear and tear.\n\n"
+
+        "REFUND OF BALANCE:\n\n"
+
+        "Upon the Tenant's exit from the rental property, the Landlord shall inspect the property to assess its condition.\n "
+        "If there are no damages beyond normal wear and tear and all rent and other amounts due under the lease agreement have been paid in full, the Landlord shall refund the balance of the Deposit to the Tenant within [30 days] of the Tenant's departure from the property.\n"
+        "The refund shall be made via [payment method, e.g., check, electronic transfer], using the Tenant's forwarding address as provided by the Tenant in writing.\n"
+
+        Users are responsible for verifying the details and authenticity of property listings before making any rental decisions.\n\n
+        The app is not liable for any transactions, disputes, or issues arising between property owners and renters.\n\n
+        Users must comply with local laws, regulations, and rental agreements when using the app.\n\n
+        The app may collect and use personal information as outlined in the Privacy Policy.\n\n
+        The app reserves the right to modify or terminate its services without prior notice.\n\n
+        Users are solely responsible for any actions taken using their account credentials.\n\n
+        The app may use cookies or similar technologies to enhance user experience.\n\n
+
+    By accepting these terms and conditions, you acknowledge that you have read and understood them.
+    ]]>
+</string>
+    <string name="sale_terms_and_conditions_content">
+    <![CDATA[
+        "By proceeding, you agree to the following terms and conditions: \n\n"
+
+        "The app is for informational purposes only and does not guarantee the availability or accuracy of property listings.\n\n"
+
+        "A deposit of at least half of the total price must be made before proceeding with any further processes.\n"
+        "A facilitation fee of Ksh 10,000 is required for all purchasing processes.\n\n"
 
 
         Users are responsible for verifying the details and authenticity of property listings before making any rental decisions.\n\n

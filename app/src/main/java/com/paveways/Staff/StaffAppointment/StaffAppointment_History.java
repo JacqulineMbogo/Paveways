@@ -83,7 +83,7 @@ public class StaffAppointment_History extends AppCompatActivity {
                                 for (int i = 0; i < response.body().getInformation().size(); i++) {
 
                                     Models.add(new StaffAppointment_Model(response.body().getInformation().get(i).getAppointment_id(), response.body().getInformation().get(i).getDate(),
-                                            response.body().getInformation().get(i).getTime(), response.body().getInformation().get(i).getStatus(), response.body().getInformation().get(i).getComment(), response.body().getInformation().get(i).getTitle()));
+                                            response.body().getInformation().get(i).getTime(), response.body().getInformation().get(i).getStatus(), response.body().getInformation().get(i).getComment(), response.body().getInformation().get(i).getTitle(), response.body().getInformation().get(i).getFullnaame(),response.body().getInformation().get(i).getPhone(),response.body().getInformation().get(i).getEmail()));
 
                                 }
                                 adapter.notifyDataSetChanged();

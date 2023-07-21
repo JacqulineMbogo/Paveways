@@ -34,5 +34,6 @@ public class Constant {
     public static final String CART_ITEM_COUNT =" CART_ITEM_COUNT";
     public static final int     TOASTER_SHORT            =   Toast.LENGTH_SHORT;
     public static final String SHARE_PREF = "KYOSK_pref";
+    public static final String SALE_TYPE = "SALE TYPE";
     public static String USER_email = "User_Email";
 }

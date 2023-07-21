@@ -170,6 +170,8 @@ public class Listing_Details extends AppCompatActivity{
                                 date.setText(response.body().getInformation().getDate());
                                 bathrooms.setText(response.body().getInformation().getBathroom());
                                 bedrooms.setText(response.body().getInformation().getBedroom());
+                                sharedPreferenceActivity.putItem(Constant.SALE_TYPE, response.body().getInformation().getStype());
+
                                 if(Objects.equals(response.body().getInformation().getStype(), "sale") || Objects.equals(response.body().getInformation().getStype(), "own")){
                                     stype = "Buy";
                                 }else{

@@ -91,7 +91,7 @@ public class OrderHistory extends AppCompatActivity {
                                 for (int i =0; i<response.body().getInformation().size(); i++){
 
                                     Models.add(  new orderhistory_model(response.body().getInformation().get(i).getOrderId(), securecode,
-                                            response.body().getInformation().get(i).getPrice(), response.body().getInformation().get(i).getDate()));
+                                            response.body().getInformation().get(i).getPrice(), response.body().getInformation().get(i).getDate(),response.body().getInformation().get(i).getName(),response.body().getInformation().get(i).getEmaiil(),response.body().getInformation().get(i).getPhone()));
 
 
 

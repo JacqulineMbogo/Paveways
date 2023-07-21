@@ -51,7 +51,7 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     }
     private class HistoryItemView extends RecyclerView.ViewHolder {
-        TextView  date_time, status, comment, property ;
+        TextView  date_time, status, comment, property,name,email,phone ;
         ImageView edit, cancel;
 
 
@@ -63,6 +63,9 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             property = (TextView) itemView.findViewById(R.id.property);
             edit = (ImageView) itemView.findViewById(R.id.edit);
             cancel = (ImageView) itemView.findViewById(R.id.cancel);
+            name = (TextView) itemView.findViewById(R.id.name);
+            email = (TextView) itemView.findViewById(R.id.email);
+            phone = (TextView) itemView.findViewById(R.id.phone);
                    }
     }
 
@@ -86,6 +89,9 @@ public class Appointment_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         ((HistoryItemView) holder).status.setText(model.getStatus());
         ((HistoryItemView) holder).comment.setText(model.getComment());
         ((HistoryItemView) holder).property.setText(model.getTitle());
+        ((HistoryItemView) holder).name.setText("Name : " + model.getFullname());
+        ((HistoryItemView) holder).email.setText("Email : " + model.getEmail());
+        ((HistoryItemView) holder).phone.setText("Phone : " +model.getPhone());
 
         if(!Objects.equals(model.getStatus(), "Pending")){
             ((HistoryItemView) holder).edit.setVisibility(View.INVISIBLE);

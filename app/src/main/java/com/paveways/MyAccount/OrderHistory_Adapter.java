@@ -51,7 +51,7 @@ public class OrderHistory_Adapter extends RecyclerView.Adapter<RecyclerView.View
 
     }
     private class OrderHistoryItemView extends RecyclerView.ViewHolder {
-        TextView order_id,  order_shipping, order_price, order_date, order_viewdetails,generate_receipts,getreceipts;
+        TextView order_id,  name, email,phone, order_date, order_viewdetails,generate_receipts,getreceipts;
         LinearLayout icons;
         ImageView approve,reject;
 
@@ -59,8 +59,6 @@ public class OrderHistory_Adapter extends RecyclerView.Adapter<RecyclerView.View
         public OrderHistoryItemView(View itemView) {
             super(itemView);
             order_id = (TextView) itemView.findViewById(R.id.order_id);
-            order_price = (TextView) itemView.findViewById(R.id.order_price);
-            order_shipping = (TextView) itemView.findViewById(R.id.order_shipping);
             order_date = (TextView) itemView.findViewById(R.id.order_date);
             order_viewdetails = (TextView) itemView.findViewById(R.id.order_viewdetails);
             generate_receipts = (TextView) itemView.findViewById(R.id.receipts);
@@ -68,6 +66,9 @@ public class OrderHistory_Adapter extends RecyclerView.Adapter<RecyclerView.View
             icons = itemView.findViewById(R.id.icons);
             approve = itemView.findViewById(R.id.approve);
             reject = itemView.findViewById(R.id.reject);
+            name = itemView.findViewById(R.id.name);
+            email = itemView.findViewById(R.id.email);
+            phone = itemView.findViewById(R.id.phone);
 
 
         }
@@ -89,8 +90,11 @@ public class OrderHistory_Adapter extends RecyclerView.Adapter<RecyclerView.View
         ((OrderHistoryItemView) holder).order_id.setText(model.getorder_id());
 
 
-        ((OrderHistoryItemView) holder).order_date.setText(model.getdate());
+        ((OrderHistoryItemView) holder).order_date.setText("Date : " + model.getdate());
         ((OrderHistoryItemView) holder).generate_receipts.setText(model.getprice());
+        ((OrderHistoryItemView) holder).name.setText("Name : " + model.getName());
+        ((OrderHistoryItemView) holder).phone.setText("Phone : " + model.getPhone());
+        ((OrderHistoryItemView) holder).email.setText("Email :" + model.getEmail());
 
 
         if(Objects.equals(model.getsecurecode(), "00") && Objects.equals(model.getprice(), "Pending")){

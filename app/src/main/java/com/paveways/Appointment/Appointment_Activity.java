@@ -119,8 +119,19 @@ public class Appointment_Activity extends AppCompatActivity implements
                                               int minute) {
                             if (hourOfDay >= 6 && hourOfDay < 18) {
 
-                                txtTime.setText(hourOfDay + ":" + minute);
-                            }else {
+                                String timeSuffix = "AM"; // Assume AM by default
+
+                                if (hourOfDay >= 12) {
+                                    timeSuffix = "PM";
+                                    if (hourOfDay > 12) {
+                                        hourOfDay -= 12; // Convert to 12-hour format
+                                    }
+                                }
+
+                                String formattedMinute = (minute < 10) ? "0" + minute : String.valueOf(minute);
+
+                                txtTime.setText(hourOfDay + ":" + formattedMinute + " " + timeSuffix);
+                            } else {
                                 // Display an error message
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Appointment_Activity.this);
                                 builder.setTitle("Invalid Time");
@@ -134,8 +145,10 @@ public class Appointment_Activity extends AppCompatActivity implements
                                 builder.show();
                             }
                         }
-                       }, mHour, mMinute, false);
+                    }, mHour, mMinute, false);
+
             timePickerDialog.show();
+
         }
 
         if (v == finish) {
