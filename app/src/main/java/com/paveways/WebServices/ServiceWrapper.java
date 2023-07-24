@@ -18,6 +18,8 @@ import com.paveways.WebResponse.OrderHistoryAPI;
 import com.paveways.WebResponse.OrderSummary;
 import com.paveways.WebResponse.PlaceOrder;
 import com.paveways.WebResponse.ProductDetail_Res;
+import com.paveways.WebResponse.RequestService;
+import com.paveways.WebResponse.ServicesListAPI;
 import com.paveways.WebResponse.StaffResponse;
 import com.paveways.WebResponse.SubCategoriesResponse;
 import com.paveways.WebResponse.UserDetails;
@@ -147,6 +149,9 @@ public class ServiceWrapper  {
     public Call<AddAppointment> addAppointmentCall(String securcode, String listing_id, String user_id, String date, String time, String appointment_id, String comment){
         return mServiceInterface.addAppointmentCall(convertPlainString(securcode), convertPlainString(listing_id),convertPlainString(user_id),convertPlainString(date),convertPlainString(time), convertPlainString(appointment_id),convertPlainString(comment)  );
     }
+    public Call<RequestService> requestServiceCall(String securcode,String user_id, String serviceID, String comment){
+        return mServiceInterface.requestServiceCall(convertPlainString(securcode), convertPlainString(user_id),convertPlainString(serviceID),convertPlainString(comment));
+    }
 
     //edit user details
     public Call<AddAppointment> editUserDetailsCall(String securcode, String staff_id, String user_id){
@@ -190,6 +195,9 @@ public class ServiceWrapper  {
     // get order history
     public Call<AppointmentHistoryAPI> getAppointmentHistoryCall(String securcode, String user_id){
         return mServiceInterface.getAppointmentHistoryCall(convertPlainString(securcode), convertPlainString(user_id) );
+    }
+    public Call<ServicesListAPI> getServiceListCall(String securcode){
+        return mServiceInterface.getServiceListCall(convertPlainString(securcode) );
     }
 
     //get user details

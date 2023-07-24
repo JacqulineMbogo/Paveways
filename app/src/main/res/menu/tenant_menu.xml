@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="example.javatpoint.com.optionmenu.MainActivity">
 
-    <item  android:id="@+id/cart"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"
-        android:title="Cart"/>
-    <item  android:id="@+id/listings"
-        android:icon="@drawable/ic_baseline_reorder_24"
-        android:title="My Listings Orders"/>
-    <item  android:id="@+id/booking"
-        android:icon="@drawable/ic_baseline_donut_large_24"
-        android:title="Site Visits"/>
+    <item  android:id="@+id/shop"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Shop"/>
+    <item  android:id="@+id/service"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Service Requests"/>
     <item  android:id="@+id/feedback"
         android:icon="@drawable/ic_baseline_message_24"
         android:title="Feedback"

@@ -59,6 +59,18 @@ public class UserSignInRes {
         @Expose
         private String username;
 
+        @SerializedName("comment")
+        @Expose
+        private String comment;
+
+        public String getComment() {
+            return comment;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
+
         public String getUsername() {
             return username;
         }

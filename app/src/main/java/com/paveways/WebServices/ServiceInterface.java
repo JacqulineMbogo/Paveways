@@ -14,6 +14,8 @@ import com.paveways.WebResponse.OrderHistoryAPI;
 import com.paveways.WebResponse.OrderSummary;
 import com.paveways.WebResponse.PlaceOrder;
 import com.paveways.WebResponse.ProductDetail_Res;
+import com.paveways.WebResponse.RequestService;
+import com.paveways.WebResponse.ServicesListAPI;
 import com.paveways.WebResponse.StaffResponse;
 import com.paveways.WebResponse.SubCategoriesResponse;
 import com.paveways.WebResponse.UserDetails;
@@ -58,6 +60,7 @@ public interface ServiceInterface {
             @Part("user_name") RequestBody phone,
             @Part("password") RequestBody password
     );
+
     // get banner image
     @Multipart
     @POST("getbanner.php")
@@ -77,6 +80,7 @@ public interface ServiceInterface {
     Call<StaffResponse> StaffResponsecall(
             @Part("securecode") RequestBody securecode
     );
+
     // get sub categories
     @Multipart
     @POST("get_sub_category.php")
@@ -92,7 +96,8 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("selectedOption") RequestBody selectedOption,
             @Part("stype") RequestBody stype
-             );
+    );
+
     // get product details
     @Multipart
     @POST("getproductdetails.php")
@@ -100,6 +105,7 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("prod_id") RequestBody prod_id
     );
+
     // get feedback history
     @Multipart
     @POST("getallfeedback.php")
@@ -119,6 +125,7 @@ public interface ServiceInterface {
             @Part("staff") RequestBody staff
 
     );
+
     // add to cart
     @Multipart
     @POST("add_prod_into_cart.php")
@@ -129,6 +136,7 @@ public interface ServiceInterface {
 
     );
 
+
     @Multipart
     @POST("add_appointment.php")
     Call<AddAppointment> addAppointmentCall(
@@ -138,6 +146,16 @@ public interface ServiceInterface {
             @Part("date") RequestBody date,
             @Part("time") RequestBody time,
             @Part("appointment_id") RequestBody appointment_id,
+            @Part("comment") RequestBody comment
+
+    );
+
+    @Multipart
+    @POST("request_service.php")
+    Call<RequestService> requestServiceCall(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id,
+            @Part("service_id") RequestBody service_id,
             @Part("comment") RequestBody comment
 
     );
@@ -168,6 +186,7 @@ public interface ServiceInterface {
             @Part("qoute_id") RequestBody qoute_id,
             @Part("user_id") RequestBody user_id
     );
+
     // delete cart item
     @Multipart
     @POST("deletecartitem.php")
@@ -207,6 +226,7 @@ public interface ServiceInterface {
             @Part("qoute_id") RequestBody qoute_id,
             @Part("deliverymode") RequestBody deliverymode
     );
+
     // get order history
     @Multipart
     @POST("getorderhistory.php")
@@ -223,10 +243,15 @@ public interface ServiceInterface {
     );
 
     @Multipart
+    @POST("getallservices.php")
+    Call<ServicesListAPI> getServiceListCall(
+            @Part("securecode") RequestBody securecode
+    );
+
+    @Multipart
     @POST("getUsers.php")
     Call<UserDetails> getuserDetailsHistoryCall(
-            @Part("securecode") RequestBody securecode );
-
+            @Part("securecode") RequestBody securecode);
 
 
     @Multipart
@@ -262,6 +287,7 @@ public interface ServiceInterface {
             @Part("status") RequestBody status
 
     );
+
     // code
     @Multipart
     @POST("code.php")
@@ -271,6 +297,7 @@ public interface ServiceInterface {
             @Part("code") RequestBody code
 
     );
+
     // get order prodct details history
     @Multipart
     @POST("getorderhistoryproddetails.php")

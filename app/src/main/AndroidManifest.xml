@@ -61,6 +61,8 @@
         <activity android:name=".AboutPage"/>
         <activity android:name=".HelpPage"/>
         <activity android:name=".ContactPage"/>
+        <activity android:name=".Tenant.TenantHome"/>
+        <activity android:name=".Tenant.Services.ServicesHome"/>
 
 
 

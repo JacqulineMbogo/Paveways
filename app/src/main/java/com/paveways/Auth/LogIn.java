@@ -20,6 +20,7 @@ import com.paveways.Home.HomeActivity;
 import com.paveways.R;
 import com.paveways.Listings.Listings_Activity;
 import com.paveways.Staff.Auth.StaffLogin;
+import com.paveways.Tenant.TenantHome;
 import com.paveways.Utility.AppUtilits;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.DataValidation;
@@ -27,6 +28,8 @@ import com.paveways.Utility.NetworkUtility;
 import com.paveways.Utility.SharedPreferenceActivity;
 import com.paveways.WebResponse.UserSignInRes;
 import com.paveways.WebServices.ServiceWrapper;
+
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -114,11 +117,16 @@ public class LogIn extends AppCompatActivity {
                             sharedPreferenceActivity.putItem(Constant.USER_name, response.body().getInformation().getFullname());
                             sharedPreferenceActivity.putItem(Constant.USER_email, response.body().getInformation().getEmail());
                             sharedPreferenceActivity.putItem(Constant.USER_phone, response.body().getInformation().getPhone());
+                            sharedPreferenceActivity.putItem(Constant.COMMENT, response.body().getInformation().getComment());
                             sharedPreferenceActivity.removeItem(Constant.DEPARTMENT);
                             AppUtilits.createToaster(LogIn.this, "Welcome, "+sharedPreferenceActivity.getItem(Constant.USER_name),Toast.LENGTH_LONG);
-                            Intent intent = new Intent(LogIn.this, HomeActivity.class);
-                            startActivity(intent);
-                            //finish();
+                            if(sharedPreferenceActivity.getItem(Constant.COMMENT).isEmpty() || Objects.equals(sharedPreferenceActivity.getItem(Constant.COMMENT), "")) {
+                                Intent intent = new Intent(LogIn.this, HomeActivity.class);
+                                startActivity(intent);
+                            }else{
+                                Intent intent = new Intent(LogIn.this, TenantHome.class);
+                                startActivity(intent);
+                            }
 
                         }else  if (response.body().getStatus() ==0){
                             AppUtilits.displayMessage(LogIn.this,  response.body().getMsg());

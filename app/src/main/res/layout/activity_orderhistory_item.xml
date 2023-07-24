@@ -149,6 +149,20 @@
 
         <TextView
 
+            android:id="@+id/getreceipts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Receipt"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/COMPLEMENT"
+            android:textStyle="bold" />
+
+        <TextView
+
             android:id="@+id/order_viewdetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -160,18 +174,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/white" />
 
-        <TextView
 
-            android:id="@+id/getreceipts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="Receipt"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="@color/COMPLEMENT"
-            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>
