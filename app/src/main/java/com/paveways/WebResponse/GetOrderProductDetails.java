@@ -26,6 +26,18 @@ public class GetOrderProductDetails {
     @Expose
     private String grandtotal;
 
+    @SerializedName("payment_status")
+    @Expose
+    private String payment_status;
+
+    public String getPayment_status() {
+        return payment_status;
+    }
+
+    public void setPayment_status(String payment_status) {
+        this.payment_status = payment_status;
+    }
+
     public Integer getStatus() {
         return status;
     }

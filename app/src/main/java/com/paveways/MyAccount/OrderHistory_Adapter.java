@@ -107,7 +107,7 @@ public class OrderHistory_Adapter extends RecyclerView.Adapter<RecyclerView.View
             @Override
             public void onClick(View view) {
 
-                Log.e(TAG, "  user select the order id " + model.getorder_id() );
+                Log.e(TAG, "user select the order id " + model.getorder_id() );
 
 
                 Intent intent = new Intent(mContext, OrderHistory_ViewDetails.class);
@@ -144,23 +144,6 @@ public class OrderHistory_Adapter extends RecyclerView.Adapter<RecyclerView.View
                 mContext.startActivity(intent);
             }
         });
-
-    /* ((OrderHistoryItemView) holder).generate_receipts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Log.e(TAG, "  user select the order id " + model.getorder_id() );
-
-
-                Intent intent = new Intent(mContext, generate_receipts.class);
-                intent.putExtra("order_id", model.getorder_id());
-
-                mContext.startActivity(intent);
-
-            }
-        });
-
-*/
     }
 
     public void editOrderDetails(String securecode,String order_id){

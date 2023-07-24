@@ -55,7 +55,6 @@ public class StaffProfile extends AppCompatActivity {
             users.setVisibility(View.VISIBLE);
             bookings.setVisibility(View.VISIBLE);
             orders.setVisibility(View.VISIBLE);
-            payments.setVisibility(View.VISIBLE);
             maintain.setVisibility(View.VISIBLE);
         }else if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("maintenance")){
             maintain.setVisibility(View.VISIBLE);

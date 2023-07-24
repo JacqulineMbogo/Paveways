@@ -171,9 +171,6 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
                             totalpricetxt.setText("Subtotal : " + "Ksh " +sharedPreferenceActivity.getItem(Constant.USER_SubTotalprice));
 
-                            shipping.setText("Faciliation Fee : " + "Ksh " +sharedPreferenceActivity.getItem(Constant.USER_Fee));
-
-
                             int plus = Integer.parseInt(sharedPreferenceActivity.getItem(Constant.USER_Totalprice));
 
 

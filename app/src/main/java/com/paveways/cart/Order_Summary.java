@@ -110,7 +110,7 @@ public class Order_Summary extends AppCompatActivity {
                         if (response.body().getStatus() == 1) {
 
                             subtotalvalue.setText("Ksh "+response.body().getInformation().getSubtotal());
-                            shippingvalue.setText(response.body().getInformation().getShippingfee());
+                            shippingvalue.setText("Ksh "+response.body().getInformation().getShippingfee());
                             ordertotalvalue.setText("Ksh "+response.body().getInformation().getOrdertotal());
 
                             sharedPreferenceActivity.putItem(Constant.USER_Totalprice, response.body().getInformation().getOrdertotal());

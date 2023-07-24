@@ -147,7 +147,7 @@
     <string name="thanks">Thank You For Joining us</string>
     <string name="thankshop">Hurrah! You got this far!</string>
     <string name="your_request">Please Wait \n For Admin Approval</string>
-    <string name="paynow">Please make your payment here upon order approval. \n Kindly note that payment should be more than half of the total amount </string>
+    <string name="paynow">Please make your payment here. \n Kindly note that payment should be more than half of the total amount </string>
 
     <string name="paynow3">Make your payment here \n it should constitute shipping fee only</string>
     <string name="payments">Your payment is successful \n Please check your order details for updates </string>

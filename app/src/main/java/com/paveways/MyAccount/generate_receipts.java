@@ -341,7 +341,7 @@ public class generate_receipts extends AppCompatActivity {
     public void onBackPressed() {
 
 
-        Intent intent1 = new Intent(generate_receipts.this, HomeActivity.class);
+        Intent intent1 = new Intent(generate_receipts.this, OrderHistory.class);
 
         startActivity(intent1);
 

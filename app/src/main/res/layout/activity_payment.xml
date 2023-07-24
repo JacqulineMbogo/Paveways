@@ -212,7 +212,6 @@
             android:text="Order Details"
             android:background="@drawable/rounded_green"
             android:padding="10dp"
-            android:visibility="gone"
             android:layout_margin="10dp"
             android:layout_below="@+id/shopimage"
             android:textColor="@color/white"

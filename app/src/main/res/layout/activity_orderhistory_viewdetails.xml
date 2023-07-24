@@ -8,52 +8,6 @@
 
 
 
-    <RelativeLayout
-        android:id="@+id/R1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/t1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_small"
-            android:layout_marginBottom="@dimen/padding_small"
-            android:gravity="center_horizontal"
-            android:text="UKULIMA POULTRY"
-            android:textColor="@color/black"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:id="@+id/t2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_small"
-            android:layout_below="@+id/t1"
-            android:layout_marginBottom="@dimen/padding_small"
-            android:gravity="center_horizontal"
-            android:text="RECEIPT NO: Z1234y"
-            android:textColor="@color/black"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:id="@+id/t3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/t2"
-            android:layout_marginTop="@dimen/padding_small"
-            android:layout_marginBottom="@dimen/padding_small"
-            android:gravity="center_horizontal"
-            android:text="DATE: 15/4/2019"
-            android:textColor="@color/black"
-            android:textStyle="normal|bold" />
-
-
-    </RelativeLayout>
-
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -205,7 +159,6 @@
             <TextView
                 android:id="@+id/order_over"
                 android:visibility="gone"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/shipping_fee"
@@ -228,14 +181,14 @@
                 android:textColor="@color/black"
                 android:visibility="gone" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/layout_shipping_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/order_info"
-                android:layout_marginTop="@dimen/padding_extralarge"
-                android:paddingLeft="@dimen/padding_small"
-                android:paddingRight="@dimen/padding_small">
+                android:layout_margin="@dimen/padding_small"
+                android:padding="@dimen/padding_small"
+                android:orientation="horizontal">
 
 
 
@@ -244,10 +197,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginTop="@dimen/padding_medium"
-                    android:layout_marginRight="@dimen/padding_small"
-                    android:layout_toLeftOf="@id/order_payment_type"
+                    android:layout_margin="@dimen/padding_small"
                     android:minWidth="100dp"
                     android:textColor="@color/black"
                     android:textStyle="normal" />
@@ -257,14 +207,13 @@
                     android:id="@+id/order_payment_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/padding_medium"
                     android:minWidth="100dp"
                     android:textColor="@color/black"
                     android:textStyle="normal" />
 
 
-            </RelativeLayout>
+            </LinearLayout>
 
 
             <RelativeLayout
@@ -300,32 +249,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/textid1"
+                    android:orientation="horizontal"
                     android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="3"
                         android:text="Balance Amount"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
                         android:textColor="@color/black"
                         android:layout_marginEnd="5dp"
                         android:textStyle="bold|normal"/>
 
                     <TextView
                         android:id="@+id/amount"
+                        android:layout_weight="3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginLeft="@dimen/padding_small"
+                        android:layout_margin="@dimen/padding_small"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/continuebtn"
+                        android:layout_weight="3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
                         android:layout_margin="@dimen/padding_small"
                         android:background="@drawable/rounder_small_green"
                         android:gravity="center_horizontal"
@@ -336,31 +286,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/textid2"
+                    android:orientation="horizontal"
                     android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_weight="3"
                         android:layout_height="wrap_content"
                         android:text="Payment Code"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
                         android:textColor="@color/black"/>
 
 
                     <EditText
                         android:id="@+id/code"
                         android:layout_width="wrap_content"
+                        android:layout_weight="3"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:hint="Code..."
-                        android:layout_marginLeft="@dimen/padding_small"
+                        android:layout_margin="@dimen/padding_small"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/codecontinuebtn"
                         android:layout_width="wrap_content"
+                        android:layout_weight="3"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
                         android:layout_margin="@dimen/padding_small"
                         android:background="@drawable/rounder_small_green"
                         android:gravity="center_horizontal"
@@ -372,10 +324,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/textid3"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_weight="2"
                         android:layout_height="wrap_content"
                         android:text="Payment Method"
                         android:layout_marginBottom="10dp"
@@ -384,7 +338,8 @@
                     <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="2"
                         android:id="@+id/radiogroup">
 
                         <RadioButton
@@ -392,8 +347,8 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/radio_cash_on"
                             android:text="M_Pesa"
-                            android:layout_marginTop="@dimen/padding_large"
-                            android:layout_marginLeft="@dimen/padding_large" />
+                            android:layout_margin="@dimen/padding_small"
+                             />
 
                         <RadioButton
                             android:layout_width="wrap_content"
@@ -401,8 +356,8 @@
                             android:id="@+id/radio_eazybank"
                             android:text="Eazy Pay"
                             android:visibility="gone"
-                            android:layout_marginTop="@dimen/padding_large"
-                            android:layout_marginLeft="@dimen/padding_large" />
+                            android:layout_margin="@dimen/padding_small"
+                             />
 
 
 
@@ -433,77 +388,36 @@
 
 
             <LinearLayout
+                android:id="@+id/receive_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/layout_2"
-                android:layout_marginTop="@dimen/text_extra_large">
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_margin="@dimen/padding_small">
 
 
                 <TextView
                     android:id="@+id/receivebtn"
                     android:layout_width="wrap_content"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_margin="@dimen/padding_small"
-                    android:layout_marginTop="@dimen/padding_extralarge"
-                    android:visibility="gone"
                     android:background="@drawable/rounder_small_green"
                     android:gravity="center_horizontal"
                     android:text="Confirm Ownership"
                     android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/padding_small"
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"
+                    android:text="By clicking this,you agree tohave received all the necessary documents applicable to all the above property. "
+                    android:textColor="@color/black" />
             </LinearLayout>
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/padding_small"
-                android:paddingRight="@dimen/padding_small"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/order_billing_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:minWidth="100dp"
-                    android:text="@string/billing_addrss"
-                    android:textColor="@color/black"
-                    android:textStyle="normal"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/order_billing_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/order_billing_info"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginTop="@dimen/padding_medium"
-                    android:layout_marginRight="@dimen/padding_small"
-                    android:layout_toLeftOf="@id/order_billing_payment_type"
-                    android:minWidth="100dp"
-                    android:textColor="@color/black"
-                    android:textStyle="normal"
-                    android:visibility="gone" />
-
-
-                <TextView
-                    android:id="@+id/order_billing_payment_type"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/order_billing_info"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/padding_medium"
-                    android:minWidth="100dp"
-                    android:textColor="@color/black"
-                    android:textStyle="normal"
-                    android:visibility="gone" />
-
-
-            </RelativeLayout>
-
-
 
         </RelativeLayout>
 

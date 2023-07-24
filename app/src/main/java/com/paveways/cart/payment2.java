@@ -109,7 +109,7 @@ public class payment2 extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(payment2.this, Listings_Activity.class);
+                Intent intent = new Intent(payment2.this, OrderHistory.class);
                 startActivity(intent);
                 finish();
 
@@ -118,7 +118,7 @@ public class payment2 extends AppCompatActivity {
         home2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(payment2.this, Listings_Activity.class);
+                Intent intent = new Intent(payment2.this, OrderHistory.class);
                 startActivity(intent);
                 finish();
 
@@ -127,7 +127,7 @@ public class payment2 extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(payment2.this, Listings_Activity.class);
+                Intent intent = new Intent(payment2.this, OrderHistory.class);
                 startActivity(intent);
                 finish();
 
@@ -267,10 +267,10 @@ public class payment2 extends AppCompatActivity {
 
 
             }
-        }).setPositiveButton("Yes, Waiting for Approval", new DialogInterface.OnClickListener() {
+        }).setPositiveButton("Yes,Proceed", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                makepayment("00","0");
+                //makepayment("00","0");
                 Intent intent1 = new Intent(payment2.this, HomeActivity.class);
 
                 startActivity(intent1);

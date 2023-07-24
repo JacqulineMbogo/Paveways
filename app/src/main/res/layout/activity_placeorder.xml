@@ -199,7 +199,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
             android:layout_marginTop="@dimen/padding_medium"
-            android:text="@string/ksh"
             android:gravity="center"/>
 
         <TextView
@@ -212,7 +211,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
             android:layout_marginTop="@dimen/padding_medium"
-            android:text="@string/ksh"
             android:gravity="center"/>
 
 
@@ -226,7 +224,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
             android:layout_marginTop="@dimen/padding_medium"
-            android:text="@string/ksh"
             android:gravity="center"/>
         <TextView
             android:layout_width="wrap_content"
