@@ -1,6 +1,7 @@
 package com.paveways.Tenant.Services;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -10,14 +11,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.Gson;
+import com.paveways.Home.HomeActivity;
+import com.paveways.MyAccount.OrderHistory;
 import com.paveways.R;
+import com.paveways.StaffProfile;
+import com.paveways.Tenant.TenantHome;
 import com.paveways.Utility.AppUtilits;
+import com.paveways.Utility.Constant;
 import com.paveways.Utility.NetworkUtility;
 import com.paveways.Utility.SharedPreferenceActivity;
 import com.paveways.WebResponse.ServicesListAPI;
 import com.paveways.WebServices.ServiceWrapper;
+
 import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -75,7 +84,7 @@ public class ServicesHome extends AppCompatActivity {
 
                                 for (int i = 0; i < response.body().getInformation().size(); i++) {
 
-                                    Models.add(new Services_Model(response.body().getInformation().get(i).getId(),response.body().getInformation().get(i).getName(),response.body().getInformation().get(i).getDescription()));
+                                    Models.add(new Services_Model(response.body().getInformation().get(i).getId(), response.body().getInformation().get(i).getName(), response.body().getInformation().get(i).getDescription()));
 
                                 }
                                 adapter.notifyDataSetChanged();
@@ -101,6 +110,24 @@ public class ServicesHome extends AppCompatActivity {
             });
 
 
+        }
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (!sharedPreferenceActivity.getItem(Constant.DEPARTMENT).isEmpty()) {
+            Intent intent1 = new Intent(ServicesHome.this, StaffProfile.class);
+
+            startActivity(intent1);
+
+        } else {
+
+            Intent intent1 = new Intent(ServicesHome.this, TenantHome.class);
+
+            startActivity(intent1);
         }
 
 

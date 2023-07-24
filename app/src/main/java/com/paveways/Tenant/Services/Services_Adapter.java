@@ -85,7 +85,7 @@ public class Services_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 String userInput = editText.getText().toString();
-                                requestforService(sharedPreferenceActivity.getItem(Constant.USER_DATA),userInput,model.getId(), mContext);
+                                requestforService("123",sharedPreferenceActivity.getItem(Constant.USER_DATA),userInput,model.getId(), mContext);
                             }
                         }).setNegativeButton("Cancel", null)
                         .show();
@@ -93,7 +93,7 @@ public class Services_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         });
 
     }
-    public static void requestforService(String user, String comment,String serviceID, Context mContext) {
+    public static void requestforService(String securecode,String user, String comment,String serviceID, Context mContext) {
         final android.app.AlertDialog progressbar = AppUtilits.createProgressBar(mContext," Please wait..");
 
         if (!NetworkUtility.isNetworkConnected(mContext)){
@@ -102,7 +102,7 @@ public class Services_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             AppUtilits.destroyDialog(progressbar);
         }else {
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<RequestService> call = service.requestServiceCall("123", user,serviceID,comment);
+            Call<RequestService> call = service.requestServiceCall(securecode, user,serviceID,comment,"");
             call.enqueue(new Callback<RequestService>() {
                 @Override
                 public void onResponse(Call<RequestService> call, Response<RequestService> response) {

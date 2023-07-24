@@ -15,6 +15,7 @@ import com.paveways.WebResponse.OrderSummary;
 import com.paveways.WebResponse.PlaceOrder;
 import com.paveways.WebResponse.ProductDetail_Res;
 import com.paveways.WebResponse.RequestService;
+import com.paveways.WebResponse.ServiceRequestsAPI;
 import com.paveways.WebResponse.ServicesListAPI;
 import com.paveways.WebResponse.StaffResponse;
 import com.paveways.WebResponse.SubCategoriesResponse;
@@ -156,7 +157,8 @@ public interface ServiceInterface {
             @Part("securecode") RequestBody securecode,
             @Part("user_id") RequestBody user_id,
             @Part("service_id") RequestBody service_id,
-            @Part("comment") RequestBody comment
+            @Part("comment") RequestBody comment,
+            @Part("totalCost") RequestBody totalCost
 
     );
 
@@ -238,6 +240,13 @@ public interface ServiceInterface {
     @Multipart
     @POST("getAppointmentHistory.php")
     Call<AppointmentHistoryAPI> getAppointmentHistoryCall(
+            @Part("securecode") RequestBody securecode,
+            @Part("user_id") RequestBody user_id
+    );
+
+    @Multipart
+    @POST("getServiceRequestHistory.php")
+    Call<ServiceRequestsAPI> getServiceRequestsHistoryCall(
             @Part("securecode") RequestBody securecode,
             @Part("user_id") RequestBody user_id
     );

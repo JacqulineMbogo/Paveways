@@ -15,6 +15,9 @@ import com.paveways.Feedback.FeedbackHistory;
 import com.paveways.MyAccount.OrderHistory;
 import com.paveways.Staff.Auth.StaffLogin;
 import com.paveways.Staff.StaffAppointment.StaffAppointment_History;
+import com.paveways.Tenant.Services.Service_Requests_History;
+import com.paveways.Tenant.Services.ServicesHome;
+import com.paveways.Tenant.TenantHome;
 import com.paveways.Users.Users_Home;
 import com.paveways.Utility.Constant;
 import com.paveways.Utility.SharedPreferenceActivity;
@@ -25,7 +28,7 @@ public class StaffProfile extends AppCompatActivity {
     SharedPreferenceActivity sharedPreferenceActivity;
     private String TAG ="myaccount";
     private TextView myacc_username, myacc_email, myacc_phone,department;
-    private LinearLayout users,bookings,orders,payments,feedback;
+    private LinearLayout users,bookings,orders,payments,feedback,maintain;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,35 +39,27 @@ public class StaffProfile extends AppCompatActivity {
         myacc_username = (TextView) findViewById(R.id.myacc_username);
         myacc_email = (TextView) findViewById(R.id.myacc_email);
         myacc_phone =(TextView) findViewById(R.id.myacc_phone);
-        department =(TextView) findViewById(R.id.department);
         users = findViewById(R.id.users);
         bookings = findViewById(R.id.bookings);
         orders = findViewById(R.id.orders);
         payments = findViewById(R.id.payments);
         feedback = findViewById(R.id.feedback);
+        maintain = findViewById(R.id.maintain);
 
 
         myacc_username.setText(sharedPreferenceActivity.getItem(Constant.USER_name));
         myacc_email.setText(sharedPreferenceActivity.getItem(Constant.USER_email));
         myacc_phone.setText(sharedPreferenceActivity.getItem(Constant.USER_phone));
-        department.setText(sharedPreferenceActivity.getItem(Constant.DEPARTMENT));
 
-        if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10004")){
+        if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("admin")){
             users.setVisibility(View.VISIBLE);
             bookings.setVisibility(View.VISIBLE);
             orders.setVisibility(View.VISIBLE);
             payments.setVisibility(View.VISIBLE);
-        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10001")){
-            users.setVisibility(View.VISIBLE);
-        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10005")){
-            bookings.setVisibility(View.VISIBLE);
-        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10006")){
-            orders.setVisibility(View.VISIBLE);
-        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10002")){
-            payments.setVisibility(View.VISIBLE);
-        }else if(sharedPreferenceActivity.getItem(Constant.USER_DATA).equalsIgnoreCase("10007")){
-            orders.setVisibility(View.VISIBLE);
-    }
+            maintain.setVisibility(View.VISIBLE);
+        }else if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("maintenance")){
+            maintain.setVisibility(View.VISIBLE);
+        }
 
         users.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +99,14 @@ public class StaffProfile extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
+            }
+        });
+        maintain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StaffProfile.this, Service_Requests_History.class);
+                startActivity(intent);
+                finish();
             }
         });
 

@@ -17,7 +17,7 @@ import com.paveways.Feedback.FeedbackHistory;
 import com.paveways.HelpPage;
 import com.paveways.Home.HomeActivity;
 import com.paveways.R;
-import com.paveways.Tenant.Services.ServiceRequests;
+import com.paveways.Tenant.Services.Service_Requests_History;
 import com.paveways.Tenant.Services.ServicesHome;
 
 public class TenantHome extends AppCompatActivity {
@@ -61,7 +61,7 @@ public class TenantHome extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.service:
-                Intent intent9 = new Intent(TenantHome.this, ServiceRequests.class);
+                Intent intent9 = new Intent(TenantHome.this, Service_Requests_History.class);
                 startActivity(intent9);
                 return true;
             case R.id.feedback:

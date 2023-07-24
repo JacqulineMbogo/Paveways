@@ -19,6 +19,7 @@ import com.paveways.WebResponse.OrderSummary;
 import com.paveways.WebResponse.PlaceOrder;
 import com.paveways.WebResponse.ProductDetail_Res;
 import com.paveways.WebResponse.RequestService;
+import com.paveways.WebResponse.ServiceRequestsAPI;
 import com.paveways.WebResponse.ServicesListAPI;
 import com.paveways.WebResponse.StaffResponse;
 import com.paveways.WebResponse.SubCategoriesResponse;
@@ -149,8 +150,8 @@ public class ServiceWrapper  {
     public Call<AddAppointment> addAppointmentCall(String securcode, String listing_id, String user_id, String date, String time, String appointment_id, String comment){
         return mServiceInterface.addAppointmentCall(convertPlainString(securcode), convertPlainString(listing_id),convertPlainString(user_id),convertPlainString(date),convertPlainString(time), convertPlainString(appointment_id),convertPlainString(comment)  );
     }
-    public Call<RequestService> requestServiceCall(String securcode,String user_id, String serviceID, String comment){
-        return mServiceInterface.requestServiceCall(convertPlainString(securcode), convertPlainString(user_id),convertPlainString(serviceID),convertPlainString(comment));
+    public Call<RequestService> requestServiceCall(String securcode,String user_id, String serviceID, String comment, String totalCost){
+        return mServiceInterface.requestServiceCall(convertPlainString(securcode), convertPlainString(user_id),convertPlainString(serviceID),convertPlainString(comment),convertPlainString(totalCost));
     }
 
     //edit user details
@@ -195,6 +196,9 @@ public class ServiceWrapper  {
     // get order history
     public Call<AppointmentHistoryAPI> getAppointmentHistoryCall(String securcode, String user_id){
         return mServiceInterface.getAppointmentHistoryCall(convertPlainString(securcode), convertPlainString(user_id) );
+    }
+    public Call<ServiceRequestsAPI> getServiceRequestsHistoryCall(String securcode, String user_id){
+        return mServiceInterface.getServiceRequestsHistoryCall(convertPlainString(securcode), convertPlainString(user_id) );
     }
     public Call<ServicesListAPI> getServiceListCall(String securcode){
         return mServiceInterface.getServiceListCall(convertPlainString(securcode) );
