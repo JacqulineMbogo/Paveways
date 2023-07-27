@@ -66,6 +66,7 @@ public class Staff_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
                 Intent intent = new Intent(mContext, FeedbackHistory.class);
                 intent.putExtra("user",model.getId());
+                intent.putExtra("name",model.getName());
                 mContext.startActivity(intent);
 
             }

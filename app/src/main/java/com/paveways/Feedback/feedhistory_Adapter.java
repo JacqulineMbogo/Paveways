@@ -95,6 +95,9 @@ public class feedhistory_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ((FeedHistoryItemView) holder).reply.setText(model.getReply());
             ((FeedHistoryItemView)  holder).replydate.setText(model.getReplydate());
         }
+        if(Objects.equals(model.getComment(), "...")) {
+            ((FeedHistoryItemView) holder).comment.setVisibility(View.GONE);
+        }
 
 
 

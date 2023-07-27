@@ -42,9 +42,9 @@ public class FeedbackHistory extends AppCompatActivity {
     private String TAG = "feedhistory";
     SharedPreferenceActivity sharedPreferenceActivity;
     Context context;
-    String user = "";
+    String user = "", name ="";
     private String securecode;
-    private TextView feednew;
+    private TextView feednew, receiver;
     private EditText message;
     private RecyclerView recyclerView_order;
     private ArrayList<feedhistory_model> Models = new ArrayList<>();
@@ -59,12 +59,15 @@ public class FeedbackHistory extends AppCompatActivity {
         sharedPreferenceActivity = new SharedPreferenceActivity(this);
         feednew = findViewById(R.id.send);
         message = findViewById(R.id.message);
+        receiver = findViewById(R.id.receiver);
 
         final Intent intent = getIntent();
         user = intent.getExtras().getString("user");
+        name = intent.getExtras().getString("name");
 
 
-        recyclerView_order = (RecyclerView) findViewById(R.id.recycler_orderhistory);
+        receiver.setText(name);
+        recyclerView_order = (RecyclerView) findViewById(R.id.recycler_chathistory);
         LinearLayoutManager mLayoutManger3 = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView_order.setLayoutManager(mLayoutManger3);
         recyclerView_order.setItemAnimator(new DefaultItemAnimator());
@@ -74,9 +77,7 @@ public class FeedbackHistory extends AppCompatActivity {
         recyclerView_order.setAdapter(adapter);
 
         if (!sharedPreferenceActivity.getItem(Constant.DEPARTMENT).isEmpty()) {
-            securecode = "00";
-            feednew.setVisibility(View.GONE);
-            message.setVisibility(View.GONE);
+            securecode = "100";
         } else {
             securecode = "1";
         }
@@ -87,21 +88,21 @@ public class FeedbackHistory extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!message.getText().toString().isEmpty()) {
-                    submitFeedback(user);
+                    submitFeedback(securecode,user);
                 }
 
             }
         });
     }
 
-    public void getUserFeedHistory(String securecode, String user) {
+    public void getUserFeedHistory(String securecodex, String user) {
         if (!NetworkUtility.isNetworkConnected(FeedbackHistory.this)) {
             Toast.makeText(getApplicationContext(), "Network error", Toast.LENGTH_LONG).show();
 
         } else {
             //  Log.e(TAG, "  user value "+ SharePreferenceUtils.getInstance().getString(Constant.USER_DATA));
             ServiceWrapper service = new ServiceWrapper(null);
-            Call<feedhistoryAPI> call = service.getfeedhistorycall(securecode, sharedPreferenceActivity.getItem(Constant.USER_DATA),user);
+            Call<feedhistoryAPI> call = service.getfeedhistorycall(securecodex, sharedPreferenceActivity.getItem(Constant.USER_DATA),user);
             call.enqueue(new Callback<feedhistoryAPI>() {
                 @Override
                 public void onResponse(Call<feedhistoryAPI> call, Response<feedhistoryAPI> response) {
@@ -147,7 +148,7 @@ public class FeedbackHistory extends AppCompatActivity {
 
     }
 
-    public void submitFeedback(String user) {
+    public void submitFeedback(String securecodes,String user) {
         final AlertDialog progressbar = AppUtilits.createProgressBar(this, "Submitting feedback \n Please Wait");
         if (!NetworkUtility.isNetworkConnected(FeedbackHistory.this)) {
             Toast.makeText(getApplicationContext(), "Network error", Toast.LENGTH_LONG).show();
@@ -155,7 +156,7 @@ public class FeedbackHistory extends AppCompatActivity {
         } else {
 
             ServiceWrapper serviceWrapper = new ServiceWrapper(null);
-            Call<feedbackAPI> feedbackAPICall = serviceWrapper.feedbackcall("1234", "",
+            Call<feedbackAPI> feedbackAPICall = serviceWrapper.feedbackcall(securecodes, "",
                     String.valueOf(message.getText().toString()), String.valueOf(sharedPreferenceActivity.getItem(Constant.USER_DATA)), user);
             feedbackAPICall.enqueue(new Callback<feedbackAPI>() {
                 @Override
