@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.paveways.AboutPage;
 import com.paveways.Auth.LogIn;
 import com.paveways.ContactPage;
+import com.paveways.Feedback.Chat_Activity;
 import com.paveways.Feedback.FeedbackHistory;
 import com.paveways.HelpPage;
 import com.paveways.Home.HomeActivity;
@@ -23,7 +24,7 @@ import com.paveways.Tenant.Services.ServicesHome;
 public class TenantHome extends AppCompatActivity {
 
     String TAG = "TenantHomeActivity";
-    LinearLayout maintain;
+    LinearLayout maintain, rent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class TenantHome extends AppCompatActivity {
         setContentView(R.layout.activity_tenant_home);
 
         maintain=findViewById(R.id.maintain);
+        rent=findViewById(R.id.rent);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -39,6 +41,15 @@ public class TenantHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TenantHome.this, ServicesHome.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        rent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TenantHome.this, RentHome.class);
                 startActivity(intent);
                 finish();
             }
@@ -65,7 +76,7 @@ public class TenantHome extends AppCompatActivity {
                 startActivity(intent9);
                 return true;
             case R.id.feedback:
-                Intent intent3 = new Intent(TenantHome.this, FeedbackHistory.class);
+                Intent intent3 = new Intent(TenantHome.this, Chat_Activity.class);
                 startActivity(intent3);
                 return true;
             case R.id.signout:

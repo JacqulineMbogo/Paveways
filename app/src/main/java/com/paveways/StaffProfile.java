@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.paveways.Auth.LogIn;
 import com.paveways.Auth.SignUp;
+import com.paveways.Feedback.Chat_Activity;
 import com.paveways.Feedback.FeedbackHistory;
 import com.paveways.MyAccount.OrderHistory;
 import com.paveways.Staff.Auth.StaffLogin;
@@ -42,7 +43,6 @@ public class StaffProfile extends AppCompatActivity {
         users = findViewById(R.id.users);
         bookings = findViewById(R.id.bookings);
         orders = findViewById(R.id.orders);
-        payments = findViewById(R.id.payments);
         feedback = findViewById(R.id.feedback);
         maintain = findViewById(R.id.maintain);
 
@@ -51,12 +51,12 @@ public class StaffProfile extends AppCompatActivity {
         myacc_email.setText(sharedPreferenceActivity.getItem(Constant.USER_email));
         myacc_phone.setText(sharedPreferenceActivity.getItem(Constant.USER_phone));
 
-        if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("admin")){
+        if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("1")){
             users.setVisibility(View.VISIBLE);
             bookings.setVisibility(View.VISIBLE);
             orders.setVisibility(View.VISIBLE);
             maintain.setVisibility(View.VISIBLE);
-        }else if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).equalsIgnoreCase("maintenance")){
+        }else{
             maintain.setVisibility(View.VISIBLE);
         }
 
@@ -72,7 +72,7 @@ public class StaffProfile extends AppCompatActivity {
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(StaffProfile.this, FeedbackHistory.class);
+                Intent intent = new Intent(StaffProfile.this, Chat_Activity.class);
                 startActivity(intent);
                 finish();
 

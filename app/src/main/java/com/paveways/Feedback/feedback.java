@@ -148,7 +148,7 @@ public class feedback extends AppCompatActivity {
                             AppUtilits.destroyDialog(progressbar);
                             AppUtilits.displayMessage(feedback.this, response.body().getMsg());
 
-                            Intent intent = new Intent(feedback.this, FeedbackHistory.class);
+                            Intent intent = new Intent(feedback.this, Chat_Activity.class);
                             startActivity(intent);
                             finish();
 
@@ -198,7 +198,7 @@ public class feedback extends AppCompatActivity {
                                 StaffModelList.clear();
                                 for (int i = 0; i < response.body().getInformation().size(); i++) {
 
-                                    StaffModelList.add(new Staff_Model(response.body().getInformation().get(i).getStaffId(), response.body().getInformation().get(i).getDepartment()));
+                                    StaffModelList.add(new Staff_Model(response.body().getInformation().get(i).getStaffId(), response.body().getInformation().get(i).getDepartment(),""));
 
                                 }
                             }
@@ -228,7 +228,7 @@ public class feedback extends AppCompatActivity {
     public void onBackPressed() {
 
 
-        Intent intent1 = new Intent(feedback.this, FeedbackHistory.class);
+        Intent intent1 = new Intent(feedback.this, Chat_Activity.class);
 
         startActivity(intent1);
 

@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.google.gson.Gson;
+import com.paveways.Home.HomeActivity;
 import com.paveways.R;
 import com.paveways.StaffProfile;
 import com.paveways.Utility.AppUtilits;
@@ -201,7 +202,7 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
                                 subtotal_value.setText(response.body().getSubtotal());
                                 shipping_value.setText(response.body().getShippingfee());
                                 if (response.body().getGrandtotal() != null) {
-                                    if (Integer.parseInt(String.valueOf(response.body().getGrandtotal())) > 0) {
+                                    if (Integer.parseInt(String.valueOf(response.body().getGrandtotal())) > 0 && sharedPreferenceActivity.getItem(Constant.DEPARTMENT).isEmpty()) {
                                         order_total.setVisibility(View.VISIBLE);
 
                                         layout2.setVisibility(View.VISIBLE);
@@ -217,7 +218,7 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
 
 
                                     }else{
-                                        if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).isEmpty()) {
+                                        if(sharedPreferenceActivity.getItem(Constant.DEPARTMENT).isEmpty() && response.body().getPayment_status().equalsIgnoreCase("approved")) {
                                             receive_layout.setVisibility(View.VISIBLE);
                                             receive.setOnClickListener(new View.OnClickListener() {
                                                 @Override
@@ -307,9 +308,6 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
                             AppUtilits.destroyDialog(progressbar);
                             AppUtilits.displayMessage(context, response.body().getMsg());
 
-                            Intent intent = new Intent(context, StaffProfile.class);
-                            context.startActivity(intent);
-
 
 
                         }else {
@@ -392,6 +390,23 @@ public class OrderHistory_ViewDetails extends AppCompatActivity {
 
             });
 
+        }
+
+
+    }
+    @Override
+    public void onBackPressed() {
+
+        if(!sharedPreferenceActivity.getItem(Constant.DEPARTMENT).isEmpty()) {
+            Intent intent1 = new Intent(OrderHistory_ViewDetails.this, StaffProfile.class);
+
+            startActivity(intent1);
+
+        }else {
+
+            Intent intent1 = new Intent(OrderHistory_ViewDetails.this, HomeActivity.class);
+
+            startActivity(intent1);
         }
 
 

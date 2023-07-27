@@ -64,7 +64,8 @@
         <activity android:name=".Tenant.TenantHome"/>
         <activity android:name=".Tenant.Services.ServicesHome"/>
         <activity android:name=".Tenant.Services.Service_Requests_History"/>
-
+        <activity android:name=".Tenant.RentHome"/>
+        <activity android:name=".Feedback.Chat_Activity"/>
 
 
     </application>

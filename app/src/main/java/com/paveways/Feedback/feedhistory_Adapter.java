@@ -153,7 +153,7 @@ public class feedhistory_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
                             AppUtilits.destroyDialog(progressbar);
                             AppUtilits.displayMessage(mContext, response.body().getMsg() );
 
-                            Intent intent = new Intent(mContext, FeedbackHistory.class);
+                            Intent intent = new Intent(mContext, Chat_Activity.class);
                             mContext.startActivity(intent);
 
                         } else {

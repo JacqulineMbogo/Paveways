@@ -112,7 +112,8 @@ public interface ServiceInterface {
     @POST("getallfeedback.php")
     Call<feedhistoryAPI> getfeedhistorycall(
             @Part("securecode") RequestBody securecode,
-            @Part("user_id") RequestBody user_id
+            @Part("user_id") RequestBody user_id,
+            @Part("user") RequestBody user
     );
 
     // feedbackAPI

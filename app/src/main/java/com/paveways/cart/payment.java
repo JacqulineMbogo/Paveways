@@ -80,7 +80,7 @@ public class payment extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(payment.this, Listings_Activity.class);
+                Intent intent = new Intent(payment.this, OrderHistory.class);
                 startActivity(intent);
                 finish();
 
@@ -89,7 +89,7 @@ public class payment extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(payment.this, Listings_Activity.class);
+                Intent intent = new Intent(payment.this, OrderHistory.class);
                 startActivity(intent);
                 finish();
 

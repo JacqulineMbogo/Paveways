@@ -2,11 +2,20 @@ package com.paveways.Feedback;
 
 public class Staff_Model {
 
-    String id, department;
+    String id, department,name;
 
-    public Staff_Model(String id, String department) {
+    public Staff_Model(String id, String department, String  name) {
         this.id = id;
         this.department = department;
+        this.name=name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getId() {

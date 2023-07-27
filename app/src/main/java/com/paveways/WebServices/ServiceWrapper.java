@@ -135,8 +135,8 @@ public class ServiceWrapper  {
     }
 
     // get feedback history
-    public Call<feedhistoryAPI> getfeedhistorycall(String securcode, String user_id){
-        return mServiceInterface.getfeedhistorycall(convertPlainString(securcode), convertPlainString(user_id) );
+    public Call<feedhistoryAPI> getfeedhistorycall(String securcode, String user_id, String User){
+        return mServiceInterface.getfeedhistorycall(convertPlainString(securcode), convertPlainString(user_id), convertPlainString(User) );
     }
 
     public Call<feedbackAPI> feedbackcall(String securcode, String feed_title , String feed_comment, String user_id,String staff){

@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.paveways.Appointment.Appointment_History;
 import com.paveways.Auth.LogIn;
+import com.paveways.Feedback.Chat_Activity;
 import com.paveways.Feedback.FeedbackHistory;
 import com.paveways.MyAccount.OrderHistory;
 import com.paveways.R;
@@ -253,7 +254,7 @@ public class Listings_Activity extends AppCompatActivity {
                 startActivity(intent2);
                 return true;
             case R.id.feedback:
-                Intent intent3 = new Intent(Listings_Activity.this, FeedbackHistory.class);
+                Intent intent3 = new Intent(Listings_Activity.this, Chat_Activity.class);
                 startActivity(intent3);
                 return true;
             case R.id.signout:

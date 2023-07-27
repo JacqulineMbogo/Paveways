@@ -22,6 +22,7 @@ import com.paveways.AboutPage;
 import com.paveways.Appointment.Appointment_History;
 import com.paveways.Auth.LogIn;
 import com.paveways.ContactPage;
+import com.paveways.Feedback.Chat_Activity;
 import com.paveways.Feedback.FeedbackHistory;
 import com.paveways.HelpPage;
 import com.paveways.Listings.Listings_Activity;
@@ -160,7 +161,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent2);
                 return true;
             case R.id.feedback:
-                Intent intent3 = new Intent(HomeActivity.this, FeedbackHistory.class);
+                Intent intent3 = new Intent(HomeActivity.this, Chat_Activity.class);
                 startActivity(intent3);
                 return true;
             case R.id.signout:
